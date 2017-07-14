@@ -7,6 +7,7 @@
 <img src="https://img.shields.io/cocoapods/v/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/cocoapods/l/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/cocoapods/p/UINotifications.svg?style=flat"/>
+<img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat"/>
 </p>
 
 - [Features](#features)
@@ -24,6 +25,9 @@
 ## Example
 
 To run the example project, clone the repo, and open `UINotifications-Example.xcodeproj` from the Example directory.
+
+![Albums list](Assets/succes_notification.png?raw=true)
+![Camera Roll](Assets/failure_notification.png?raw=true)
 
 ## Requirements
 - Swift 3.0, 3.1, 3.2
