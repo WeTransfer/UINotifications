@@ -99,7 +99,7 @@ open class UINotificationView: UIView {
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             chevronImageView.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: leftRightMargin),
             chevronImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: hasAction ? -leftRightMargin : 0),
-            chevronImageView.widthAnchor.constraint(equalToConstant: hasAction ? notification.content.chevronImage.size.width : 0),
+            chevronImageView.widthAnchor.constraint(equalToConstant: hasAction ? (notification.content.chevronImage?.size.width ?? 0) : 0),
             chevronImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ]
         

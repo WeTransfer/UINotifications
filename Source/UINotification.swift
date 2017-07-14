@@ -83,9 +83,9 @@ public struct UINotificationContent {
     public let title: String
     
     /// The chevron image which will be showed when a notification has an action.
-    public let chevronImage: UIImage
+    public let chevronImage: UIImage?
     
-    public init(title: String, chevronImage: UIImage = #imageLiteral(resourceName: "iconToastChevron")) {
+    public init(title: String, chevronImage: UIImage? = nil) {
         self.title = title
         self.chevronImage = chevronImage
     }
