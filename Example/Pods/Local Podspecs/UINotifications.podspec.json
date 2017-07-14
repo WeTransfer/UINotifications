@@ -1,0 +1,23 @@
+{
+  "name": "UINotifications",
+  "version": "1.0.0",
+  "summary": "Present custom in-app notifications easily in Swift.",
+  "description": "Present custom in-app notifications easily in Swift with simple and highly customizable APIs.",
+  "homepage": "https://github.com/Antoine van der Lee/UINotifications",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Antoine van der Lee": "antoine@wetransfer.com"
+  },
+  "source": {
+    "git": "https://github.com/Antoine van der Lee/UINotifications.git",
+    "tag": "1.0.0"
+  },
+  "social_media_url": "https://twitter.com/twannl",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "Source/**/*"
+}

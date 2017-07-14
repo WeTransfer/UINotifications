@@ -1,0 +1,16 @@
+PODS:
+  - UINotifications (1.0.0)
+
+DEPENDENCIES:
+  - UINotifications (from `../`)
+
+EXTERNAL SOURCES:
+  UINotifications:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  UINotifications: b30b845cd7a5e1ff502d72d7a73574e39b6d80b8
+
+PODFILE CHECKSUM: a15e84b73e4a03712aaa541caf9cdf9e5dfd749a
+
+COCOAPODS: 1.2.1

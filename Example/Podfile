@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'UINotifications_Example' do
+  platform :ios, '9.0'
+  pod 'UINotifications', :path => '../'
+
+  target 'UINotifications_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

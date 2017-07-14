@@ -1,0 +1,6 @@
+framework module UINotifications {
+  umbrella header "UINotifications-umbrella.h"
+
+  export *
+  module * { export * }
+}
