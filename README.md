@@ -52,7 +52,8 @@ let notification = UINotification(content: content, action: UINotificationCallba
     print("Tapped the notification!")
 }))
 
-UINotificationCenter.current.show(notification: notification, dismissTrigger: UINotificationDurationDismissTrigger(duration: 2.0))
+let dismissTrigger = UINotificationDurationDismissTrigger(duration: 2.0)
+UINotificationCenter.current.show(notification: notification, dismissTrigger: dismissTrigger)
 ```
 
 ### Create a custom style
