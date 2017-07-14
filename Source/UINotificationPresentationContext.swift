@@ -49,7 +49,9 @@ public final class UINotificationPresentationContext {
     private func prepareContainerWindow() {
         containerWindow.windowLevel = UIWindowLevelStatusBar
         containerWindow.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        containerWindow.makeKeyAndVisible()
+        #if !TEST
+            containerWindow.makeKeyAndVisible()
+        #endif
     }
     
     private func prepareNotificationView() {

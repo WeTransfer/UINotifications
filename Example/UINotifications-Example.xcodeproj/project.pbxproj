@@ -12,34 +12,22 @@
 		50042BD71F18BC85007209B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50042BD51F18BC85007209B7 /* Main.storyboard */; };
 		50042BD91F18BC85007209B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50042BD81F18BC85007209B7 /* Assets.xcassets */; };
 		50042BF31F18BD00007209B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50042BF11F18BD00007209B7 /* LaunchScreen.xib */; };
-		50042C1C1F18BDEF007209B7 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50042C141F18BDEF007209B7 /* XCTestExtensions.swift */; };
-		50042C1E1F18BDEF007209B7 /* UINotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50042C171F18BDEF007209B7 /* UINotificationCenterTests.swift */; };
-		50042C1F1F18BDEF007209B7 /* UINotificationDefaultElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50042C181F18BDEF007209B7 /* UINotificationDefaultElementsTests.swift */; };
-		50042C201F18BDEF007209B7 /* UINotificationDefaultViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50042C191F18BDEF007209B7 /* UINotificationDefaultViewTests.swift */; };
-		50042C211F18BDEF007209B7 /* UINotificationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50042C1A1F18BDEF007209B7 /* UINotificationQueueTests.swift */; };
-		50042C221F18BDEF007209B7 /* UINotificationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50042C1B1F18BDEF007209B7 /* UINotificationTestCase.swift */; };
-		506789231F18C21E00CC8534 /* UINotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506789121F18C21E00CC8534 /* UINotification.swift */; };
-		506789241F18C21E00CC8534 /* UINotificationCallbackAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506789141F18C21E00CC8534 /* UINotificationCallbackAction.swift */; };
-		506789251F18C21E00CC8534 /* UINotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506789151F18C21E00CC8534 /* UINotificationCenter.swift */; };
-		506789261F18C21E00CC8534 /* UINotificationDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506789161F18C21E00CC8534 /* UINotificationDismissTrigger.swift */; };
-		506789271F18C21E00CC8534 /* UINotificationDurationDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506789181F18C21E00CC8534 /* UINotificationDurationDismissTrigger.swift */; };
-		506789281F18C21E00CC8534 /* UINotificationManualDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506789191F18C21E00CC8534 /* UINotificationManualDismissTrigger.swift */; };
-		506789291F18C21E00CC8534 /* UINotificationPresentationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067891A1F18C21E00CC8534 /* UINotificationPresentationContext.swift */; };
-		5067892A1F18C21E00CC8534 /* UINotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067891B1F18C21E00CC8534 /* UINotificationPresenter.swift */; };
-		5067892B1F18C21E00CC8534 /* UINotificationEaseInOutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067891D1F18C21E00CC8534 /* UINotificationEaseInOutPresenter.swift */; };
-		5067892C1F18C21E00CC8534 /* UINotificationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067891E1F18C21E00CC8534 /* UINotificationQueue.swift */; };
-		5067892D1F18C21E00CC8534 /* UINotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067891F1F18C21E00CC8534 /* UINotificationRequest.swift */; };
-		5067892E1F18C21E00CC8534 /* UINotificationSystemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506789211F18C21E00CC8534 /* UINotificationSystemStyle.swift */; };
-		5067892F1F18C21E00CC8534 /* UINotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506789221F18C21E00CC8534 /* UINotificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50042BE31F18BC85007209B7 /* PBXContainerItemProxy */ = {
+		5078C8371F18D9FC006EB23F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 50042BC61F18BC85007209B7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 50042BCD1F18BC85007209B7;
-			remoteInfo = "UINotifications-Example";
+			containerPortal = 5078C8321F18D9FC006EB23F /* UINotifications.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5078C7941F18CAF5006EB23F;
+			remoteInfo = UINotifications;
+		};
+		5078C8391F18D9FC006EB23F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5078C8321F18D9FC006EB23F /* UINotifications.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5078C79D1F18CAF5006EB23F;
+			remoteInfo = UINotificationsTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,39 +38,12 @@
 		50042BD61F18BC85007209B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50042BD81F18BC85007209B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50042BDD1F18BC85007209B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50042BE21F18BC85007209B7 /* UINotifications-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UINotifications-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50042BF21F18BD00007209B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		50042C141F18BDEF007209B7 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
-		50042C161F18BDEF007209B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50042C171F18BDEF007209B7 /* UINotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCenterTests.swift; sourceTree = "<group>"; };
-		50042C181F18BDEF007209B7 /* UINotificationDefaultElementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDefaultElementsTests.swift; sourceTree = "<group>"; };
-		50042C191F18BDEF007209B7 /* UINotificationDefaultViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDefaultViewTests.swift; sourceTree = "<group>"; };
-		50042C1A1F18BDEF007209B7 /* UINotificationQueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationQueueTests.swift; sourceTree = "<group>"; };
-		50042C1B1F18BDEF007209B7 /* UINotificationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationTestCase.swift; sourceTree = "<group>"; };
-		506789121F18C21E00CC8534 /* UINotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotification.swift; sourceTree = "<group>"; };
-		506789141F18C21E00CC8534 /* UINotificationCallbackAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCallbackAction.swift; sourceTree = "<group>"; };
-		506789151F18C21E00CC8534 /* UINotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCenter.swift; sourceTree = "<group>"; };
-		506789161F18C21E00CC8534 /* UINotificationDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDismissTrigger.swift; sourceTree = "<group>"; };
-		506789181F18C21E00CC8534 /* UINotificationDurationDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDurationDismissTrigger.swift; sourceTree = "<group>"; };
-		506789191F18C21E00CC8534 /* UINotificationManualDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationManualDismissTrigger.swift; sourceTree = "<group>"; };
-		5067891A1F18C21E00CC8534 /* UINotificationPresentationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationPresentationContext.swift; sourceTree = "<group>"; };
-		5067891B1F18C21E00CC8534 /* UINotificationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationPresenter.swift; sourceTree = "<group>"; };
-		5067891D1F18C21E00CC8534 /* UINotificationEaseInOutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationEaseInOutPresenter.swift; sourceTree = "<group>"; };
-		5067891E1F18C21E00CC8534 /* UINotificationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationQueue.swift; sourceTree = "<group>"; };
-		5067891F1F18C21E00CC8534 /* UINotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationRequest.swift; sourceTree = "<group>"; };
-		506789211F18C21E00CC8534 /* UINotificationSystemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationSystemStyle.swift; sourceTree = "<group>"; };
-		506789221F18C21E00CC8534 /* UINotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationView.swift; sourceTree = "<group>"; };
+		5078C8321F18D9FC006EB23F /* UINotifications.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UINotifications.xcodeproj; path = ../UINotifications.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		50042BCB1F18BC85007209B7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		50042BDF1F18BC85007209B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -96,9 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				50042BD01F18BC85007209B7 /* UINotifications-Example */,
-				50042BE51F18BC85007209B7 /* UINotifications-ExampleTests */,
 				50042BCF1F18BC85007209B7 /* Products */,
-				506789111F18C21E00CC8534 /* Source */,
+				5078C8321F18D9FC006EB23F /* UINotifications.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				50042BCE1F18BC85007209B7 /* UINotifications-Example.app */,
-				50042BE21F18BC85007209B7 /* UINotifications-ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,87 +83,13 @@
 			path = "UINotifications-Example";
 			sourceTree = "<group>";
 		};
-		50042BE51F18BC85007209B7 /* UINotifications-ExampleTests */ = {
+		5078C8331F18D9FC006EB23F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50042C131F18BDEF007209B7 /* Extensions */,
-				50042C151F18BDEF007209B7 /* Supporting Files */,
-				50042C171F18BDEF007209B7 /* UINotificationCenterTests.swift */,
-				50042C181F18BDEF007209B7 /* UINotificationDefaultElementsTests.swift */,
-				50042C191F18BDEF007209B7 /* UINotificationDefaultViewTests.swift */,
-				50042C1A1F18BDEF007209B7 /* UINotificationQueueTests.swift */,
-				50042C1B1F18BDEF007209B7 /* UINotificationTestCase.swift */,
+				5078C8381F18D9FC006EB23F /* UINotifications.framework */,
+				5078C83A1F18D9FC006EB23F /* UINotificationsTests.xctest */,
 			);
-			path = "UINotifications-ExampleTests";
-			sourceTree = "<group>";
-		};
-		50042C131F18BDEF007209B7 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				50042C141F18BDEF007209B7 /* XCTestExtensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		50042C151F18BDEF007209B7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				50042C161F18BDEF007209B7 /* Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		506789111F18C21E00CC8534 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				506789121F18C21E00CC8534 /* UINotification.swift */,
-				506789131F18C21E00CC8534 /* UINotificationActions */,
-				506789151F18C21E00CC8534 /* UINotificationCenter.swift */,
-				506789161F18C21E00CC8534 /* UINotificationDismissTrigger.swift */,
-				506789171F18C21E00CC8534 /* UINotificationDismissTriggers */,
-				5067891A1F18C21E00CC8534 /* UINotificationPresentationContext.swift */,
-				5067891B1F18C21E00CC8534 /* UINotificationPresenter.swift */,
-				5067891C1F18C21E00CC8534 /* UINotificationPresenters */,
-				5067891E1F18C21E00CC8534 /* UINotificationQueue.swift */,
-				5067891F1F18C21E00CC8534 /* UINotificationRequest.swift */,
-				506789201F18C21E00CC8534 /* UINotificationStyles */,
-				506789221F18C21E00CC8534 /* UINotificationView.swift */,
-			);
-			name = Source;
-			path = ../Source;
-			sourceTree = "<group>";
-		};
-		506789131F18C21E00CC8534 /* UINotificationActions */ = {
-			isa = PBXGroup;
-			children = (
-				506789141F18C21E00CC8534 /* UINotificationCallbackAction.swift */,
-			);
-			path = UINotificationActions;
-			sourceTree = "<group>";
-		};
-		506789171F18C21E00CC8534 /* UINotificationDismissTriggers */ = {
-			isa = PBXGroup;
-			children = (
-				506789181F18C21E00CC8534 /* UINotificationDurationDismissTrigger.swift */,
-				506789191F18C21E00CC8534 /* UINotificationManualDismissTrigger.swift */,
-			);
-			path = UINotificationDismissTriggers;
-			sourceTree = "<group>";
-		};
-		5067891C1F18C21E00CC8534 /* UINotificationPresenters */ = {
-			isa = PBXGroup;
-			children = (
-				5067891D1F18C21E00CC8534 /* UINotificationEaseInOutPresenter.swift */,
-			);
-			path = UINotificationPresenters;
-			sourceTree = "<group>";
-		};
-		506789201F18C21E00CC8534 /* UINotificationStyles */ = {
-			isa = PBXGroup;
-			children = (
-				506789211F18C21E00CC8534 /* UINotificationSystemStyle.swift */,
-			);
-			path = UINotificationStyles;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,24 +113,6 @@
 			productReference = 50042BCE1F18BC85007209B7 /* UINotifications-Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		50042BE11F18BC85007209B7 /* UINotifications-ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 50042BEE1F18BC85007209B7 /* Build configuration list for PBXNativeTarget "UINotifications-ExampleTests" */;
-			buildPhases = (
-				50042BDE1F18BC85007209B7 /* Sources */,
-				50042BDF1F18BC85007209B7 /* Frameworks */,
-				50042BE01F18BC85007209B7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				50042BE41F18BC85007209B7 /* PBXTargetDependency */,
-			);
-			name = "UINotifications-ExampleTests";
-			productName = "UINotifications-ExampleTests";
-			productReference = 50042BE21F18BC85007209B7 /* UINotifications-ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -261,13 +128,6 @@
 						DevelopmentTeam = 4QMDKC8VLJ;
 						ProvisioningStyle = Automatic;
 					};
-					50042BE11F18BC85007209B7 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 4QMDKC8VLJ;
-						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 50042BCD1F18BC85007209B7;
-					};
 				};
 			};
 			buildConfigurationList = 50042BC91F18BC85007209B7 /* Build configuration list for PBXProject "UINotifications-Example" */;
@@ -281,13 +141,35 @@
 			mainGroup = 50042BC51F18BC85007209B7;
 			productRefGroup = 50042BCF1F18BC85007209B7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5078C8331F18D9FC006EB23F /* Products */;
+					ProjectRef = 5078C8321F18D9FC006EB23F /* UINotifications.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				50042BCD1F18BC85007209B7 /* UINotifications-Example */,
-				50042BE11F18BC85007209B7 /* UINotifications-ExampleTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5078C8381F18D9FC006EB23F /* UINotifications.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UINotifications.framework;
+			remoteRef = 5078C8371F18D9FC006EB23F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5078C83A1F18D9FC006EB23F /* UINotificationsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UINotificationsTests.xctest;
+			remoteRef = 5078C8391F18D9FC006EB23F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		50042BCC1F18BC85007209B7 /* Resources */ = {
@@ -297,13 +179,6 @@
 				50042BD91F18BC85007209B7 /* Assets.xcassets in Resources */,
 				50042BF31F18BD00007209B7 /* LaunchScreen.xib in Resources */,
 				50042BD71F18BC85007209B7 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		50042BE01F18BC85007209B7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +197,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint --config \"../../.swiftlint.yml\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint --config \"../.swiftlint.yml\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -331,46 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				506789271F18C21E00CC8534 /* UINotificationDurationDismissTrigger.swift in Sources */,
-				5067892A1F18C21E00CC8534 /* UINotificationPresenter.swift in Sources */,
-				506789261F18C21E00CC8534 /* UINotificationDismissTrigger.swift in Sources */,
-				5067892F1F18C21E00CC8534 /* UINotificationView.swift in Sources */,
 				50042BD41F18BC85007209B7 /* ViewController.swift in Sources */,
-				506789241F18C21E00CC8534 /* UINotificationCallbackAction.swift in Sources */,
 				50042BD21F18BC85007209B7 /* AppDelegate.swift in Sources */,
-				5067892C1F18C21E00CC8534 /* UINotificationQueue.swift in Sources */,
-				506789291F18C21E00CC8534 /* UINotificationPresentationContext.swift in Sources */,
-				506789231F18C21E00CC8534 /* UINotification.swift in Sources */,
-				5067892B1F18C21E00CC8534 /* UINotificationEaseInOutPresenter.swift in Sources */,
-				506789281F18C21E00CC8534 /* UINotificationManualDismissTrigger.swift in Sources */,
-				5067892D1F18C21E00CC8534 /* UINotificationRequest.swift in Sources */,
-				506789251F18C21E00CC8534 /* UINotificationCenter.swift in Sources */,
-				5067892E1F18C21E00CC8534 /* UINotificationSystemStyle.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		50042BDE1F18BC85007209B7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50042C1C1F18BDEF007209B7 /* XCTestExtensions.swift in Sources */,
-				50042C1E1F18BDEF007209B7 /* UINotificationCenterTests.swift in Sources */,
-				50042C211F18BDEF007209B7 /* UINotificationQueueTests.swift in Sources */,
-				50042C1F1F18BDEF007209B7 /* UINotificationDefaultElementsTests.swift in Sources */,
-				50042C221F18BDEF007209B7 /* UINotificationTestCase.swift in Sources */,
-				50042C201F18BDEF007209B7 /* UINotificationDefaultViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		50042BE41F18BC85007209B7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 50042BCD1F18BC85007209B7 /* UINotifications-Example */;
-			targetProxy = 50042BE31F18BC85007209B7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		50042BD51F18BC85007209B7 /* Main.storyboard */ = {
@@ -513,39 +354,6 @@
 			};
 			name = Release;
 		};
-		50042BEF1F18BC85007209B7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 4QMDKC8VLJ;
-				INFOPLIST_FILE = "UINotifications-ExampleTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wetransfer.UINotifications-ExampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UINotifications-Example.app/UINotifications-Example";
-			};
-			name = Debug;
-		};
-		50042BF01F18BC85007209B7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 4QMDKC8VLJ;
-				INFOPLIST_FILE = "UINotifications-ExampleTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wetransfer.UINotifications-ExampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UINotifications-Example.app/UINotifications-Example";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,15 +371,6 @@
 			buildConfigurations = (
 				50042BEC1F18BC85007209B7 /* Debug */,
 				50042BED1F18BC85007209B7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		50042BEE1F18BC85007209B7 /* Build configuration list for PBXNativeTarget "UINotifications-ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				50042BEF1F18BC85007209B7 /* Debug */,
-				50042BF01F18BC85007209B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

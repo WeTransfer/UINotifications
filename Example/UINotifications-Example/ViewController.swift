@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UINotifications
 
 enum NotificationStyle: UINotificationStyle {
     case success

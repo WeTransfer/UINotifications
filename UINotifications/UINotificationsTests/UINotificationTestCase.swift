@@ -1,13 +1,13 @@
 //
 //  UINotificationTestCase.swift
-//  UINotifications-Example
+//  UINotificationsTests
 //
 //  Created by Antoine van der Lee on 14/07/2017.
 //  Copyright © 2017 WeTransfer. All rights reserved.
 //
 
 import XCTest
-@testable import UINotifications_Example
+@testable import UINotifications
 
 class UINotificationTestCase: XCTestCase {
     internal let notification = UINotification(content: UINotificationContent(title: ""))
