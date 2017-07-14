@@ -13,6 +13,12 @@
 - [Features](#features)
 - [Example](#example)
 - [Requirements](#requirements)
+- [Usage](#usage)
+    - [Making a Notification](#making-a-notification)
+    - [Create a custom style](#create-a-custom-style)
+    - [Use a custom dismiss trigger](#use-a-custom-dismiss-trigger)
+    - [Create a custom UINotificationView](#create-a-custom-uinotificationview)
+    - [Create a custom presenter](#create-a-custom-presenter)
 - [Communication](#communication)
 - [Installation](#installation)
 - [License](#license)
@@ -33,6 +39,104 @@ To run the example project, clone the repo, and open `UINotifications-Example.xc
 - Swift 3.0, 3.1, 3.2
 - iOS 8.0+
 - Xcode 8.1, 8.2, 8.3
+
+## Usage
+
+### Making a Notification
+
+```swift
+import UINotifications
+
+let content = UINotificationContent(title: "My Custom Text", chevronImage: UIImage(named: "MyChevron"))
+let notification = UINotification(content: content, action: UINotificationCallbackAction(callback: {
+    print("Tapped the notification!")
+}))
+
+UINotificationCenter.current.show(notification: notification, dismissTrigger: UINotificationDurationDismissTrigger(duration: 2.0))
+```
+
+### Create a custom style
+```swift
+import UINotifications
+
+enum CustomNotificationStyle: UINotificationStyle {
+    case success
+    case failure
+    
+    var font: UIFont {
+        switch self {
+        case .success:
+            return UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+        case .failure:
+            return UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+        }
+        
+    }
+    var backgroundColor: UIColor {
+        switch self {
+        case .success:
+            return UIColor.green
+        case .failure:
+            return UIColor.red
+        }
+        
+    }
+    var textColor: UIColor {
+        return UIColor.white
+    }
+    
+    /// The height of the notification which applies on the notification view.
+    var height: UINotificationHeight {
+        switch self {
+        case .success:
+            return UINotificationHeight.navigationBar
+        case .failure:
+            return UINotificationHeight.statusBar
+        }
+    }
+    
+    /// When `true`, the notification is swipeable and tappable.
+    var interactive: Bool {
+        return true
+    }
+}
+```
+
+And use it:
+
+```swift
+let notification = UINotification(content: myContent, style: CustomNotificationStyle.success)
+```
+
+### Use a custom dismiss trigger
+
+```swift
+let manualDismissTrigger = UINotificationManualDismissTrigger()
+UINotificationCenter.current.show(notification: notification, dismissTrigger: manualDismissTrigger)
+
+/// Do other stuff..
+manualDismissTrigger.trigger() // Dimiss
+```
+
+### Create a custom UINotificationView
+- Create a custom view and inherit from `UINotificationView`
+- Set your custom view on the `UINotificationCenter`:
+
+```swift
+UINotificationCenter.current.notificationViewType = MyCustomNotificationView.self
+```
+
+### Create a custom presenter
+Create a custom presenter to manage presentation and dismiss animations.
+
+- Create a custom class which inherits from `UINotificationPresenter`.
+- Set your custom presenter on the `UINotificationCenter`:
+
+```swift
+UINotificationCenter.current.presenterType = MyCustomPresenter.self
+```
+
+Checkout `UINotificationEaseOutEaseInPresenter` for an example.
 
 ## Communication
 
