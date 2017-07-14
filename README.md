@@ -21,6 +21,7 @@
     - [Create a custom presenter](#create-a-custom-presenter)
 - [Communication](#communication)
 - [Installation](#installation)
+- [Release Notes](#release-notes)
 - [License](#license)
 
 ## Features
@@ -239,6 +240,10 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
   > The `UINotifications.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
 ---
+
+## Release Notes
+
+See [CHANGELOG.md](https://github.com/WeTransfer/UINotifications/blob/master/Changelog.md) for a list of changes.
 
 ## License
 
