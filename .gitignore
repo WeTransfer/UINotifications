@@ -30,7 +30,3 @@ Demo/Pods
 .build
 Packages
 Package.pins
-
-
-# Docs (they are generated)
-docs/

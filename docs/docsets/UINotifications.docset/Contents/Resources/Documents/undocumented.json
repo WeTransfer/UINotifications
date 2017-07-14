@@ -1,0 +1,152 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotification.swift",
+      "line": 19,
+      "symbol": "UINotificationStyle.font",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotification.swift",
+      "line": 20,
+      "symbol": "UINotificationStyle.backgroundColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotification.swift",
+      "line": 21,
+      "symbol": "UINotificationStyle.textColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotification.swift",
+      "line": 32,
+      "symbol": "UINotificationHeight.statusBar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotification.swift",
+      "line": 33,
+      "symbol": "UINotificationHeight.navigationBar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotification.swift",
+      "line": 34,
+      "symbol": "UINotificationHeight.custom",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotification.swift",
+      "line": 68,
+      "symbol": "UINotification.init(content:style:action:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotification.swift",
+      "line": 81,
+      "symbol": "UINotificationContent",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationActions/UINotificationCallbackAction.swift",
+      "line": 15,
+      "symbol": "UINotificationCallbackAction.init(callback:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationCenter.swift",
+      "line": 15,
+      "symbol": "UINotificationCenter.current",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationDismissTriggers/UINotificationDurationDismissTrigger.swift",
+      "line": 22,
+      "symbol": "UINotificationDurationDismissTrigger.init(duration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationDismissTriggers/UINotificationManualDismissTrigger.swift",
+      "line": 14,
+      "symbol": "UINotificationManualDismissTrigger.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationPresenter.swift",
+      "line": 11,
+      "symbol": "UINotificationPresenter",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationPresenters/UINotificationEaseInOutPresenter.swift",
+      "line": 17,
+      "symbol": "UINotificationEaseOutEaseInPresenter.dismissTrigger",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationRequest.swift",
+      "line": 29,
+      "symbol": "UINotificationRequest.UINotificationRequestState",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationRequest.swift",
+      "line": 73,
+      "symbol": "UINotificationRequest.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationStyles/UINotificationSystemStyle.swift",
+      "line": 13,
+      "symbol": "UINotificationSystemStyle.font",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationStyles/UINotificationSystemStyle.swift",
+      "line": 14,
+      "symbol": "UINotificationSystemStyle.backgroundColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationStyles/UINotificationSystemStyle.swift",
+      "line": 15,
+      "symbol": "UINotificationSystemStyle.textColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationView.swift",
+      "line": 56,
+      "symbol": "UINotificationView.init(notification:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications/Source/UINotificationView.swift",
+      "line": 63,
+      "symbol": "UINotificationView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/antoinevanderlee/Documents/GIT-Projects/WeTransfer/UINotifications"
+}

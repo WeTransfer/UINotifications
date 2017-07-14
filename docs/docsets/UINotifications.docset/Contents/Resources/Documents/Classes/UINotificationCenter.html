@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UINotificationCenter Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/UINotificationCenter" class="dashAnchor"></a>
+
+    <a title="UINotificationCenter Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          UINotifications Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/WeTransfer/UINotifications">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">UINotifications Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      UINotificationCenter Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UINotification.html">UINotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UINotificationCenter.html">UINotificationCenter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UINotificationDurationDismissTrigger.html">UINotificationDurationDismissTrigger</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UINotificationEaseOutEaseInPresenter.html">UINotificationEaseOutEaseInPresenter</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UINotificationManualDismissTrigger.html">UINotificationManualDismissTrigger</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UINotificationPresentationContext.html">UINotificationPresentationContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UINotificationRequest.html">UINotificationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes.html#/s:C15UINotifications18UINotificationView">UINotificationView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums.html#/s:O15UINotifications20UINotificationHeight">UINotificationHeight</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Dismissable.html">Dismissable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/UINotificationAction.html">UINotificationAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/UINotificationDismissTrigger.html">UINotificationDismissTrigger</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/UINotificationSchedulableDismissTrigger.html">UINotificationSchedulableDismissTrigger</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/UINotificationStyle.html">UINotificationStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/UINotificationCallbackAction.html">UINotificationCallbackAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/UINotificationSystemStyle.html">UINotificationSystemStyle</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>UINotificationCenter</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">UINotificationCenter</span></code></pre>
+
+                </div>
+              </div>
+            <p>Handles the queueing and presenting of <code><a href="../Classes/UINotification.html">UINotification</a></code>s</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20properties"></a>
+                <a name="//apple_ref/swift/Section/Public properties" class="dashAnchor"></a>
+                <a href="#/Public%20properties">
+                  <h3 class="section-name">Public properties</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC15UINotifications20UINotificationCenter13presenterTypePMPS_23UINotificationPresenter_"></a>
+                    <a name="//apple_ref/swift/Property/presenterType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC15UINotifications20UINotificationCenter13presenterTypePMPS_23UINotificationPresenter_">presenterType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of presenter to use for presenting notifications. Change this to change the way notifications need to be presented.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">presenterType</span><span class="p">:</span> <span class="kt">UINotificationPresenter</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt"><a href="../Classes/UINotificationEaseOutEaseInPresenter.html">UINotificationEaseOutEaseInPresenter</a></span><span class="o">.</span><span class="k">self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/WeTransfer/UINotifications/tree/master/Source/UINotificationCenter.swift#L19">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC15UINotifications20UINotificationCenter20notificationViewTypeMCS_18UINotificationView"></a>
+                    <a name="//apple_ref/swift/Property/notificationViewType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC15UINotifications20UINotificationCenter20notificationViewTypeMCS_18UINotificationView">notificationViewType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of view which will be used to present the notifications.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">notificationViewType</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/s:C15UINotifications18UINotificationView">UINotificationView</a></span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt"><a href="../Classes.html#/s:C15UINotifications18UINotificationView">UINotificationView</a></span><span class="o">.</span><span class="k">self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/WeTransfer/UINotifications/tree/master/Source/UINotificationCenter.swift#L22">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Private%20properties"></a>
+                <a name="//apple_ref/swift/Section/Private properties" class="dashAnchor"></a>
+                <a href="#/Private%20properties">
+                  <h3 class="section-name">Private properties</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15UINotifications20UINotificationCenter4showFT12notificationCS_14UINotification14dismissTriggerGSqPS_28UINotificationDismissTrigger___CS_21UINotificationRequest"></a>
+                    <a name="//apple_ref/swift/Method/show(notification:dismissTrigger:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15UINotifications20UINotificationCenter4showFT12notificationCS_14UINotification14dismissTriggerGSqPS_28UINotificationDismissTrigger___CS_21UINotificationRequest">show(notification:dismissTrigger:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Request to present the given notification.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">show</span><span class="p">(</span><span class="nv">notification</span><span class="p">:</span> <span class="kt"><a href="../Classes/UINotification.html">UINotification</a></span><span class="p">,</span> <span class="nv">dismissTrigger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/UINotificationDismissTrigger.html">UINotificationDismissTrigger</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/UINotificationRequest.html">UINotificationRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>notification</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The notification to be presented.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dismissTrigger</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional dismiss trigger to use for the animation. If <code>nil</code> the default trigger will be used.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code><a href="../Classes/UINotificationRequest.html">UINotificationRequest</a></code> for the requested notification presentation. Can be cancelled using <code>cancel()</code>.</p>
+
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/WeTransfer/UINotifications/tree/master/Source/UINotificationCenter.swift#L49-L51">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2017 <a class="link" href="https://wetransfer.com" target="_blank" rel="external">WeTransfer</a>. All rights reserved. (Last updated: 2017-07-14)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
