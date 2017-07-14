@@ -20,7 +20,6 @@ enum NotificationStyle: UINotificationStyle {
             return UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
         }
         
-        
     }
     var backgroundColor: UIColor {
         switch self {
@@ -53,22 +52,21 @@ enum NotificationStyle: UINotificationStyle {
 
 final class ViewController: UIViewController {
 
-    @IBOutlet weak var contentTextField: UITextField!
+    @IBOutlet private weak var contentTextField: UITextField!
     
-    @IBOutlet weak var automaticallyDismissSwitch: UISwitch!
-    @IBOutlet weak var addActionSwitch: UISwitch!
-    @IBOutlet weak var successStyleSwitch: UISwitch!
+    @IBOutlet private weak var automaticallyDismissSwitch: UISwitch!
+    @IBOutlet private weak var addActionSwitch: UISwitch!
+    @IBOutlet private weak var successStyleSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func didTapShowNotificationButton(_ sender: UIButton) {
-        let content = contentTextField.text?.isEmpty == true ? "Default content" : contentTextField.text!
+        let content = contentTextField.text?.isEmpty == true ? "Default content" : (contentTextField.text ?? "")
         var action: UINotificationAction?
         var dismissTrigger: UINotificationDismissTrigger = UINotificationDurationDismissTrigger(duration: 2.0)
         let style = successStyleSwitch.isOn ? NotificationStyle.success : NotificationStyle.failure
-        
         
         if automaticallyDismissSwitch.isOn == false {
             dismissTrigger = UINotificationManualDismissTrigger()
@@ -85,4 +83,3 @@ final class ViewController: UIViewController {
         UINotificationCenter.current.show(notification: notification, dismissTrigger: dismissTrigger)
     }
 }
-
