@@ -25,9 +25,9 @@ enum NotificationStyle: UINotificationStyle {
     var backgroundColor: UIColor {
         switch self {
         case .success:
-            return UIColor.green
+            return #colorLiteral(red: 0.4549019608, green: 0.8509803922, blue: 0.5215686275, alpha: 1)
         case .failure:
-            return UIColor.red
+            return #colorLiteral(red: 1, green: 0.431372549, blue: 0.431372549, alpha: 1)
         }
         
     }
@@ -54,6 +54,7 @@ enum NotificationStyle: UINotificationStyle {
 final class ViewController: UIViewController {
 
     @IBOutlet private weak var contentTextField: UITextField!
+    @IBOutlet private weak var showButton: UIButton!
     
     @IBOutlet private weak var automaticallyDismissSwitch: UISwitch!
     @IBOutlet private weak var addActionSwitch: UISwitch!
@@ -61,6 +62,9 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showButton.layer.cornerRadius = showButton.frame.size.height / 2
+        
     }
 
     @IBAction func didTapShowNotificationButton(_ sender: UIButton) {
