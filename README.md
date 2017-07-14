@@ -116,6 +116,7 @@ let manualDismissTrigger = UINotificationManualDismissTrigger()
 UINotificationCenter.current.show(notification: notification, dismissTrigger: manualDismissTrigger)
 
 /// Do other stuff..
+
 manualDismissTrigger.trigger() // Dimiss
 ```
 
@@ -137,7 +138,7 @@ Create a custom presenter to manage presentation and dismiss animations.
 UINotificationCenter.current.presenterType = MyCustomPresenter.self
 ```
 
-Checkout `UINotificationEaseOutEaseInPresenter` for an example.
+*Checkout `UINotificationEaseOutEaseInPresenter` for an example.*
 
 ## Communication
 
