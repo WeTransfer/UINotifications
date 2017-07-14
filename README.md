@@ -33,8 +33,8 @@
 
 To run the example project, clone the repo, and open `UINotifications-Example.xcodeproj` from the Example directory.
 
-![Albums list](Assets/succes_notification.png?raw=true)
-![Camera Roll](Assets/failure_notification.png?raw=true)
+![Albums list](Assets/succes_notification.png)
+![Camera Roll](Assets/failure_notification.png)
 
 ## Requirements
 - Swift 3.0, 3.1, 3.2
