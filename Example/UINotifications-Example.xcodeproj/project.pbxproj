@@ -12,6 +12,8 @@
 		50042BD71F18BC85007209B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50042BD51F18BC85007209B7 /* Main.storyboard */; };
 		50042BD91F18BC85007209B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50042BD81F18BC85007209B7 /* Assets.xcassets */; };
 		50042BF31F18BD00007209B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50042BF11F18BD00007209B7 /* LaunchScreen.xib */; };
+		5BEAF0231F1D116500F4C2B9 /* UINotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5078C8381F18D9FC006EB23F /* UINotifications.framework */; };
+		5BEAF0241F1D116500F4C2B9 /* UINotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5078C8381F18D9FC006EB23F /* UINotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +31,28 @@
 			remoteGlobalIDString = 5078C79D1F18CAF5006EB23F;
 			remoteInfo = UINotificationsTests;
 		};
+		5BEAF0251F1D116500F4C2B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5078C8321F18D9FC006EB23F /* UINotifications.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5078C7931F18CAF5006EB23F;
+			remoteInfo = UINotifications;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5BEAF0271F1D116500F4C2B9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5BEAF0241F1D116500F4C2B9 /* UINotifications.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		50042BCE1F18BC85007209B7 /* UINotifications-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UINotifications-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BEAF0231F1D116500F4C2B9 /* UINotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,10 +127,12 @@
 				50042BCB1F18BC85007209B7 /* Frameworks */,
 				50042BCC1F18BC85007209B7 /* Resources */,
 				5078C7891F18C5A1006EB23F /* SwiftLint */,
+				5BEAF0271F1D116500F4C2B9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5BEAF0261F1D116500F4C2B9 /* PBXTargetDependency */,
 			);
 			name = "UINotifications-Example";
 			productName = "UINotifications-Example";
@@ -212,6 +238,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BEAF0261F1D116500F4C2B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UINotifications;
+			targetProxy = 5BEAF0251F1D116500F4C2B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		50042BD51F18BC85007209B7 /* Main.storyboard */ = {
@@ -331,6 +365,7 @@
 		50042BEC1F18BC85007209B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4QMDKC8VLJ;
 				INFOPLIST_FILE = "UINotifications-Example/Info.plist";
@@ -345,6 +380,7 @@
 		50042BED1F18BC85007209B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4QMDKC8VLJ;
 				INFOPLIST_FILE = "UINotifications-Example/Info.plist";
