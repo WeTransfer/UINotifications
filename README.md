@@ -7,6 +7,7 @@
 <img src="https://img.shields.io/cocoapods/v/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/cocoapods/l/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/cocoapods/p/UINotifications.svg?style=flat"/>
+<img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/>
 <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat"/>
 </p>
 
@@ -64,7 +65,7 @@ import UINotifications
 enum CustomNotificationStyle: UINotificationStyle {
     case success
     case failure
-    
+
     var font: UIFont {
         switch self {
         case .success:
@@ -72,7 +73,7 @@ enum CustomNotificationStyle: UINotificationStyle {
         case .failure:
             return UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
         }
-        
+
     }
     var backgroundColor: UIColor {
         switch self {
@@ -81,12 +82,12 @@ enum CustomNotificationStyle: UINotificationStyle {
         case .failure:
             return UIColor.red
         }
-        
+
     }
     var textColor: UIColor {
         return UIColor.white
     }
-    
+
     /// The height of the notification which applies on the notification view.
     var height: UINotificationHeight {
         switch self {
@@ -96,7 +97,7 @@ enum CustomNotificationStyle: UINotificationStyle {
             return UINotificationHeight.statusBar
         }
     }
-    
+
     /// When `true`, the notification is swipeable and tappable.
     var interactive: Bool {
         return true
@@ -198,7 +199,7 @@ Run `carthage update` to build the framework and drag the built `UINotifications
 
 ### Swift Package Manager
 
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but UINotifications does support its use on supported platforms. 
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but UINotifications does support its use on supported platforms.
 
 Once you have your Swift package set up, adding UINotifications as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
 
