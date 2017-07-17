@@ -1,15 +1,18 @@
-Pod::Spec.new do |s|
-  s.name             = 'UINotifications'
-  s.version          = '1.0.0'
-  s.summary          = 'Present custom in-app notifications easily in Swift.'
-  s.description      = 'Present custom in-app notifications easily in Swift with simple and highly customizable APIs.'
+Pod::Spec.new do |spec|
+  spec.name             = 'UINotifications'
+  spec.version          = '1.0.0'
+  spec.summary          = 'Present custom in-app notifications easily in Swift.'
+  spec.description      = 'Present custom in-app notifications easily in Swift with simple and highly customizable APIs.'
 
-  s.homepage         = 'https://github.com/Antoine van der Lee/UINotifications'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Antoine van der Lee' => 'antoine@wetransfer.com' }
-  s.source           = { :git => 'https://github.com/Antoine van der Lee/UINotifications.git', :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/twannl'
+  spec.homepage         = 'https://github.com/WeTransfer/UINotifications'
+  spec.license          = { :type => 'MIT', :file => 'LICENSE' }
+  spec.authors           = {
+    'Antoine van der Lee' => 'antoine@wetransfer.com',
+    'Samuel Beek' => 'ik@samuelbeek.com'
+  }
+  spec.source           = { :git => 'https://github.com/WeTransfer/UINotifications.git', :tag => spec.version.to_s }
+  spec.social_media_url = 'https://twitter.com/WeTransfer'
 
-  s.ios.deployment_target = '9.0'
-  s.source_files = 'Source/**/*'
+  spec.ios.deployment_target = '9.0'
+  spec.source_files = 'Source/**/*'
 end
