@@ -16,8 +16,9 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
     public let presentationContext: UINotificationPresentationContext
     public var dismissTrigger: UINotificationDismissTrigger
     
-    private let animateInDuration: TimeInterval = 0.2
-    private let animateOutDuration: TimeInterval = 0.2
+    private let inDuration: TimeInterval = 0.2
+    private let outDuration: TimeInterval = 0.2
+    private var isDismissing: Bool = false
     
     public required init(presentationContext: UINotificationPresentationContext, dismissTrigger: UINotificationDismissTrigger?) {
         self.presentationContext = presentationContext
@@ -27,7 +28,7 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
     public func present() {
         presentationContext.notificationView.topConstraint?.constant = 0
         
-        UIView.animate(withDuration: animateInDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: inDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
         }) { (_) in
             self.dismissTrigger.target = self
@@ -38,11 +39,15 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
     }
     
     public func dismiss() {
+        guard !isDismissing else { return }
+        isDismissing = true
+        
         presentationContext.notificationView.topConstraint?.constant = -presentationContext.notification.style.height.value
         
-        UIView.animate(withDuration: animateOutDuration, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: outDuration, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
         }) { (_) in
+            self.isDismissing = false
             self.presentationContext.completePresentation()
         }
     }

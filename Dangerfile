@@ -16,7 +16,8 @@ end
 xcov.report(
 	scheme: 'UINotifications-Example',
 	minimum_coverage_percentage: 80,
-	only_project_targets: true
+	only_project_targets: true,
+	output_directory: "xcov_output"
 )
 
 # Run SwiftLint
