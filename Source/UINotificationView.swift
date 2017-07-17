@@ -26,7 +26,7 @@ open class UINotificationView: UIView {
     internal let translationDismissLimit: CGFloat = -15
     
     // MARK: UI Elements
-    lazy internal var titleLabel: UILabel = {
+    lazy public var titleLabel: UILabel = {
         let label = UILabel(frame: CGRect.zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -78,7 +78,7 @@ open class UINotificationView: UIView {
         addGestureRecognizer(tapGestureRecognizer)
     }
     
-    internal func updateForNotificationData() {
+    open func updateForNotificationData() {
         titleLabel.text = notification.content.title
         
         titleLabel.font = notification.style.font
