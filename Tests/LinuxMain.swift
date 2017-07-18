@@ -2,5 +2,5 @@ import XCTest
 @testable import UINotificationsTests
 
 XCTMain([
-    testCase(UINotificationsTests.allTests),
+    testCase(UINotificationsTests.allTests)
 ])
