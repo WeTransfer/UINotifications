@@ -16,7 +16,6 @@
 		5B64442D1F1D0D1900A931F7 /* UINotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444241F1D0D1900A931F7 /* UINotificationPresenter.swift */; };
 		5B64442E1F1D0D1900A931F7 /* UINotificationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444251F1D0D1900A931F7 /* UINotificationQueue.swift */; };
 		5B64442F1F1D0D1900A931F7 /* UINotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444261F1D0D1900A931F7 /* UINotificationRequest.swift */; };
-		5B6444301F1D0D1900A931F7 /* UINotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444271F1D0D1900A931F7 /* UINotifications.swift */; };
 		5B6444311F1D0D1900A931F7 /* UINotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444281F1D0D1900A931F7 /* UINotificationView.swift */; };
 		5B6444331F1D0D2100A931F7 /* UINotificationCallbackAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444321F1D0D2100A931F7 /* UINotificationCallbackAction.swift */; };
 		5B6444361F1D0D2D00A931F7 /* UINotificationDurationDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444341F1D0D2D00A931F7 /* UINotificationDurationDismissTrigger.swift */; };
@@ -53,7 +52,6 @@
 		5B6444241F1D0D1900A931F7 /* UINotificationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationPresenter.swift; path = Sources/UINotificationPresenter.swift; sourceTree = SOURCE_ROOT; };
 		5B6444251F1D0D1900A931F7 /* UINotificationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationQueue.swift; path = Sources/UINotificationQueue.swift; sourceTree = SOURCE_ROOT; };
 		5B6444261F1D0D1900A931F7 /* UINotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationRequest.swift; path = Sources/UINotificationRequest.swift; sourceTree = SOURCE_ROOT; };
-		5B6444271F1D0D1900A931F7 /* UINotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotifications.swift; path = Sources/UINotifications.swift; sourceTree = SOURCE_ROOT; };
 		5B6444281F1D0D1900A931F7 /* UINotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationView.swift; path = Sources/UINotificationView.swift; sourceTree = SOURCE_ROOT; };
 		5B6444321F1D0D2100A931F7 /* UINotificationCallbackAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationCallbackAction.swift; path = Sources/UINotificationActions/UINotificationCallbackAction.swift; sourceTree = SOURCE_ROOT; };
 		5B6444341F1D0D2D00A931F7 /* UINotificationDurationDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationDurationDismissTrigger.swift; path = Sources/UINotificationDismissTriggers/UINotificationDurationDismissTrigger.swift; sourceTree = SOURCE_ROOT; };
@@ -129,7 +127,6 @@
 				5B6444241F1D0D1900A931F7 /* UINotificationPresenter.swift */,
 				5B6444251F1D0D1900A931F7 /* UINotificationQueue.swift */,
 				5B6444261F1D0D1900A931F7 /* UINotificationRequest.swift */,
-				5B6444271F1D0D1900A931F7 /* UINotifications.swift */,
 				5B6444281F1D0D1900A931F7 /* UINotificationView.swift */,
 				5078C7FD1F18D984006EB23F /* UINotificationActions */,
 				5078C8011F18D984006EB23F /* UINotificationDismissTriggers */,
@@ -336,7 +333,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B6444311F1D0D1900A931F7 /* UINotificationView.swift in Sources */,
-				5B6444301F1D0D1900A931F7 /* UINotifications.swift in Sources */,
 				5B64442E1F1D0D1900A931F7 /* UINotificationQueue.swift in Sources */,
 				5B64442C1F1D0D1900A931F7 /* UINotificationPresentationContext.swift in Sources */,
 				5B64442D1F1D0D1900A931F7 /* UINotificationPresenter.swift in Sources */,
