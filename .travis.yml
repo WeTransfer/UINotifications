@@ -1,3 +1,5 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
+language: objective-c
+osx_image: xcode8.3
+script:
+    - xcodebuild clean -project UINotifications.xcodeproj -scheme UINotifications | xcpretty
+    - xcodebuild test -project UINotifications.xcodeproj -scheme UINotifications -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' | xcpretty -s
