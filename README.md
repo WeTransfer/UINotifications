@@ -195,18 +195,6 @@ github "WeTransfer/UINotifications" ~> 1.00
 
 Run `carthage update` to build the framework and drag the built `UINotifications.framework` into your Xcode project.
 
-### Swift Package Manager
-
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but UINotifications does support its use on supported platforms.
-
-Once you have your Swift package set up, adding UINotifications as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
-
-```swift
-dependencies: [
-    .Package(url: "https://github.com/WeTransfer/UINotifications.git", majorVersion: 1)
-]
-```
-
 ### Manually
 
 If you prefer not to use any of the aforementioned dependency managers, you can integrate UINotifications into your project manually.
