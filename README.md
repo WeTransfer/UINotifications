@@ -119,7 +119,7 @@ UINotificationCenter.current.show(notification: notification, dismissTrigger: ma
 
 /// Do other stuff..
 
-manualDismissTrigger.trigger() // Dimiss
+manualDismissTrigger.trigger() // Dismiss
 ```
 
 ### Create a custom UINotificationView
