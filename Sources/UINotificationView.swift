@@ -107,7 +107,9 @@ open class UINotificationView: UIView {
     }
     
     @objc internal func handleTapGestureRecognizer() {
+        guard let presenter = presenter, !presenter.isDismissing else { return }
         notification.action?.execute()
+        presenter.dismiss()
     }
     
     @objc private func handlePanGestureRecognizer() {
