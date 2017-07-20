@@ -25,6 +25,21 @@ final class UINotificationViewTests: UINotificationTestCase {
         waitForExpectations(timeout: 5.0, handler: nil)
     }
     
+    /// When a notification view is tapped twice, the action trigger should be called only once.
+    func testDoubleTap() {
+        var actionTriggeredCount: Int = 0
+        let notification = UINotification(content: UINotificationContent(title: ""), action: UINotificationCallbackAction(callback: {
+            actionTriggeredCount += 1
+        }))
+        let notificationView = UINotificationView(notification: notification)
+        notificationView.presenter = MockPresenter(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate()), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
+        
+        notificationView.handleTapGestureRecognizer()
+        XCTAssert(actionTriggeredCount == 1, "Action should be triggered")
+        notificationView.handleTapGestureRecognizer()
+        XCTAssert(actionTriggeredCount == 1, "Action should be triggered only once")
+    }
+    
     /// When the pan gesture is used, the animations should be handled by the default view.
     func testPanGesture() {
         let notificationView = UINotificationView(notification: notification)

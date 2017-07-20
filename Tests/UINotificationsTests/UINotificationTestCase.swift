@@ -17,6 +17,7 @@ class UINotificationTestCase: XCTestCase {
         
         var dismissTrigger: UINotificationDismissTrigger
         var presentationContext: UINotificationPresentationContext
+        var isDismissing: Bool = false
         
         private(set) var presented: Bool = false
         private(set) var dismissed: Bool = false
@@ -42,6 +43,7 @@ class UINotificationTestCase: XCTestCase {
         
         var dismissTrigger: UINotificationDismissTrigger
         var presentationContext: UINotificationPresentationContext
+        var isDismissing: Bool = false
         
         private(set) var presented: Bool = false
         private(set) var dismissed: Bool = false

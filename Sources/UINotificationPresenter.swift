@@ -12,7 +12,11 @@ public protocol UINotificationPresenter: class, Dismissable {
     /// Provides information about an in-progress notification presentation.
     var presentationContext: UINotificationPresentationContext { get }
     
+    /// The trigger which can trigger the dismissing.
     var dismissTrigger: UINotificationDismissTrigger { get }
+    
+    /// Indicates whether dismissing is currently happening.
+    var isDismissing: Bool { get }
     
     /// Initialises a new instance of the presenter.
     ///

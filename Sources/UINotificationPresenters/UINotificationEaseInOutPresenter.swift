@@ -15,10 +15,10 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
     
     public let presentationContext: UINotificationPresentationContext
     public var dismissTrigger: UINotificationDismissTrigger
+    public var isDismissing: Bool = false
     
     private let inDuration: TimeInterval = 0.2
     private let outDuration: TimeInterval = 0.2
-    private var isDismissing: Bool = false
     
     public required init(presentationContext: UINotificationPresentationContext, dismissTrigger: UINotificationDismissTrigger?) {
         self.presentationContext = presentationContext
