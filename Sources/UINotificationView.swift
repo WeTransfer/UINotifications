@@ -99,7 +99,9 @@ open class UINotificationView: UIView {
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             chevronImageView.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: leftRightMargin),
             chevronImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: hasAction ? -leftRightMargin : 0),
-            chevronImageView.widthAnchor.constraint(equalToConstant: hasAction ? (notification.content.chevronImage?.size.width ?? 0) : 0),
+            chevronImageView.widthAnchor.constraint(equalToConstant: hasAction ? (notification.content.chevronImage?.size.width ?? 0) : 0).usingPriority(UILayoutPriorityDefaultLow),
+            chevronImageView.widthAnchor.constraint(lessThanOrEqualToConstant: 20),
+            chevronImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 20),
             chevronImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ]
         
@@ -138,4 +140,17 @@ extension UINotificationView: UINotificationDelegate {
     func didUpdateContent(in notificaiton: UINotification) {
         updateForNotificationData()
     }
+}
+
+fileprivate extension NSLayoutConstraint {
+    
+    /// Returns the constraint sender with the passed priority.
+    ///
+    /// - Parameter priority: The priority to be set.
+    /// - Returns: The sended constraint adjusted with the new priority.
+    func usingPriority(_ priority: UILayoutPriority) -> NSLayoutConstraint {
+        self.priority = priority
+        return self
+    }
+    
 }
