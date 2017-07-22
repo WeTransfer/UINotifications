@@ -71,4 +71,15 @@ final class UINotificationViewTests: UINotificationTestCase {
         
         XCTAssert(notificationView.titleLabel.text == updatedContent.title, "Title of the notification view should update accordingly")
     }
+    
+    /// It should size the chevron image correctly.
+    func testChevronImageSizes() {
+        let bundle = Bundle(for: UINotificationViewTests.self)
+        let image = UIImage(named: "iconToastChevron", in: bundle, compatibleWith: nil)
+        let content = UINotificationContent(title: "title", chevronImage: image)
+        notification.update(content)
+        let notificationView = UINotificationView(notification: notification)
+        notificationView.layoutIfNeeded()
+        XCTAssert(notificationView.chevronImageView.bounds.size != image!.size, "Size should not inherit from the chevron image, but keep the designed size.")
+    }
 }
