@@ -21,7 +21,7 @@ end
 # Show Code coverage report
 xcov.report(
 	scheme: 'UINotifications-Example',
-	minimum_coverage_percentage: 80,
+	minimum_coverage_percentage: 80.0,
 	only_project_targets: true,
 	output_directory: "xcov_output"
 )
