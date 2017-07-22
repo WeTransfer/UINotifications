@@ -14,13 +14,14 @@ end
 
 # Changelog entries are required for changes to library files.
 no_changelog_entry = !git.modified_files.include?("Changelog.md")
-if has_app_changes && no_changelog_entry && not_declared_trivial
+if has_app_changes && no_changelog_entry
   warn("Any changes to library code should be reflected in the Changelog. Please consider adding a note there.")
 end
 
 # Show Code coverage report
 xcov.report(
-	scheme: 'UINotifications-Example',
+	scheme: 'UINotifications',
+	project: 'UINotifications.xcodeproj',
 	minimum_coverage_percentage: 80.0,
 	only_project_targets: true,
 	output_directory: "xcov_output"
