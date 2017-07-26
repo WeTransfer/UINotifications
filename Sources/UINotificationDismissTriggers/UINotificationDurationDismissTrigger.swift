@@ -24,9 +24,9 @@ public final class UINotificationDurationDismissTrigger: UINotificationSchedulab
     }
     
     public func schedule() {
-        let dismissWorkItem = DispatchWorkItem {
-            self.target?.dismiss()
-            self.dismissWorkItem = nil
+        let dismissWorkItem = DispatchWorkItem { [weak self] in
+            self?.target?.dismiss()
+            self?.dismissWorkItem = nil
         }
         self.dismissWorkItem = dismissWorkItem
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration, execute: dismissWorkItem)
