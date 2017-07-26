@@ -44,7 +44,7 @@ public final class UINotificationRequest: Equatable {
     public let notification: UINotification
     
     /// Optional dismiss trigger to use for the animation. If `nil` the default trigger will be used.
-    public let dismissTrigger: UINotificationDismissTrigger?
+    public weak var dismissTrigger: UINotificationDismissTrigger?
     
     /// An internal intedifier used for comparing actions
     private let identifier: UUID
