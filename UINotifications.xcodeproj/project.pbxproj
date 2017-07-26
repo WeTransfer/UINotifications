@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50124B2B1F22043C00376340 /* iconToastChevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 50124B291F2202FB00376340 /* iconToastChevron.png */; };
 		5078C79E1F18CAF5006EB23F /* UINotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5078C7941F18CAF5006EB23F /* UINotifications.framework */; };
 		5078C8301F18D9DE006EB23F /* UINotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 5078C82F1F18D9DE006EB23F /* UINotifications.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B6444291F1D0D1900A931F7 /* UINotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444201F1D0D1900A931F7 /* UINotification.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50124B291F2202FB00376340 /* iconToastChevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToastChevron.png; sourceTree = "<group>"; };
 		5078C7941F18CAF5006EB23F /* UINotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UINotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5078C79D1F18CAF5006EB23F /* UINotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UINotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5078C82F1F18D9DE006EB23F /* UINotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UINotifications.h; path = UINotifications/UINotifications.h; sourceTree = "<group>"; };
@@ -88,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50124B281F2202FB00376340 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				50124B291F2202FB00376340 /* iconToastChevron.png */,
+			);
+			name = Resources;
+			path = UINotifications/Resources;
+			sourceTree = SOURCE_ROOT;
+		};
 		5078C78A1F18CAF5006EB23F = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +183,7 @@
 		5B6444401F1D0E5200A931F7 /* UINotificationsTests */ = {
 			isa = PBXGroup;
 			children = (
+				50124B281F2202FB00376340 /* Resources */,
 				5B6444411F1D0E5200A931F7 /* Extensions */,
 				5B6444431F1D0E5200A931F7 /* Supporting Files */,
 				5B6444451F1D0E5200A931F7 /* UINotificationCenterTests.swift */,
@@ -305,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50124B2B1F22043C00376340 /* iconToastChevron.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
