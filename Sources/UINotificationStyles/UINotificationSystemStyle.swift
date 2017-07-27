@@ -15,4 +15,5 @@ public struct UINotificationSystemStyle: UINotificationStyle {
     public var textColor: UIColor = UIColor.black
     public var height: UINotificationHeight = .navigationBar
     public var interactive: Bool = true
+    public var chevronImage: UIImage?
 }

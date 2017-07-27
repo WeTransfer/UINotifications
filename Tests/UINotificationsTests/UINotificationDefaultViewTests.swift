@@ -74,12 +74,26 @@ final class UINotificationViewTests: UINotificationTestCase {
     
     /// It should size the chevron image correctly.
     func testChevronImageSizes() {
-        let bundle = Bundle(for: UINotificationViewTests.self)
-        let image = UIImage(named: "iconToastChevron", in: bundle, compatibleWith: nil)
-        let content = UINotificationContent(title: "title", chevronImage: image)
-        notification.update(content)
+        
+        let content = UINotificationContent(title: "title")
+        let style = LargeChevronStyle()
+        let notification = UINotification(content: content, style: style, action: nil)
         let notificationView = UINotificationView(notification: notification)
         notificationView.layoutIfNeeded()
-        XCTAssert(notificationView.chevronImageView.bounds.size != image!.size, "Size should not inherit from the chevron image, but keep the designed size.")
+        XCTAssert(notificationView.chevronImageView.bounds.size != style.chevronImage!.size, "Size should not inherit from the chevron image, but keep the designed size.")
+    }
+}
+
+private struct LargeChevronStyle: UINotificationStyle {
+    var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFontWeightSemibold)
+    var backgroundColor: UIColor = UIColor.white
+    var textColor: UIColor = UIColor.black
+    var height: UINotificationHeight {
+        return UINotificationHeight.navigationBar
+    }
+    var interactive: Bool = true
+    var chevronImage: UIImage? {
+        let bundle = Bundle(for: UINotificationViewTests.self)
+        return UIImage(named: "iconToastChevron", in: bundle, compatibleWith: nil)
     }
 }

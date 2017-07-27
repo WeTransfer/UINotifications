@@ -25,6 +25,9 @@ public protocol UINotificationStyle {
     
     /// When `true`, the notification is swipeable and tappable.
     var interactive: Bool { get }
+    
+    /// The chevron image which is shown when a notification has an action attached.
+    var chevronImage: UIImage? { get }
 }
 
 /// Defines the height which will be applied on the notification view.
@@ -82,11 +85,7 @@ public struct UINotificationContent {
     /// The title which will be showed inside the notification.
     public let title: String
     
-    /// The chevron image which will be showed when a notification has an action.
-    public let chevronImage: UIImage?
-    
-    public init(title: String, chevronImage: UIImage? = nil) {
+    public init(title: String) {
         self.title = title
-        self.chevronImage = chevronImage
     }
 }

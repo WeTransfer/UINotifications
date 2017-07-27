@@ -49,6 +49,10 @@ enum NotificationStyle: UINotificationStyle {
     var interactive: Bool {
         return true
     }
+    
+    var chevronImage: UIImage? {
+        return #imageLiteral(resourceName: "iconToastChevron")
+    }
 }
 
 final class ViewController: UIViewController {
@@ -83,7 +87,7 @@ final class ViewController: UIViewController {
             })
         }
         
-        let notification = UINotification(content: UINotificationContent(title: content, chevronImage: #imageLiteral(resourceName: "iconToastChevron")), style: style, action: action)
+        let notification = UINotification(content: UINotificationContent(title: content), style: style, action: action)
         
         UINotificationCenter.current.show(notification: notification, dismissTrigger: dismissTrigger)
     }
