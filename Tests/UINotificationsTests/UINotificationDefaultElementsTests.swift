@@ -12,13 +12,14 @@ import XCTest
 final class UINotificationDefaultElementsTests: UINotificationTestCase {
 
     struct CustomStyle: UINotificationStyle {
-        public var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFontWeightSemibold)
-        public var backgroundColor: UIColor = UIColor.white
-        public var textColor: UIColor = UIColor.black
-        public var height: UINotificationHeight {
+        var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFontWeightSemibold)
+        var backgroundColor: UIColor = UIColor.white
+        var textColor: UIColor = UIColor.black
+        var height: UINotificationHeight {
             return UINotificationHeight.custom(height: self.customHeight)
         }
-        public var interactive: Bool = true
+        var interactive: Bool = true
+        var chevronImage: UIImage?
         
         let customHeight: CGFloat
         
