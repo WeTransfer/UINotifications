@@ -86,6 +86,7 @@ open class UINotificationView: UIView {
         backgroundColor = notification.style.backgroundColor
         
         chevronImageView.tintColor = notification.style.textColor
+        chevronImageView.isHidden = notification.action == nil
         
         panGestureRecognizer.isEnabled = notification.style.interactive
         tapGestureRecognizer.isEnabled = notification.style.interactive
