@@ -6,6 +6,7 @@
 - Chevron image is now having a max size of 20x20.
 - Some small memory fixes
 - Chevron image is now set inside the style, which is more logic.
+- The chevron image is now hidden when there's no action attached.
 
 ### 1.0 (2017-07-14)
 
