@@ -46,6 +46,9 @@ public final class UINotificationRequest: Equatable {
     /// Optional dismiss trigger to use for the animation. If `nil` the default trigger will be used.
     public weak var dismissTrigger: UINotificationDismissTrigger?
     
+    /// The type of view to use for this notification.
+    public let notificationViewType: UINotificationView.Type
+    
     /// An internal intedifier used for comparing actions
     private let identifier: UUID
     
@@ -59,9 +62,10 @@ public final class UINotificationRequest: Equatable {
     /// An array of listener to delegate callbacks.
     var delegates = [WeakRequestDelegate]()
     
-    internal init(notification: UINotification, delegate: UINotificationRequestDelegate, dismissTrigger: UINotificationDismissTrigger? = nil) {
+    internal init(notification: UINotification, delegate: UINotificationRequestDelegate, notificationViewType: UINotificationView.Type, dismissTrigger: UINotificationDismissTrigger? = nil) {
         self.notification = notification
         self.delegates.append(WeakRequestDelegate(target: delegate))
+        self.notificationViewType = notificationViewType
         self.dismissTrigger = dismissTrigger
         self.identifier = UUID()
     }

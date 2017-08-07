@@ -18,8 +18,8 @@ public final class UINotificationCenter {
     /// The type of presenter to use for presenting notifications. Change this to change the way notifications need to be presented.
     public var presenterType: UINotificationPresenter.Type = UINotificationEaseOutEaseInPresenter.self
     
-    /// The type of view which will be used to present the notifications.
-    public var notificationViewType: UINotificationView.Type = UINotificationView.self
+    /// The type of view which will be used to present the notifications if not overriden by the `show` method.
+    public var defaultNotificationViewType: UINotificationView.Type = UINotificationView.self
     
     // MARK: Private properties
     
@@ -44,10 +44,11 @@ public final class UINotificationCenter {
     /// Request to present the given notification.
     ///
     /// - Parameter notification: The notification to be presented.
+    /// - Parameter notificationViewType: Optional notification view type which overrides the default notification view type.
     /// - Parameter dismissTrigger: Optional dismiss trigger to use for the animation. If `nil` the default trigger will be used.
     /// - Returns: An `UINotificationRequest` for the requested notification presentation. Can be cancelled using `cancel()`.
-    @discardableResult public func show(notification: UINotification, dismissTrigger: UINotificationDismissTrigger? = nil) -> UINotificationRequest {
-        return queue.add(notification, dismissTrigger: dismissTrigger)
+    @discardableResult public func show(notification: UINotification, notificationViewType: UINotificationView.Type? = nil, dismissTrigger: UINotificationDismissTrigger? = nil) -> UINotificationRequest {
+        return queue.add(notification, notificationViewType: notificationViewType ?? self.defaultNotificationViewType, dismissTrigger: dismissTrigger)
     }
     
 }
@@ -55,7 +56,7 @@ public final class UINotificationCenter {
 extension UINotificationCenter: UINotificationQueueDelegate {
     /// Handles the request which is ready to be presented. Links the presenter to the `UINotification` and `UINotificationView`.
     internal func handle(_ request: UINotificationRequest) {
-        let notificationView = notificationViewType.init(notification: request.notification)
+        let notificationView = request.notificationViewType.init(notification: request.notification)
         let presentationContext = UINotificationPresentationContext(request: request, containerWindow: window, notificationView: notificationView)
         let presenter = presenterType.init(presentationContext: presentationContext, dismissTrigger: request.dismissTrigger)
         notificationView.presenter = presenter

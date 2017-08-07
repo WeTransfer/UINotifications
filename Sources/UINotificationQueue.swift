@@ -36,8 +36,8 @@ internal final class UINotificationQueue {
     /// - Parameter notification: The notification which is requested.
     /// - Parameter dismissTrigger: Optional dismiss trigger to use for the animation. If `nil` the default trigger will be used.
     /// - Returns: The notification request which is added to the queue. Can be used to `cancel()`.
-    @discardableResult func add(_ notification: UINotification, dismissTrigger: UINotificationDismissTrigger? = nil) -> UINotificationRequest {
-        let request = UINotificationRequest(notification: notification, delegate: self, dismissTrigger: dismissTrigger)
+    @discardableResult func add(_ notification: UINotification, notificationViewType: UINotificationView.Type, dismissTrigger: UINotificationDismissTrigger? = nil) -> UINotificationRequest {
+        let request = UINotificationRequest(notification: notification, delegate: self, notificationViewType: notificationViewType, dismissTrigger: dismissTrigger)
         lockQueue.sync {
             requests.append(request)
         }
