@@ -7,6 +7,7 @@
 - Some small memory fixes
 - Chevron image is now set inside the style, which is more logic.
 - The chevron image is now hidden when there's no action attached.
+- It's possible to override the default notification view.
 
 ### 1.0 (2017-07-14)
 
