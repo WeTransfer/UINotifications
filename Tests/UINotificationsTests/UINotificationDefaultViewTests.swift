@@ -18,7 +18,7 @@ final class UINotificationViewTests: UINotificationTestCase {
                 expectation.fulfill()
         }))
         let notificationView = UINotificationView(notification: notification)
-        notificationView.presenter = MockPresenter(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate()), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
+        notificationView.presenter = MockPresenter(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate(), notificationViewType: UINotificationView.self), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
         
         notificationView.handleTapGestureRecognizer()
             
@@ -32,7 +32,7 @@ final class UINotificationViewTests: UINotificationTestCase {
             actionTriggeredCount += 1
         }))
         let notificationView = UINotificationView(notification: notification)
-        notificationView.presenter = MockPresenter(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate()), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
+        notificationView.presenter = MockPresenter(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate(), notificationViewType: UINotificationView.self), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
         
         notificationView.handleTapGestureRecognizer()
         XCTAssert(actionTriggeredCount == 1, "Action should be triggered")
@@ -43,7 +43,7 @@ final class UINotificationViewTests: UINotificationTestCase {
     /// When the pan gesture is used, the animations should be handled by the default view.
     func testPanGesture() {
         let notificationView = UINotificationView(notification: notification)
-        let presenter = MockPresenterCapturer(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate()), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
+        let presenter = MockPresenterCapturer(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate(), notificationViewType: UINotificationView.self), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
         notificationView.presenter = presenter
         
         notificationView.handlePanGestureState(.began, translation: CGPoint.zero)

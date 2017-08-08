@@ -14,14 +14,14 @@ final class UINotificationQueueTests: UINotificationTestCase {
     /// When a notification is added, a request should be added
     func testAddNotification() {
         let queue = UINotificationQueue(delegate: MockQueueDelegate())
-        queue.add(notification)
+        queue.add(notification, notificationViewType: UINotificationView.self)
         XCTAssert(queue.requests.count == 1, "Request should be added")
     }
     
     /// When a notification request is removed, the request should be deleted from the queue
     func testRemoveNotification() {
         let queue = UINotificationQueue(delegate: MockQueueDelegate())
-        let request = queue.add(notification)
+        let request = queue.add(notification, notificationViewType: UINotificationView.self)
         queue.remove(request)
         XCTAssert(queue.requests.isEmpty == true, "Request should be removed")
     }
@@ -29,7 +29,7 @@ final class UINotificationQueueTests: UINotificationTestCase {
     /// When a request is running, it should be reported correctly.
     func testRunningNotificationRequest() {
         let queue = UINotificationQueue(delegate: MockQueueDelegate())
-        queue.add(notification)
+        queue.add(notification, notificationViewType: UINotificationView.self)
         XCTAssert(queue.requestIsRunning() == true, "")
     }
     
@@ -37,8 +37,8 @@ final class UINotificationQueueTests: UINotificationTestCase {
     func testFirstNotificationHandling() {
         let delegate = MockQueueDelegate()
         let queue = UINotificationQueue(delegate: delegate)
-        let requestOne = queue.add(notification)
-        let requestTwo = queue.add(notification)
+        let requestOne = queue.add(notification, notificationViewType: UINotificationView.self)
+        let requestTwo = queue.add(notification, notificationViewType: UINotificationView.self)
         
         XCTAssert(requestOne.state == .running, "The request should be handled directly if it's the first")
         XCTAssert(requestTwo.state == .idle, "The second request should be in idle mode")
@@ -49,7 +49,7 @@ final class UINotificationQueueTests: UINotificationTestCase {
     /// When a request is cancelled, it should be removed from the queue.
     func testNotificationRequestCancellation() {
         let queue = UINotificationQueue(delegate: MockQueueDelegate())
-        let requestOne = queue.add(notification)
+        let requestOne = queue.add(notification, notificationViewType: UINotificationView.self)
         requestOne.cancel()
         XCTAssert(queue.requests.isEmpty == true, "Request should be removed")
     }

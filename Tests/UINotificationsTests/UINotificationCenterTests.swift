@@ -25,11 +25,18 @@ final class UINotificationCenterTests: UINotificationTestCase {
         XCTAssert(notificationCenter.queue.requests.first?.state == .running, "Notification should be presented directly")
     }
     
-    /// When a custom notification view is set, it should be used for presentation.
+    /// When a custom default notification view is set, it should be used for presentation.
+    func testCustomDefaultNotificationView() {
+        let notificationCenter = UINotificationCenter()
+        notificationCenter.defaultNotificationViewType = MockNotificationView.self
+        notificationCenter.show(notification: notification)
+        XCTAssert(notificationCenter.currentPresenter?.presentationContext.notificationView is MockNotificationView, "The custom view should be used")
+    }
+    
+    /// When a custom notification view is passed inside the presentation method, it should be used for presentation.
     func testCustomNotificationView() {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.notificationViewType = MockNotificationView.self
-        notificationCenter.show(notification: notification)
+        notificationCenter.show(notification: notification, notificationViewType: MockNotificationView.self)
         XCTAssert(notificationCenter.currentPresenter?.presentationContext.notificationView is MockNotificationView, "The custom view should be used")
     }
     

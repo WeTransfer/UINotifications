@@ -8,7 +8,7 @@ end
 
 def lineIsPropertyMethodClassOrStruct(line)
 	if line.include?("var") or line.include?("let") or line.include?("func") or line.include?("class") or line.include?("struct")
-		if line.include?("guard")
+		if line.include?("guard") or line.include?("==")
 			return false
 		end
 		return true
