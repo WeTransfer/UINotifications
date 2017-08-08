@@ -11,7 +11,7 @@ import UIKit
 /// Handles the queueing and presenting of `UINotification`s
 public final class UINotificationCenter {
 
-    // The `UINotificationCenter` for the current application
+    /// The `UINotificationCenter` for the current application
     public static let current = UINotificationCenter()
     
     // MARK: Public properties

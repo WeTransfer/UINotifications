@@ -74,6 +74,7 @@ public final class UINotificationRequest: Equatable {
         state = .running
     }
     
+    /// Set's the state of the request to cancelled, which will trigger a cancel.
     public func cancel() {
         state = .cancelled
     }
