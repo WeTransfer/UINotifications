@@ -1,10 +1,12 @@
 # Import the shared Danger file from Rabbit to share common Danger configuration
 danger.import_dangerfile(path: "danger/shared/")
 
+files_to_check = (git.modified_files + git.added_files).uniq
+
 ## Let's check if there are any changes in the project folder
-has_app_changes = !git.modified_files.grep(/Sources/).empty?
+has_app_changes = !files_to_check.grep("Sources/").empty?
 ## Then, we should check if tests are updated
-has_test_changes = !git.modified_files.grep("/Tests/").empty?
+has_test_changes = !files_to_check.grep("Tests/").empty?
 
 ## Finally, let's combine them and put extra condition 
 ## for changed number of lines of code
