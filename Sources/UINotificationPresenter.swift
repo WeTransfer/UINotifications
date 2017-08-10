@@ -8,6 +8,21 @@
 
 import UIKit
 
+/// The state of a notification presenter.
+public enum UINotificationPresenterState {
+    /// Ready to be presented.
+    case idle
+    /// Currently animating out.
+    case dismissing
+    
+    /// Currently animatin in.
+    case presenting
+    
+    /// Currently visible, presented.
+    case presented
+}
+
+/// Defines a protocol for a UINotification presenter & dismisser.
 public protocol UINotificationPresenter: class, Dismissable {
     /// Provides information about an in-progress notification presentation.
     var presentationContext: UINotificationPresentationContext { get }
@@ -15,8 +30,8 @@ public protocol UINotificationPresenter: class, Dismissable {
     /// The trigger which can trigger the dismissing.
     var dismissTrigger: UINotificationDismissTrigger { get }
     
-    /// Indicates whether dismissing is currently happening.
-    var isDismissing: Bool { get }
+    /// Indicates the current state the presenter is in.
+    var state: UINotificationPresenterState { get }
     
     /// Initialises a new instance of the presenter.
     ///

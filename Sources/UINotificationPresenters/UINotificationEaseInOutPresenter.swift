@@ -15,7 +15,7 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
     
     public let presentationContext: UINotificationPresentationContext
     public var dismissTrigger: UINotificationDismissTrigger
-    public var isDismissing: Bool = false
+    public var state: UINotificationPresenterState = .idle
     
     private let inDuration: TimeInterval = 0.2
     private let outDuration: TimeInterval = 0.2
@@ -26,11 +26,16 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
     }
     
     public func present() {
+        guard state == .idle else { return }
+        state = .presenting
+        
         presentationContext.notificationView.topConstraint?.constant = 0
         
         UIView.animate(withDuration: inDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
         }) { (_) in
+            self.state = .presented
+            
             self.dismissTrigger.target = self
             if let schedulableDismissTrigger = self.dismissTrigger as? UINotificationSchedulableDismissTrigger {
                 schedulableDismissTrigger.schedule()
@@ -39,15 +44,15 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
     }
     
     public func dismiss() {
-        guard !isDismissing else { return }
-        isDismissing = true
+        guard state == .presented else { return }
+        state = .dismissing
         
         presentationContext.notificationView.topConstraint?.constant = -presentationContext.notification.style.height.value
         
         UIView.animate(withDuration: outDuration, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
         }) { (_) in
-            self.isDismissing = false
+            self.state = .idle
             self.presentationContext.completePresentation()
         }
     }

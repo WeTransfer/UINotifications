@@ -19,7 +19,7 @@ final class UINotificationViewTests: UINotificationTestCase {
         }))
         let notificationView = UINotificationView(notification: notification)
         notificationView.presenter = MockPresenter(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate(), notificationViewType: UINotificationView.self), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
-        
+        notificationView.presenter?.present()
         notificationView.handleTapGestureRecognizer()
             
         waitForExpectations(timeout: 5.0, handler: nil)
@@ -33,6 +33,7 @@ final class UINotificationViewTests: UINotificationTestCase {
         }))
         let notificationView = UINotificationView(notification: notification)
         notificationView.presenter = MockPresenter(presentationContext: UINotificationPresentationContext(request: UINotificationRequest(notification: notification, delegate: MockRequestDelegate(), notificationViewType: UINotificationView.self), containerWindow: UIWindow(), notificationView: notificationView), dismissTrigger: nil)
+        notificationView.presenter?.present()
         
         notificationView.handleTapGestureRecognizer()
         XCTAssert(actionTriggeredCount == 1, "Action should be triggered")
