@@ -110,7 +110,7 @@ open class UINotificationView: UIView {
     }
     
     @objc internal func handleTapGestureRecognizer() {
-        guard let presenter = presenter, !presenter.isDismissing else { return }
+        guard let presenter = presenter, presenter.state == UINotificationPresenterState.presented else { return }
         notification.action?.execute()
         presenter.dismiss()
     }
