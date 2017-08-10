@@ -30,7 +30,6 @@ public final class UINotificationPresentationContext {
         self.containerWindow = containerWindow
         self.notificationView = notificationView
         
-        request.delegates.append(UINotificationRequest.WeakRequestDelegate(target: self))
         prepareContainerWindow()
         prepareNotificationView()
     }
@@ -82,13 +81,5 @@ public final class UINotificationPresentationContext {
         /// Make sure the key window of the app is visible again.
         guard let applicationWindow = UIApplication.shared.windows.first(where: { $0 != self.containerWindow }) else { return }
         applicationWindow.makeKeyAndVisible()
-    }
-}
-
-extension UINotificationPresentationContext: UINotificationRequestDelegate {
-    func notificationRequest(_ request: UINotificationRequest, didChangeStateTo state: UINotificationRequest.UINotificationRequestState) {
-        guard case UINotificationRequest.UINotificationRequestState.cancelled = request.state else { return }
-        (notificationView.presenter?.dismissTrigger as? UINotificationSchedulableDismissTrigger)?.cancel()
-        notificationView.presenter?.dismiss()
     }
 }

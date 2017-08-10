@@ -45,7 +45,7 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
     
     public func dismiss() {
         guard state == .presented else { return }
-        state = .dimissing
+        state = .dismissing
         
         presentationContext.notificationView.topConstraint?.constant = -presentationContext.notification.style.height.value
         

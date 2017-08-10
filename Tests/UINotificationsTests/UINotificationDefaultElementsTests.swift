@@ -45,10 +45,17 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         notificationCenter.presenterType = UINotificationEaseOutEaseInPresenter.self
         notificationCenter.show(notification: notification)
         
-        XCTAssert(notificationCenter.currentPresenter is UINotificationEaseOutEaseInPresenter, "Presenter should be UINotificationEaseOutEaseInPresenter")
+        let presenter = notificationCenter.currentPresenter as! UINotificationEaseOutEaseInPresenter
         XCTAssert(notificationCenter.queue.requests.first?.state == .running, "We should have a running notification")
         
         waitFor(notificationCenter.queue.requests.isEmpty, timeout: 5.0, description: "All requests should be cleaned up after presentation")
+        
+        presenter.state = .dismissing
+        presenter.present()
+        XCTAssert(presenter.state == .dismissing, "Presentation should not be possible when not in idle")
+        
+        presenter.dismiss()
+        XCTAssert(presenter.state == .dismissing, "Dismissing should not be possible when not in presented state")
     }
     
     /// When passing a notification style with a custom height, this should be applied to the presented view.
@@ -77,20 +84,6 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         
         dismissTrigger.trigger()
 
-        waitFor(notificationCenter.currentPresenter == nil, timeout: 5.0, description: "The presenter should be nil after dismiss is finished")
-    }
-    
-    /// When a notification request is cancelled while presentation is running, the notification should be dismissed.
-    func testManualDismissTriggerCancel() {
-        let notificationCenter = UINotificationCenter()
-        notificationCenter.presenterType = MockPresenter.self
-        let dismissTrigger = UINotificationManualDismissTrigger()
-
-        let request = notificationCenter.show(notification: notification, dismissTrigger: dismissTrigger)
-        waitFor(notificationCenter.currentPresenter?.dismissTrigger.target != nil, timeout: 5.0, description: "Dismiss trigger target should be set")
-        
-        request.cancel()
-        
         waitFor(notificationCenter.currentPresenter == nil, timeout: 5.0, description: "The presenter should be nil after dismiss is finished")
     }
     

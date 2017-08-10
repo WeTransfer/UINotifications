@@ -51,7 +51,11 @@ final class UINotificationQueueTests: UINotificationTestCase {
         let queue = UINotificationQueue(delegate: MockQueueDelegate())
         let requestOne = queue.add(notification, notificationViewType: UINotificationView.self)
         requestOne.cancel()
-        XCTAssert(queue.requests.isEmpty == true, "Request should be removed")
+        XCTAssert(queue.requests.count == 1, "Request should not be removed as it is already handled.")
+        let requestTwo = queue.add(notification, notificationViewType: UINotificationView.self)
+        XCTAssert(queue.requests.count == 2, "Request should be removed")
+        requestTwo.cancel()
+        XCTAssert(queue.requests.count == 1, "Request should be removed")
     }
     
 }

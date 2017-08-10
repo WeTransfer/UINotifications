@@ -12,7 +12,7 @@ public enum UINotificationPresenterState {
     /// Ready to be presented.
     case idle
     /// Currently animating out.
-    case dimissing
+    case dismissing
     
     /// Currently animatin in.
     case presenting

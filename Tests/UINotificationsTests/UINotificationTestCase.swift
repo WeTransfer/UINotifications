@@ -17,7 +17,7 @@ class UINotificationTestCase: XCTestCase {
         
         var dismissTrigger: UINotificationDismissTrigger
         var presentationContext: UINotificationPresentationContext
-        var isDismissing: Bool = false
+        var state: UINotificationPresenterState = .idle
         
         private(set) var presented: Bool = false
         private(set) var dismissed: Bool = false
@@ -30,11 +30,13 @@ class UINotificationTestCase: XCTestCase {
         func present() {
             dismissTrigger.target = self
             (dismissTrigger as? UINotificationSchedulableDismissTrigger)?.schedule()
+            state = .presented
             presented = true
         }
         
         func dismiss() {
             presentationContext.completePresentation()
+            state = .idle
             dismissed = true
         }
     }
@@ -44,6 +46,7 @@ class UINotificationTestCase: XCTestCase {
         var dismissTrigger: UINotificationDismissTrigger
         var presentationContext: UINotificationPresentationContext
         var isDismissing: Bool = false
+        var state: UINotificationPresenterState = .idle
         
         private(set) var presented: Bool = false
         private(set) var dismissed: Bool = false
