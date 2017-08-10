@@ -5,6 +5,7 @@
 //  Created by Antoine van der Lee on 14/07/2017.
 //  Copyright © 2017 WeTransfer. All rights reserved.
 //
+//  danger:disable final_class
 
 import XCTest
 @testable import UINotifications
