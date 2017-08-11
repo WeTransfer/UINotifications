@@ -23,7 +23,6 @@
 		5B6444371F1D0D2D00A931F7 /* UINotificationManualDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444351F1D0D2D00A931F7 /* UINotificationManualDismissTrigger.swift */; };
 		5B6444391F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444381F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift */; };
 		5B64443B1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64443A1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift */; };
-		5B64443F1F1D0D6100A931F7 /* UINotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B64443E1F1D0D6100A931F7 /* UINotifications.h */; };
 		5B64444B1F1D0E5200A931F7 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444421F1D0E5200A931F7 /* XCTestExtensions.swift */; };
 		5B64444D1F1D0E5200A931F7 /* UINotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444451F1D0E5200A931F7 /* UINotificationCenterTests.swift */; };
 		5B64444E1F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444461F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift */; };
@@ -61,7 +60,6 @@
 		5B6444381F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationEaseInOutPresenter.swift; path = Sources/UINotificationPresenters/UINotificationEaseInOutPresenter.swift; sourceTree = SOURCE_ROOT; };
 		5B64443A1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationSystemStyle.swift; path = Sources/UINotificationStyles/UINotificationSystemStyle.swift; sourceTree = SOURCE_ROOT; };
 		5B64443C1F1D0D5800A931F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "UINotifications/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
-		5B64443E1F1D0D6100A931F7 /* UINotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UINotifications.h; path = UINotifications/UINotifications.h; sourceTree = SOURCE_ROOT; };
 		5B6444421F1D0E5200A931F7 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		5B6444441F1D0E5200A931F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6444451F1D0E5200A931F7 /* UINotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCenterTests.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				5B64443C1F1D0D5800A931F7 /* Info.plist */,
-				5B64443E1F1D0D6100A931F7 /* UINotifications.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -220,7 +217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5078C8301F18D9DE006EB23F /* UINotifications.h in Headers */,
-				5B64443F1F1D0D6100A931F7 /* UINotifications.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
