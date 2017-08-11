@@ -48,8 +48,7 @@ xcode_summary.report 'build/reports/errors.json'
 
 
 # Check to see if any of our project files contains a line with "SOURCE_ROOT" which indicates that the file isn't in sync with Finder.
-["Rabbit.xcodeproj/project.pbxproj",
- "Coyote.xcodeproj/project.pbxproj"].each do |project_file|
+["UINotifications.xcodeproj/project.pbxproj"].each do |project_file|
  	next unless File.file?(project_file)
 	File.readlines(project_file).each_with_index do |line, index|
 		# The folder Resources is a folder references for sharing resources for testing. Don't warn for that folder.
