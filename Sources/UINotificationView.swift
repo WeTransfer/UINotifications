@@ -132,6 +132,7 @@ open class UINotificationView: UIView {
                 presenter.dismiss()
             } else {
                 presenter.present()
+                (presenter.dismissTrigger as? UINotificationSchedulableDismissTrigger)?.schedule()
             }
         }
     }
