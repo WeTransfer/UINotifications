@@ -14,6 +14,9 @@ public final class UINotificationPresentationContext {
     /// The window in which the `UINotificationView` will be presented.
     public let containerWindow: UIWindow
     
+    /// The level the container window should be on when presenting the notification
+    private let windowLevel: UIWindowLevel
+    
     /// The `UINotificationView` containing the visual representation of the `UINotification`.
     public let notificationView: UINotificationView
     
@@ -25,10 +28,11 @@ public final class UINotificationPresentationContext {
         return request.notification
     }
     
-    internal init(request: UINotificationRequest, containerWindow: UIWindow, notificationView: UINotificationView) {
+    internal init(request: UINotificationRequest, containerWindow: UIWindow, windowLevel: UIWindowLevel, notificationView: UINotificationView) {
         self.request = request
         self.containerWindow = containerWindow
         self.notificationView = notificationView
+        self.windowLevel = windowLevel
         
         prepareContainerWindow()
         prepareNotificationView()
@@ -46,7 +50,7 @@ public final class UINotificationPresentationContext {
     }
     
     private func prepareContainerWindow() {
-        containerWindow.windowLevel = UIWindowLevelStatusBar
+        containerWindow.windowLevel = windowLevel
         containerWindow.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         #if !TEST
             containerWindow.makeKeyAndVisible()
