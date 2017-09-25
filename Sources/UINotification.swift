@@ -39,9 +39,9 @@ public enum UINotificationHeight {
     internal var value: CGFloat {
         switch self {
         case .statusBar:
-            return 20
+            return UIApplication.shared.statusBarFrame.height
         case .navigationBar:
-            return 64
+            return UIApplication.shared.statusBarFrame.height + 44
         case .custom(let height):
             return height
         }

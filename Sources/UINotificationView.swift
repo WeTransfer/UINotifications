@@ -32,7 +32,7 @@ open class UINotificationView: UIView {
         return label
     }()
     
-    lazy internal var chevronImageView: UIImageView = {
+    lazy public var chevronImageView: UIImageView = {
         let imageView = UIImageView(image: self.notification.style.chevronImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -69,6 +69,8 @@ open class UINotificationView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = true
         
+        layoutMargins = UIEdgeInsets(top: 0, left: leftRightMargin, bottom: 0, right: leftRightMargin)
+        
         addSubview(titleLabel)
         addSubview(chevronImageView)
         
@@ -92,7 +94,9 @@ open class UINotificationView: UIView {
         tapGestureRecognizer.isEnabled = notification.style.interactive
     }
     
-    internal func setupConstraints() {
+    /// Called when all constraints should be setup for the notification. Can be overwritten to set your own constraints.
+    /// When setting your own constraints, you should not be calling super.
+    open func setupConstraints() {
         let hasAction = notification.action != nil
         let constraints = [
             titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: leftRightMargin),

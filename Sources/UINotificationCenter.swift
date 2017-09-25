@@ -21,6 +21,10 @@ public final class UINotificationCenter {
     /// The type of view which will be used to present the notifications if not overriden by the `show` method.
     public var defaultNotificationViewType: UINotificationView.Type = UINotificationView.self
     
+    /// The window level that notification should appear at. The default level is over the status bar.
+    /// Changing the window level while a notification is displayed might give some issues.
+    public var windowLevel: UIWindowLevel = UIWindowLevelStatusBar
+    
     // MARK: Private properties
     
     /// The window which will be placed on top of the application window.
@@ -57,7 +61,7 @@ extension UINotificationCenter: UINotificationQueueDelegate {
     /// Handles the request which is ready to be presented. Links the presenter to the `UINotification` and `UINotificationView`.
     internal func handle(_ request: UINotificationRequest) {
         let notificationView = request.notificationViewType.init(notification: request.notification)
-        let presentationContext = UINotificationPresentationContext(request: request, containerWindow: window, notificationView: notificationView)
+        let presentationContext = UINotificationPresentationContext(request: request, containerWindow: window, windowLevel: windowLevel, notificationView: notificationView)
         let presenter = presenterType.init(presentationContext: presentationContext, dismissTrigger: request.dismissTrigger)
         notificationView.presenter = presenter
         currentPresenter = presenter
