@@ -10,10 +10,12 @@ import UIKit
 
 /// Defines the default style for notifications.
 public struct UINotificationSystemStyle: UINotificationStyle {
-    public var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFontWeightSemibold)
+    public var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
     public var backgroundColor: UIColor = UIColor.white
     public var textColor: UIColor = UIColor.black
     public var height: UINotificationHeight = .navigationBar
     public var interactive: Bool = true
     public var chevronImage: UIImage?
+    
+    public init() { }
 }

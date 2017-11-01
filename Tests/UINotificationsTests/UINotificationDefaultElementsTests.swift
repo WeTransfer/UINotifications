@@ -12,7 +12,7 @@ import XCTest
 final class UINotificationDefaultElementsTests: UINotificationTestCase {
 
     struct CustomStyle: UINotificationStyle {
-        var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFontWeightSemibold)
+        var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
         var backgroundColor: UIColor = UIColor.white
         var textColor: UIColor = UIColor.black
         var height: UINotificationHeight {
