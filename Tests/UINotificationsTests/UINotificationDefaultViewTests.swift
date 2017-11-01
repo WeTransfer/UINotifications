@@ -86,7 +86,7 @@ final class UINotificationViewTests: UINotificationTestCase {
 }
 
 private struct LargeChevronStyle: UINotificationStyle {
-    var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFontWeightSemibold)
+    var font: UIFont = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
     var backgroundColor: UIColor = UIColor.white
     var textColor: UIColor = UIColor.black
     var height: UINotificationHeight {
