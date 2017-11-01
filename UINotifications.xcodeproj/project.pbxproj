@@ -60,7 +60,6 @@
 		5B6444381F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationEaseInOutPresenter.swift; path = Sources/UINotificationPresenters/UINotificationEaseInOutPresenter.swift; sourceTree = SOURCE_ROOT; };
 		5B64443A1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationSystemStyle.swift; path = Sources/UINotificationStyles/UINotificationSystemStyle.swift; sourceTree = SOURCE_ROOT; };
 		5B64443C1F1D0D5800A931F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "UINotifications/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
-		5B64443E1F1D0D6100A931F7 /* UINotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UINotifications.h; path = UINotifications/UINotifications.h; sourceTree = SOURCE_ROOT; };
 		5B6444421F1D0E5200A931F7 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		5B6444441F1D0E5200A931F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6444451F1D0E5200A931F7 /* UINotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCenterTests.swift; sourceTree = "<group>"; };
@@ -122,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				5B64443C1F1D0D5800A931F7 /* Info.plist */,
-				5B64443E1F1D0D6100A931F7 /* UINotifications.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -251,6 +249,7 @@
 				5078C7991F18CAF5006EB23F /* Sources */,
 				5078C79A1F18CAF5006EB23F /* Frameworks */,
 				5078C79B1F18CAF5006EB23F /* Resources */,
+				503446451F3DED6A0039D5E4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -322,6 +321,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		503446451F3DED6A0039D5E4 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint --config \".swiftlint.yml\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		5078C7FA1F18D665006EB23F /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
