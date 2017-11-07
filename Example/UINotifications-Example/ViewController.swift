@@ -68,7 +68,6 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         showButton.layer.cornerRadius = showButton.frame.size.height / 2
-        
     }
 
     @IBAction func didTapShowNotificationButton(_ sender: UIButton) {
