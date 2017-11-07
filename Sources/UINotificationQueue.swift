@@ -31,15 +31,27 @@ internal final class UINotificationQueue {
         self.delegate = delegate
     }
     
-    /// Adds the given notification to the queue.
+    /// Adds the given notification to the queue. If `allowDuplicates` is `false`, the returned notification request can have a cancelled state directly after creation.
     ///
-    /// - Parameter notification: The notification which is requested.
-    /// - Parameter dismissTrigger: Optional dismiss trigger to use for the animation. If `nil` the default trigger will be used.
-    /// - Returns: The notification request which is added to the queue. Can be used to `cancel()`.
-    @discardableResult func add(_ notification: UINotification, notificationViewType: UINotificationView.Type, dismissTrigger: UINotificationDismissTrigger? = nil) -> UINotificationRequest {
+    /// - Parameters:
+    ///   - notification: The notification which is requested.
+    ///   - notificationViewType: The type of `UINotificationView` to use for presenting.
+    ///   - dismissTrigger: The dismiss trigger which handles dismissing.
+    ///   - allowDuplicates: If `true`, the notification will be queued in all cases.
+    /// - Returns: The created notification request.
+    @discardableResult func add(_ notification: UINotification, notificationViewType: UINotificationView.Type, dismissTrigger: UINotificationDismissTrigger? = nil, allowDuplicates: Bool = false) -> UINotificationRequest {
         let request = UINotificationRequest(notification: notification, delegate: self, notificationViewType: notificationViewType, dismissTrigger: dismissTrigger)
+        
+        if !allowDuplicates, requests.contains(where: { (queuedRequest) -> Bool in
+            return queuedRequest.notification == request.notification
+        }) {
+            request.cancel()
+        }
+        
         lockQueue.sync {
-            requests.append(request)
+            if request.state == .idle {
+                requests.append(request)
+            }
         }
         updateRunningRequest()
         return request

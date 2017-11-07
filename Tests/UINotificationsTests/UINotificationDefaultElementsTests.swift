@@ -43,6 +43,7 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
     func testEaseOutEaseInPresenter() {
         let notificationCenter = UINotificationCenter()
         notificationCenter.presenterType = UINotificationEaseOutEaseInPresenter.self
+        notificationCenter.isDuplicateQueueingAllowed = true
         notificationCenter.show(notification: notification)
         
         let presenter = notificationCenter.currentPresenter as! UINotificationEaseOutEaseInPresenter
@@ -61,6 +62,7 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
     /// When passing a notification style with a custom height, this should be applied to the presented view.
     func testCustomNotificationViewHeight() {
         let notificationCenter = UINotificationCenter()
+        notificationCenter.isDuplicateQueueingAllowed = true
         notificationCenter.presenterType = MockPresenter.self
         let customHeight: CGFloat = 500
         let notification = UINotification(content: UINotificationContent(title: "test"), style: CustomStyle(customHeight: customHeight))
@@ -73,6 +75,7 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
     /// When using the manual dismiss trigger, the notification should only dismiss after manually called.
     func testManualDismissTrigger() {
         let notificationCenter = UINotificationCenter()
+        notificationCenter.isDuplicateQueueingAllowed = true
         notificationCenter.presenterType = MockPresenter.self
         let dismissTrigger = UINotificationManualDismissTrigger()
         
@@ -90,6 +93,7 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
     /// When a touch is within the notification UIWindow bounds, it should only be handled when inside a presented notification.
     func testNotificationWindowTouches() {
         let notificationCenter = UINotificationCenter()
+        notificationCenter.isDuplicateQueueingAllowed = true
         notificationCenter.presenterType = MockPresenter.self
         let dismissTrigger = UINotificationManualDismissTrigger()
         
