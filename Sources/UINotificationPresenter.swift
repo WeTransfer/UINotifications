@@ -23,7 +23,7 @@ public enum UINotificationPresenterState {
 }
 
 /// Defines a protocol for a UINotification presenter & dismisser.
-public protocol UINotificationPresenter: class, Dismissable {
+public protocol UINotificationPresenter: Dismissable {
     /// Provides information about an in-progress notification presentation.
     var presentationContext: UINotificationPresentationContext { get }
     

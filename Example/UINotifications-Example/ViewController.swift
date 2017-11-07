@@ -16,9 +16,9 @@ enum NotificationStyle: UINotificationStyle {
     var font: UIFont {
         switch self {
         case .success:
-            return UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+            return UIFont.systemFont(ofSize: 15, weight: .semibold)
         case .failure:
-            return UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+            return UIFont.systemFont(ofSize: 13, weight: .regular)
         }
         
     }

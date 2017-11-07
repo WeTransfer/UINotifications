@@ -33,14 +33,14 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
         
         UIView.animate(withDuration: inDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
-        }) { (_) in
+        }, completion: { (_) in
             self.state = .presented
             
             self.dismissTrigger.target = self
             if let schedulableDismissTrigger = self.dismissTrigger as? UINotificationSchedulableDismissTrigger {
                 schedulableDismissTrigger.schedule()
             }
-        }
+        })
     }
     
     public func dismiss() {
@@ -51,9 +51,9 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
         
         UIView.animate(withDuration: outDuration, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
-        }) { (_) in
+        }, completion: { (_) in
             self.state = .idle
             self.presentationContext.completePresentation()
-        }
+        })
     }
 }
