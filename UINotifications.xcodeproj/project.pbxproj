@@ -10,19 +10,19 @@
 		50124B2B1F22043C00376340 /* iconToastChevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 50124B291F2202FB00376340 /* iconToastChevron.png */; };
 		5078C79E1F18CAF5006EB23F /* UINotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5078C7941F18CAF5006EB23F /* UINotifications.framework */; };
 		5078C8301F18D9DE006EB23F /* UINotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 5078C82F1F18D9DE006EB23F /* UINotifications.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B6444291F1D0D1900A931F7 /* UINotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444201F1D0D1900A931F7 /* UINotification.swift */; };
-		5B64442A1F1D0D1900A931F7 /* UINotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444211F1D0D1900A931F7 /* UINotificationCenter.swift */; };
-		5B64442B1F1D0D1900A931F7 /* UINotificationDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444221F1D0D1900A931F7 /* UINotificationDismissTrigger.swift */; };
-		5B64442C1F1D0D1900A931F7 /* UINotificationPresentationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444231F1D0D1900A931F7 /* UINotificationPresentationContext.swift */; };
-		5B64442D1F1D0D1900A931F7 /* UINotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444241F1D0D1900A931F7 /* UINotificationPresenter.swift */; };
-		5B64442E1F1D0D1900A931F7 /* UINotificationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444251F1D0D1900A931F7 /* UINotificationQueue.swift */; };
-		5B64442F1F1D0D1900A931F7 /* UINotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444261F1D0D1900A931F7 /* UINotificationRequest.swift */; };
-		5B6444311F1D0D1900A931F7 /* UINotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444281F1D0D1900A931F7 /* UINotificationView.swift */; };
-		5B6444331F1D0D2100A931F7 /* UINotificationCallbackAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444321F1D0D2100A931F7 /* UINotificationCallbackAction.swift */; };
-		5B6444361F1D0D2D00A931F7 /* UINotificationDurationDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444341F1D0D2D00A931F7 /* UINotificationDurationDismissTrigger.swift */; };
-		5B6444371F1D0D2D00A931F7 /* UINotificationManualDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444351F1D0D2D00A931F7 /* UINotificationManualDismissTrigger.swift */; };
-		5B6444391F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444381F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift */; };
-		5B64443B1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64443A1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift */; };
+		50A96DD01FB20DF300993F5C /* UINotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DBF1FB20DF300993F5C /* UINotification.swift */; };
+		50A96DD11FB20DF300993F5C /* UINotificationCallbackAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DC11FB20DF300993F5C /* UINotificationCallbackAction.swift */; };
+		50A96DD21FB20DF300993F5C /* UINotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DC21FB20DF300993F5C /* UINotificationCenter.swift */; };
+		50A96DD31FB20DF300993F5C /* UINotificationDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DC31FB20DF300993F5C /* UINotificationDismissTrigger.swift */; };
+		50A96DD41FB20DF300993F5C /* UINotificationDurationDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DC51FB20DF300993F5C /* UINotificationDurationDismissTrigger.swift */; };
+		50A96DD51FB20DF300993F5C /* UINotificationManualDismissTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DC61FB20DF300993F5C /* UINotificationManualDismissTrigger.swift */; };
+		50A96DD61FB20DF300993F5C /* UINotificationPresentationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DC71FB20DF300993F5C /* UINotificationPresentationContext.swift */; };
+		50A96DD71FB20DF300993F5C /* UINotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DC81FB20DF300993F5C /* UINotificationPresenter.swift */; };
+		50A96DD81FB20DF300993F5C /* UINotificationEaseInOutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DCA1FB20DF300993F5C /* UINotificationEaseInOutPresenter.swift */; };
+		50A96DD91FB20DF300993F5C /* UINotificationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DCB1FB20DF300993F5C /* UINotificationQueue.swift */; };
+		50A96DDA1FB20DF300993F5C /* UINotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DCC1FB20DF300993F5C /* UINotificationRequest.swift */; };
+		50A96DDB1FB20DF300993F5C /* UINotificationSystemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DCE1FB20DF300993F5C /* UINotificationSystemStyle.swift */; };
+		50A96DDC1FB20DF300993F5C /* UINotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DCF1FB20DF300993F5C /* UINotificationView.swift */; };
 		5B64444B1F1D0E5200A931F7 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444421F1D0E5200A931F7 /* XCTestExtensions.swift */; };
 		5B64444D1F1D0E5200A931F7 /* UINotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444451F1D0E5200A931F7 /* UINotificationCenterTests.swift */; };
 		5B64444E1F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444461F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift */; };
@@ -46,19 +46,19 @@
 		5078C7941F18CAF5006EB23F /* UINotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UINotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5078C79D1F18CAF5006EB23F /* UINotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UINotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5078C82F1F18D9DE006EB23F /* UINotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UINotifications.h; path = UINotifications/UINotifications.h; sourceTree = "<group>"; };
-		5B6444201F1D0D1900A931F7 /* UINotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotification.swift; path = Sources/UINotification.swift; sourceTree = SOURCE_ROOT; };
-		5B6444211F1D0D1900A931F7 /* UINotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationCenter.swift; path = Sources/UINotificationCenter.swift; sourceTree = SOURCE_ROOT; };
-		5B6444221F1D0D1900A931F7 /* UINotificationDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationDismissTrigger.swift; path = Sources/UINotificationDismissTrigger.swift; sourceTree = SOURCE_ROOT; };
-		5B6444231F1D0D1900A931F7 /* UINotificationPresentationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationPresentationContext.swift; path = Sources/UINotificationPresentationContext.swift; sourceTree = SOURCE_ROOT; };
-		5B6444241F1D0D1900A931F7 /* UINotificationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationPresenter.swift; path = Sources/UINotificationPresenter.swift; sourceTree = SOURCE_ROOT; };
-		5B6444251F1D0D1900A931F7 /* UINotificationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationQueue.swift; path = Sources/UINotificationQueue.swift; sourceTree = SOURCE_ROOT; };
-		5B6444261F1D0D1900A931F7 /* UINotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationRequest.swift; path = Sources/UINotificationRequest.swift; sourceTree = SOURCE_ROOT; };
-		5B6444281F1D0D1900A931F7 /* UINotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationView.swift; path = Sources/UINotificationView.swift; sourceTree = SOURCE_ROOT; };
-		5B6444321F1D0D2100A931F7 /* UINotificationCallbackAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationCallbackAction.swift; path = Sources/UINotificationActions/UINotificationCallbackAction.swift; sourceTree = SOURCE_ROOT; };
-		5B6444341F1D0D2D00A931F7 /* UINotificationDurationDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationDurationDismissTrigger.swift; path = Sources/UINotificationDismissTriggers/UINotificationDurationDismissTrigger.swift; sourceTree = SOURCE_ROOT; };
-		5B6444351F1D0D2D00A931F7 /* UINotificationManualDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationManualDismissTrigger.swift; path = Sources/UINotificationDismissTriggers/UINotificationManualDismissTrigger.swift; sourceTree = SOURCE_ROOT; };
-		5B6444381F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationEaseInOutPresenter.swift; path = Sources/UINotificationPresenters/UINotificationEaseInOutPresenter.swift; sourceTree = SOURCE_ROOT; };
-		5B64443A1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINotificationSystemStyle.swift; path = Sources/UINotificationStyles/UINotificationSystemStyle.swift; sourceTree = SOURCE_ROOT; };
+		50A96DBF1FB20DF300993F5C /* UINotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotification.swift; sourceTree = "<group>"; };
+		50A96DC11FB20DF300993F5C /* UINotificationCallbackAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCallbackAction.swift; sourceTree = "<group>"; };
+		50A96DC21FB20DF300993F5C /* UINotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCenter.swift; sourceTree = "<group>"; };
+		50A96DC31FB20DF300993F5C /* UINotificationDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDismissTrigger.swift; sourceTree = "<group>"; };
+		50A96DC51FB20DF300993F5C /* UINotificationDurationDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDurationDismissTrigger.swift; sourceTree = "<group>"; };
+		50A96DC61FB20DF300993F5C /* UINotificationManualDismissTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationManualDismissTrigger.swift; sourceTree = "<group>"; };
+		50A96DC71FB20DF300993F5C /* UINotificationPresentationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationPresentationContext.swift; sourceTree = "<group>"; };
+		50A96DC81FB20DF300993F5C /* UINotificationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationPresenter.swift; sourceTree = "<group>"; };
+		50A96DCA1FB20DF300993F5C /* UINotificationEaseInOutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationEaseInOutPresenter.swift; sourceTree = "<group>"; };
+		50A96DCB1FB20DF300993F5C /* UINotificationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationQueue.swift; sourceTree = "<group>"; };
+		50A96DCC1FB20DF300993F5C /* UINotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationRequest.swift; sourceTree = "<group>"; };
+		50A96DCE1FB20DF300993F5C /* UINotificationSystemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationSystemStyle.swift; sourceTree = "<group>"; };
+		50A96DCF1FB20DF300993F5C /* UINotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationView.swift; sourceTree = "<group>"; };
 		5B64443C1F1D0D5800A931F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "UINotifications/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		5B6444421F1D0E5200A931F7 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		5B6444441F1D0E5200A931F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 				5078C82F1F18D9DE006EB23F /* UINotifications.h */,
 				5B6444401F1D0E5200A931F7 /* UINotificationsTests */,
 				5078C7951F18CAF5006EB23F /* Products */,
-				5078C7FB1F18D984006EB23F /* Source */,
+				50A96DBE1FB20DF300993F5C /* Sources */,
 				5078C7B31F18CB65006EB23F /* Supporting Files */,
 			);
 			sourceTree = "<group>";
@@ -125,54 +125,54 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5078C7FB1F18D984006EB23F /* Source */ = {
+		50A96DBE1FB20DF300993F5C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5B6444201F1D0D1900A931F7 /* UINotification.swift */,
-				5B6444211F1D0D1900A931F7 /* UINotificationCenter.swift */,
-				5B6444221F1D0D1900A931F7 /* UINotificationDismissTrigger.swift */,
-				5B6444231F1D0D1900A931F7 /* UINotificationPresentationContext.swift */,
-				5B6444241F1D0D1900A931F7 /* UINotificationPresenter.swift */,
-				5B6444251F1D0D1900A931F7 /* UINotificationQueue.swift */,
-				5B6444261F1D0D1900A931F7 /* UINotificationRequest.swift */,
-				5B6444281F1D0D1900A931F7 /* UINotificationView.swift */,
-				5078C7FD1F18D984006EB23F /* UINotificationActions */,
-				5078C8011F18D984006EB23F /* UINotificationDismissTriggers */,
-				5078C8061F18D984006EB23F /* UINotificationPresenters */,
-				5078C80A1F18D984006EB23F /* UINotificationStyles */,
+				50A96DBF1FB20DF300993F5C /* UINotification.swift */,
+				50A96DC01FB20DF300993F5C /* UINotificationActions */,
+				50A96DC21FB20DF300993F5C /* UINotificationCenter.swift */,
+				50A96DC31FB20DF300993F5C /* UINotificationDismissTrigger.swift */,
+				50A96DC41FB20DF300993F5C /* UINotificationDismissTriggers */,
+				50A96DC71FB20DF300993F5C /* UINotificationPresentationContext.swift */,
+				50A96DC81FB20DF300993F5C /* UINotificationPresenter.swift */,
+				50A96DC91FB20DF300993F5C /* UINotificationPresenters */,
+				50A96DCB1FB20DF300993F5C /* UINotificationQueue.swift */,
+				50A96DCC1FB20DF300993F5C /* UINotificationRequest.swift */,
+				50A96DCD1FB20DF300993F5C /* UINotificationStyles */,
+				50A96DCF1FB20DF300993F5C /* UINotificationView.swift */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		5078C7FD1F18D984006EB23F /* UINotificationActions */ = {
+		50A96DC01FB20DF300993F5C /* UINotificationActions */ = {
 			isa = PBXGroup;
 			children = (
-				5B6444321F1D0D2100A931F7 /* UINotificationCallbackAction.swift */,
+				50A96DC11FB20DF300993F5C /* UINotificationCallbackAction.swift */,
 			);
 			path = UINotificationActions;
 			sourceTree = "<group>";
 		};
-		5078C8011F18D984006EB23F /* UINotificationDismissTriggers */ = {
+		50A96DC41FB20DF300993F5C /* UINotificationDismissTriggers */ = {
 			isa = PBXGroup;
 			children = (
-				5B6444341F1D0D2D00A931F7 /* UINotificationDurationDismissTrigger.swift */,
-				5B6444351F1D0D2D00A931F7 /* UINotificationManualDismissTrigger.swift */,
+				50A96DC51FB20DF300993F5C /* UINotificationDurationDismissTrigger.swift */,
+				50A96DC61FB20DF300993F5C /* UINotificationManualDismissTrigger.swift */,
 			);
 			path = UINotificationDismissTriggers;
 			sourceTree = "<group>";
 		};
-		5078C8061F18D984006EB23F /* UINotificationPresenters */ = {
+		50A96DC91FB20DF300993F5C /* UINotificationPresenters */ = {
 			isa = PBXGroup;
 			children = (
-				5B6444381F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift */,
+				50A96DCA1FB20DF300993F5C /* UINotificationEaseInOutPresenter.swift */,
 			);
 			path = UINotificationPresenters;
 			sourceTree = "<group>";
 		};
-		5078C80A1F18D984006EB23F /* UINotificationStyles */ = {
+		50A96DCD1FB20DF300993F5C /* UINotificationStyles */ = {
 			isa = PBXGroup;
 			children = (
-				5B64443A1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift */,
+				50A96DCE1FB20DF300993F5C /* UINotificationSystemStyle.swift */,
 			);
 			path = UINotificationStyles;
 			sourceTree = "<group>";
@@ -356,19 +356,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B6444311F1D0D1900A931F7 /* UINotificationView.swift in Sources */,
-				5B64442E1F1D0D1900A931F7 /* UINotificationQueue.swift in Sources */,
-				5B64442C1F1D0D1900A931F7 /* UINotificationPresentationContext.swift in Sources */,
-				5B64442D1F1D0D1900A931F7 /* UINotificationPresenter.swift in Sources */,
-				5B6444331F1D0D2100A931F7 /* UINotificationCallbackAction.swift in Sources */,
-				5B64442F1F1D0D1900A931F7 /* UINotificationRequest.swift in Sources */,
-				5B64442B1F1D0D1900A931F7 /* UINotificationDismissTrigger.swift in Sources */,
-				5B6444291F1D0D1900A931F7 /* UINotification.swift in Sources */,
-				5B6444361F1D0D2D00A931F7 /* UINotificationDurationDismissTrigger.swift in Sources */,
-				5B6444371F1D0D2D00A931F7 /* UINotificationManualDismissTrigger.swift in Sources */,
-				5B6444391F1D0D3A00A931F7 /* UINotificationEaseInOutPresenter.swift in Sources */,
-				5B64442A1F1D0D1900A931F7 /* UINotificationCenter.swift in Sources */,
-				5B64443B1F1D0D3F00A931F7 /* UINotificationSystemStyle.swift in Sources */,
+				50A96DD21FB20DF300993F5C /* UINotificationCenter.swift in Sources */,
+				50A96DD81FB20DF300993F5C /* UINotificationEaseInOutPresenter.swift in Sources */,
+				50A96DD41FB20DF300993F5C /* UINotificationDurationDismissTrigger.swift in Sources */,
+				50A96DD01FB20DF300993F5C /* UINotification.swift in Sources */,
+				50A96DD31FB20DF300993F5C /* UINotificationDismissTrigger.swift in Sources */,
+				50A96DDB1FB20DF300993F5C /* UINotificationSystemStyle.swift in Sources */,
+				50A96DDC1FB20DF300993F5C /* UINotificationView.swift in Sources */,
+				50A96DD61FB20DF300993F5C /* UINotificationPresentationContext.swift in Sources */,
+				50A96DD91FB20DF300993F5C /* UINotificationQueue.swift in Sources */,
+				50A96DDA1FB20DF300993F5C /* UINotificationRequest.swift in Sources */,
+				50A96DD71FB20DF300993F5C /* UINotificationPresenter.swift in Sources */,
+				50A96DD51FB20DF300993F5C /* UINotificationManualDismissTrigger.swift in Sources */,
+				50A96DD11FB20DF300993F5C /* UINotificationCallbackAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

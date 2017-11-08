@@ -25,6 +25,9 @@ public final class UINotificationCenter {
     /// Changing the window level while a notification is displayed might give some issues.
     public var windowLevel: UIWindowLevel = UIWindowLevelStatusBar
     
+    /// If `true`, the same notifications can be queued. This can result in duplicate notifications being presented after each other.
+    public var isDuplicateQueueingAllowed: Bool = false
+    
     // MARK: Private properties
     
     /// The window which will be placed on top of the application window.
@@ -52,7 +55,7 @@ public final class UINotificationCenter {
     /// - Parameter dismissTrigger: Optional dismiss trigger to use for the animation. If `nil` the default trigger will be used.
     /// - Returns: An `UINotificationRequest` for the requested notification presentation. Can be cancelled using `cancel()`.
     @discardableResult public func show(notification: UINotification, notificationViewType: UINotificationView.Type? = nil, dismissTrigger: UINotificationDismissTrigger? = nil) -> UINotificationRequest {
-        return queue.add(notification, notificationViewType: notificationViewType ?? self.defaultNotificationViewType, dismissTrigger: dismissTrigger)
+        return queue.add(notification, notificationViewType: notificationViewType ?? defaultNotificationViewType, dismissTrigger: dismissTrigger, allowDuplicates: isDuplicateQueueingAllowed)
     }
     
 }

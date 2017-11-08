@@ -55,7 +55,7 @@ protocol UINotificationDelegate: class {
 }
 
 /// An UINotification which can be showed on top of the `UINavigationBar` and `UIStatusBar`
-public final class UINotification {
+public final class UINotification: Equatable {
     
     /// The content of the notification.
     public var content: UINotificationContent
@@ -79,13 +79,21 @@ public final class UINotification {
         self.content = content
         delegate?.didUpdateContent(in: self)
     }
+    
+    static public func == (lhs: UINotification, rhs: UINotification) -> Bool {
+        return lhs.content == rhs.content
+    }
 }
 
-public struct UINotificationContent {
+public struct UINotificationContent: Equatable {
     /// The title which will be showed inside the notification.
     public let title: String
     
     public init(title: String) {
         self.title = title
+    }
+    
+    static public func == (lhs: UINotificationContent, rhs: UINotificationContent) -> Bool {
+        return lhs.title == rhs.title
     }
 }

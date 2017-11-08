@@ -142,6 +142,15 @@ UINotificationCenter.current.presenterType = MyCustomPresenter.self
 
 *Checkout `UINotificationEaseOutEaseInPresenter` for an example.*
 
+### Allow duplicate requests
+By default, notifications which are already queued will not be queued again. This is to prevent an endless loop of notifications being presented if they occur quickly after each other.
+
+To disable this setting:
+
+```swift
+UINotificationCenter.current.isDuplicateQueueingAllowed = true
+```
+
 ## Communication
 
 - If you **found a bug**, open an issue.

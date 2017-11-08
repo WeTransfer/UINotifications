@@ -16,9 +16,9 @@ enum NotificationStyle: UINotificationStyle {
     var font: UIFont {
         switch self {
         case .success:
-            return UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+            return UIFont.systemFont(ofSize: 15, weight: .semibold)
         case .failure:
-            return UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+            return UIFont.systemFont(ofSize: 13, weight: .regular)
         }
         
     }
@@ -68,7 +68,6 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         showButton.layer.cornerRadius = showButton.frame.size.height / 2
-        
     }
 
     @IBAction func didTapShowNotificationButton(_ sender: UIButton) {
