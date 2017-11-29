@@ -18,9 +18,9 @@ public protocol UINotificationAction {
 public protocol UINotificationStyle {
     var titleFont: UIFont { get }
     var subtitleFont: UIFont { get }
-    var backgroundColor: UIColor { get }
     var titleTextColor: UIColor { get }
     var subtitleTextColor: UIColor { get }
+    var backgroundColor: UIColor { get }
     
     /// The height of the notification which applies on the notification view.
     var height: UINotificationHeight { get }

@@ -11,7 +11,7 @@ import XCTest
 @testable import UINotifications
 
 class UINotificationTestCase: XCTestCase {
-    internal let notification = UINotification(content: UINotificationContent(title: ""))
+    internal let notification = UINotification(content: UINotificationContent(title: "", subtitle: "", image: nil))
     
     internal final class MockNotificationView: UINotificationView { }
     internal final class MockPresenter: UINotificationPresenter {

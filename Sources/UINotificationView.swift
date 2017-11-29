@@ -35,10 +35,10 @@ open class UINotificationView: UIView {
         return stackView
     }()
     
-    lazy private var titlesStackView: UIStackView = {
+    lazy private(set) open var titlesStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [self.titleLabel, self.subtitleLabel])
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .fill
         return stackView
@@ -101,7 +101,7 @@ open class UINotificationView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = true
         
-        layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        layoutMargins = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         
         addSubview(containerStackView)
         
@@ -141,7 +141,7 @@ open class UINotificationView: UIView {
         let constraints = [
             containerStackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor, constant: 18),
             containerStackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor, constant: -18),
-            containerStackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 4),
+            containerStackView.topAnchor.constraint(equalTo: topAnchor, constant: layoutMargins.top),
             containerStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: 0),
             
             chevronImageView.widthAnchor.constraint(equalToConstant: chevronImageView.image?.size.width ?? 0),
