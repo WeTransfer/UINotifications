@@ -65,7 +65,7 @@ open class UINotificationView: UIView {
     }
     
     // MARK: Setup
-    internal func setupView() {
+    open func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = true
         
