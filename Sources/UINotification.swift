@@ -16,9 +16,11 @@ public protocol UINotificationAction {
 
 /// Defines a style which will be applied on the notification view.
 public protocol UINotificationStyle {
-    var font: UIFont { get }
+    var titleFont: UIFont { get }
+    var subtitleFont: UIFont { get }
     var backgroundColor: UIColor { get }
-    var textColor: UIColor { get }
+    var titleTextColor: UIColor { get }
+    var subtitleTextColor: UIColor { get }
     
     /// The height of the notification which applies on the notification view.
     var height: UINotificationHeight { get }
@@ -89,8 +91,16 @@ public struct UINotificationContent: Equatable {
     /// The title which will be showed inside the notification.
     public let title: String
     
-    public init(title: String) {
+    /// The subtitle which will be showed under the main title. Will be hidden if `nil`.
+    public let subtitle: String?
+    
+    /// The image which will be shown inside the notification. Will be hidden if `nil`.
+    public let image: UIImage?
+    
+    public init(title: String, subtitle: String? = nil, image: UIImage? = nil) {
         self.title = title
+        self.subtitle = subtitle
+        self.image = image
     }
     
     static public func == (lhs: UINotificationContent, rhs: UINotificationContent) -> Bool {
