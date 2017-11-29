@@ -36,7 +36,7 @@ To run the example project, clone the repo, and open `UINotifications-Example.xc
 
 | Success styling        | Failure styling       |
 | ------------- |:-------------:|
-| ![Albums list](Assets/success_notification.jpg?) | ![Camera Roll](Assets/fail_notification.jpg?) |
+| ![Success](Assets/success_notification.jpg?) | ![Failure](Assets/fail_notification.jpg?) |
 
 ## Requirements
 - Swift 3.0, 3.1, 3.2
