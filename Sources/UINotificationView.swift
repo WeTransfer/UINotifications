@@ -19,17 +19,50 @@ open class UINotificationView: UIView {
     /// Will be set by the presenter. Is used to animate the notification view with a pan gesture.
     var topConstraint: NSLayoutConstraint?
     
-    /// The left and right margin of the contents.
-    private let leftRightMargin: CGFloat = 20
-    
     /// The limit of translation before we will dismiss the notification.
     internal let translationDismissLimit: CGFloat = -15
     
     // MARK: UI Elements
+    /// Saved to use for resetting the spacing after an image is shown or hidden.
+    private let containerStackViewDefaultSpacing: CGFloat = 14
+    
+    lazy private var containerStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [self.imageView, self.titlesStackView, self.chevronImageView])
+        stackView.axis = .horizontal
+        stackView.spacing = self.containerStackViewDefaultSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .center
+        return stackView
+    }()
+    
+    lazy private(set) open var titlesStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [self.titleLabel, self.subtitleLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .fill
+        return stackView
+    }()
+    
     lazy public var titleLabel: UILabel = {
-        let label = UILabel(frame: CGRect.zero)
+        let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    lazy public var subtitleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy public var imageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 5
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
     lazy public var chevronImageView: UIImageView = {
@@ -65,14 +98,13 @@ open class UINotificationView: UIView {
     }
     
     // MARK: Setup
-    internal func setupView() {
+    open func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = true
         
-        layoutMargins = UIEdgeInsets(top: 0, left: leftRightMargin, bottom: 0, right: leftRightMargin)
+        layoutMargins = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         
-        addSubview(titleLabel)
-        addSubview(chevronImageView)
+        addSubview(containerStackView)
         
         setupConstraints()
         updateForNotificationData()
@@ -82,12 +114,22 @@ open class UINotificationView: UIView {
     
     open func updateForNotificationData() {
         titleLabel.text = notification.content.title
+        titleLabel.font = notification.style.titleFont
+        titleLabel.textColor = notification.style.titleTextColor
         
-        titleLabel.font = notification.style.font
-        titleLabel.textColor = notification.style.textColor
+        subtitleLabel.text = notification.content.subtitle
+        subtitleLabel.font = notification.style.subtitleFont
+        subtitleLabel.textColor = notification.style.subtitleTextColor
+        
+        imageView.image = notification.content.image
+        imageView.isHidden = notification.content.image == nil
+        
+        let chevronImageWidth = chevronImageView.image?.size.width ?? 0
+        containerStackView.spacing = imageView.isHidden ? -chevronImageWidth : containerStackViewDefaultSpacing
+        
         backgroundColor = notification.style.backgroundColor
         
-        chevronImageView.tintColor = notification.style.textColor
+        chevronImageView.tintColor = notification.style.titleTextColor
         chevronImageView.isHidden = notification.action == nil
         
         panGestureRecognizer.isEnabled = notification.style.interactive
@@ -97,19 +139,18 @@ open class UINotificationView: UIView {
     /// Called when all constraints should be setup for the notification. Can be overwritten to set your own constraints.
     /// When setting your own constraints, you should not be calling super.
     open func setupConstraints() {
-        let hasAction = notification.action != nil
         let constraints = [
-            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: leftRightMargin),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            chevronImageView.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: leftRightMargin),
-            chevronImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: hasAction ? -leftRightMargin : 0),
-            chevronImageView.widthAnchor.constraint(equalToConstant: hasAction ? (notification.style.chevronImage?.size.width ?? 0) : 0).usingPriority(UILayoutPriority.defaultLow),
-            chevronImageView.widthAnchor.constraint(lessThanOrEqualToConstant: 20),
-            chevronImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 20),
-            chevronImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            containerStackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor, constant: 18),
+            containerStackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor, constant: -18),
+            containerStackView.topAnchor.constraint(equalTo: topAnchor, constant: layoutMargins.top),
+            containerStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: 0),
+            
+            chevronImageView.widthAnchor.constraint(equalToConstant: chevronImageView.image?.size.width ?? 0),
+            
+            imageView.widthAnchor.constraint(equalToConstant: 31),
+            imageView.heightAnchor.constraint(equalToConstant: 31)
         ]
-        
+
         NSLayoutConstraint.activate(constraints)
     }
     

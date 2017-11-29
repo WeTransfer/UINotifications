@@ -10,6 +10,8 @@
 - It's possible to override the default notification view.
 - Cancellation is now only possible when the notification request is not yet running.
 - Better state representation for `UINotificationPresenter`.
+- Support for showing an image.
+- Support for showing a subtitle.
 
 ### 1.0 (2017-07-14)
 

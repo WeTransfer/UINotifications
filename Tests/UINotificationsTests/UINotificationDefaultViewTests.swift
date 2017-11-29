@@ -66,29 +66,23 @@ final class UINotificationViewTests: UINotificationTestCase {
         let notificationView = UINotificationView(notification: notification)
         
         XCTAssert(notificationView.titleLabel.text == notification.content.title, "Title should match initial content")
+        XCTAssert(notificationView.subtitleLabel.text == notification.content.subtitle, "Subtitle should match initial content")
         
-        let updatedContent = UINotificationContent(title: "Updated title")
+        let updatedContent = UINotificationContent(title: "Updated title", subtitle: "Updated subtitle", image: LargeChevronStyle().chevronImage)
         notification.update(updatedContent)
         
         XCTAssert(notificationView.titleLabel.text == updatedContent.title, "Title of the notification view should update accordingly")
-    }
-    
-    /// It should size the chevron image correctly.
-    func testChevronImageSizes() {
-        
-        let content = UINotificationContent(title: "title")
-        let style = LargeChevronStyle()
-        let notification = UINotification(content: content, style: style, action: nil)
-        let notificationView = UINotificationView(notification: notification)
-        notificationView.layoutIfNeeded()
-        XCTAssert(notificationView.chevronImageView.bounds.size != style.chevronImage!.size, "Size should not inherit from the chevron image, but keep the designed size.")
+        XCTAssert(notificationView.subtitleLabel.text == updatedContent.subtitle, "Subtitle of the notification view should update accordingly")
+        XCTAssert(notificationView.imageView.image == updatedContent.image, "Image of the notification view should update accordingly")
     }
 }
 
 private struct LargeChevronStyle: UINotificationStyle {
-    var font: UIFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
+    var titleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
+    var subtitleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
+    var titleTextColor: UIColor = UIColor.black
+    var subtitleTextColor: UIColor = UIColor.black
     var backgroundColor: UIColor = UIColor.white
-    var textColor: UIColor = UIColor.black
     var height: UINotificationHeight {
         return UINotificationHeight.navigationBar
     }

@@ -13,26 +13,39 @@ enum NotificationStyle: UINotificationStyle {
     case success
     case failure
     
-    var font: UIFont {
+    var titleFont: UIFont {
         switch self {
         case .success:
-            return UIFont.systemFont(ofSize: 15, weight: .semibold)
+            return .systemFont(ofSize: 15, weight: .semibold)
         case .failure:
-            return UIFont.systemFont(ofSize: 13, weight: .regular)
+            return .systemFont(ofSize: 13, weight: .regular)
         }
-        
     }
+    
+    var subtitleFont: UIFont {
+        return .systemFont(ofSize: 13, weight: .regular)
+    }
+    
+    var titleTextColor: UIColor {
+        switch self {
+        case .success:
+            return .black
+        case .failure:
+            return .white
+        }
+    }
+    
+    var subtitleTextColor: UIColor {
+        return .darkGray
+    }
+    
     var backgroundColor: UIColor {
         switch self {
         case .success:
-            return #colorLiteral(red: 0.4549019608, green: 0.8509803922, blue: 0.5215686275, alpha: 1)
+            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         case .failure:
             return #colorLiteral(red: 1, green: 0.431372549, blue: 0.431372549, alpha: 1)
         }
-        
-    }
-    var textColor: UIColor {
-        return UIColor.white
     }
     
     /// The height of the notification which applies on the notification view.
@@ -57,11 +70,13 @@ enum NotificationStyle: UINotificationStyle {
 
 final class ViewController: UIViewController {
 
-    @IBOutlet private weak var contentTextField: UITextField!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var subtitleTextField: UITextField!
     @IBOutlet private weak var showButton: UIButton!
     
     @IBOutlet private weak var automaticallyDismissSwitch: UISwitch!
     @IBOutlet private weak var addActionSwitch: UISwitch!
+    @IBOutlet private weak var showsImageSwitch: UISwitch!
     @IBOutlet private weak var successStyleSwitch: UISwitch!
     
     override func viewDidLoad() {
@@ -71,10 +86,12 @@ final class ViewController: UIViewController {
     }
 
     @IBAction func didTapShowNotificationButton(_ sender: UIButton) {
-        let content = contentTextField.text?.isEmpty == true ? "Default content" : (contentTextField.text ?? "")
+        let title = titleTextField.text?.isEmpty == true ? "Default title" : (titleTextField.text ?? "")
+        let subtitle = subtitleTextField.text?.isEmpty == true ? "Default subtitle" : (subtitleTextField.text ?? "")
         var action: UINotificationAction?
         var dismissTrigger: UINotificationDismissTrigger = UINotificationDurationDismissTrigger(duration: 2.0)
         let style = successStyleSwitch.isOn ? NotificationStyle.success : NotificationStyle.failure
+        let image: UIImage? = showsImageSwitch.isOn ? #imageLiteral(resourceName: "banner") : nil
         
         if automaticallyDismissSwitch.isOn == false {
             dismissTrigger = UINotificationManualDismissTrigger()
@@ -86,7 +103,7 @@ final class ViewController: UIViewController {
             })
         }
         
-        let notification = UINotification(content: UINotificationContent(title: content), style: style, action: action)
+        let notification = UINotification(content: UINotificationContent(title: title, subtitle: subtitle, image: image), style: style, action: action)
         
         UINotificationCenter.current.show(notification: notification, dismissTrigger: dismissTrigger)
     }
