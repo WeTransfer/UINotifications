@@ -23,10 +23,13 @@ open class UINotificationView: UIView {
     internal let translationDismissLimit: CGFloat = -15
     
     // MARK: UI Elements
+    /// Saved to use for resetting the spacing after an image is shown or hidden.
+    private let containerStackViewDefaultSpacing: CGFloat = 14
+    
     lazy private var containerStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [self.titlesStackView, self.chevronImageView])
+        let stackView = UIStackView(arrangedSubviews: [self.imageView, self.titlesStackView, self.chevronImageView])
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = self.containerStackViewDefaultSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
         return stackView
@@ -37,20 +40,28 @@ open class UINotificationView: UIView {
         stackView.axis = .vertical
         stackView.spacing = 4
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.alignment = .center
+        stackView.alignment = .fill
         return stackView
     }()
     
     lazy public var titleLabel: UILabel = {
-        let label = UILabel(frame: CGRect.zero)
+        let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy public var subtitleLabel: UILabel = {
-        let label = UILabel(frame: CGRect.zero)
+        let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    lazy public var imageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 5
+        imageView.clipsToBounds = true
+        return imageView
     }()
     
     lazy public var chevronImageView: UIImageView = {
@@ -109,6 +120,12 @@ open class UINotificationView: UIView {
         subtitleLabel.font = notification.style.subtitleFont
         subtitleLabel.textColor = notification.style.subtitleTextColor
         
+        imageView.image = notification.content.image
+        imageView.isHidden = notification.content.image == nil
+        
+        let chevronImageWidth = chevronImageView.image?.size.width ?? 0
+        containerStackView.spacing = imageView.isHidden ? -chevronImageWidth : containerStackViewDefaultSpacing
+        
         backgroundColor = notification.style.backgroundColor
         
         chevronImageView.tintColor = notification.style.titleTextColor
@@ -125,9 +142,14 @@ open class UINotificationView: UIView {
             containerStackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor, constant: 18),
             containerStackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor, constant: -18),
             containerStackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 4),
-            containerStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: 0)
+            containerStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: 0),
+            
+            chevronImageView.widthAnchor.constraint(equalToConstant: chevronImageView.image?.size.width ?? 0),
+            
+            imageView.widthAnchor.constraint(equalToConstant: 31),
+            imageView.heightAnchor.constraint(equalToConstant: 31)
         ]
-        
+
         NSLayoutConstraint.activate(constraints)
     }
     
