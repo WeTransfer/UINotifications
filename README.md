@@ -34,8 +34,9 @@
 
 To run the example project, clone the repo, and open `UINotifications-Example.xcodeproj` from the Example directory.
 
-![Albums list](Assets/succes_notification.jpg)
-![Camera Roll](Assets/failure_notification.jpg)
+| Success styling        | Failure styling       |
+| ------------- |:-------------:|
+| ![Albums list](Assets/succes_notification.jpg) | ![Camera Roll](Assets/failure_notification.jpg) |
 
 ## Requirements
 - Swift 3.0, 3.1, 3.2
@@ -49,7 +50,7 @@ To run the example project, clone the repo, and open `UINotifications-Example.xc
 ```swift
 import UINotifications
 
-let content = UINotificationContent(title: "My Custom Text", chevronImage: UIImage(named: "MyChevron"))
+let content = UINotificationContent(title: "My Custom Text", subtitle: "My subtitle", image: UIImage(named: "MyImage"))
 let notification = UINotification(content: content, action: UINotificationCallbackAction(callback: {
     print("Tapped the notification!")
 }))
@@ -65,29 +66,42 @@ import UINotifications
 enum CustomNotificationStyle: UINotificationStyle {
     case success
     case failure
-
-    var font: UIFont {
+    
+    var titleFont: UIFont {
         switch self {
         case .success:
-            return UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+            return .systemFont(ofSize: 15, weight: .semibold)
         case .failure:
-            return UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+            return .systemFont(ofSize: 13, weight: .regular)
         }
-
     }
+    
+    var subtitleFont: UIFont {
+        return .systemFont(ofSize: 13, weight: .regular)
+    }
+    
+    var titleTextColor: UIColor {
+        switch self {
+        case .success:
+            return .black
+        case .failure:
+            return .white
+        }
+    }
+    
+    var subtitleTextColor: UIColor {
+        return .darkGray
+    }
+    
     var backgroundColor: UIColor {
         switch self {
         case .success:
-            return UIColor.green
+            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         case .failure:
-            return UIColor.red
+            return #colorLiteral(red: 1, green: 0.431372549, blue: 0.431372549, alpha: 1)
         }
-
     }
-    var textColor: UIColor {
-        return UIColor.white
-    }
-
+    
     /// The height of the notification which applies on the notification view.
     var height: UINotificationHeight {
         switch self {
@@ -97,10 +111,14 @@ enum CustomNotificationStyle: UINotificationStyle {
             return UINotificationHeight.statusBar
         }
     }
-
+    
     /// When `true`, the notification is swipeable and tappable.
     var interactive: Bool {
         return true
+    }
+    
+    var chevronImage: UIImage? {
+        return #imageLiteral(resourceName: "iconToastChevron")
     }
 }
 ```
