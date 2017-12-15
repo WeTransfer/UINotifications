@@ -29,8 +29,12 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
         guard state == .idle else { return }
         state = .presenting
         
-        presentationContext.notificationView.topConstraint?.constant = 0
-        
+        if #available(iOS 11.0, *) {
+            presentationContext.notificationView.topConstraint?.constant = 0
+        } else {
+            presentationContext.notificationView.topConstraint?.constant = presentationContext.notificationView.layoutMargins.top + UIApplication.shared.statusBarFrame.size.height
+        }
+
         UIView.animate(withDuration: inDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
         }, completion: { (_) in

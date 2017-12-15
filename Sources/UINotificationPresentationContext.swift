@@ -63,7 +63,14 @@ public final class UINotificationPresentationContext {
         containerViewController.view.addSubview(notificationView)
         containerWindow.rootViewController = containerViewController
         
-        let notificationViewTopConstraint = notificationView.topAnchor.constraint(equalTo: containerViewController.view.topAnchor, constant: -notification.style.height.value)
+        /// Set the top constraint.
+        var notificationViewTopConstraint = notificationView.topAnchor.constraint(equalTo: containerViewController.view.topAnchor, constant: -notification.style.height.value)
+        
+        /// For iPhone X we need to use the safe area layout guide, which is only available in iOS 11 and up.
+        if #available(iOS 11.0, *) {
+            notificationViewTopConstraint = notificationView.topAnchor.constraint(equalTo: containerViewController.view.safeAreaLayoutGuide.topAnchor, constant: -notification.style.height.value)
+        }
+        
         notificationView.topConstraint = notificationViewTopConstraint
         
         let constraints = [
