@@ -12,6 +12,7 @@
 - Better state representation for `UINotificationPresenter`.
 - Support for showing an image.
 - Support for showing a subtitle.
+- Support for iPhone X
 
 ### 1.0 (2017-07-14)
 
