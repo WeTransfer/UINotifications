@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50124B2B1F22043C00376340 /* iconToastChevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 50124B291F2202FB00376340 /* iconToastChevron.png */; };
 		5078C79E1F18CAF5006EB23F /* UINotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5078C7941F18CAF5006EB23F /* UINotifications.framework */; };
 		5078C8301F18D9DE006EB23F /* UINotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 5078C82F1F18D9DE006EB23F /* UINotifications.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50A96DD01FB20DF300993F5C /* UINotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DBF1FB20DF300993F5C /* UINotification.swift */; };
@@ -23,12 +22,12 @@
 		50A96DDA1FB20DF300993F5C /* UINotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DCC1FB20DF300993F5C /* UINotificationRequest.swift */; };
 		50A96DDB1FB20DF300993F5C /* UINotificationSystemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DCE1FB20DF300993F5C /* UINotificationSystemStyle.swift */; };
 		50A96DDC1FB20DF300993F5C /* UINotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A96DCF1FB20DF300993F5C /* UINotificationView.swift */; };
-		5B64444B1F1D0E5200A931F7 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444421F1D0E5200A931F7 /* XCTestExtensions.swift */; };
-		5B64444D1F1D0E5200A931F7 /* UINotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444451F1D0E5200A931F7 /* UINotificationCenterTests.swift */; };
-		5B64444E1F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444461F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift */; };
-		5B64444F1F1D0E5200A931F7 /* UINotificationDefaultViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444471F1D0E5200A931F7 /* UINotificationDefaultViewTests.swift */; };
-		5B6444501F1D0E5200A931F7 /* UINotificationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6444481F1D0E5200A931F7 /* UINotificationQueueTests.swift */; };
-		5B6444521F1D0E5200A931F7 /* UINotificationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64444A1F1D0E5200A931F7 /* UINotificationTestCase.swift */; };
+		50D460802065421600A85D93 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D460782065421600A85D93 /* XCTestExtensions.swift */; };
+		50D460822065421600A85D93 /* UINotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4607B2065421600A85D93 /* UINotificationCenterTests.swift */; };
+		50D460832065421600A85D93 /* UINotificationDefaultElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4607C2065421600A85D93 /* UINotificationDefaultElementsTests.swift */; };
+		50D460842065421600A85D93 /* UINotificationDefaultViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4607D2065421600A85D93 /* UINotificationDefaultViewTests.swift */; };
+		50D460852065421600A85D93 /* UINotificationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4607E2065421600A85D93 /* UINotificationQueueTests.swift */; };
+		50D460862065421600A85D93 /* UINotificationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4607F2065421600A85D93 /* UINotificationTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		50124B291F2202FB00376340 /* iconToastChevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconToastChevron.png; sourceTree = "<group>"; };
 		5078C7941F18CAF5006EB23F /* UINotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UINotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5078C79D1F18CAF5006EB23F /* UINotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UINotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5078C82F1F18D9DE006EB23F /* UINotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UINotifications.h; path = UINotifications/UINotifications.h; sourceTree = "<group>"; };
@@ -59,14 +57,14 @@
 		50A96DCC1FB20DF300993F5C /* UINotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationRequest.swift; sourceTree = "<group>"; };
 		50A96DCE1FB20DF300993F5C /* UINotificationSystemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationSystemStyle.swift; sourceTree = "<group>"; };
 		50A96DCF1FB20DF300993F5C /* UINotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationView.swift; sourceTree = "<group>"; };
+		50D460782065421600A85D93 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
+		50D4607A2065421600A85D93 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50D4607B2065421600A85D93 /* UINotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCenterTests.swift; sourceTree = "<group>"; };
+		50D4607C2065421600A85D93 /* UINotificationDefaultElementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDefaultElementsTests.swift; sourceTree = "<group>"; };
+		50D4607D2065421600A85D93 /* UINotificationDefaultViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDefaultViewTests.swift; sourceTree = "<group>"; };
+		50D4607E2065421600A85D93 /* UINotificationQueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationQueueTests.swift; sourceTree = "<group>"; };
+		50D4607F2065421600A85D93 /* UINotificationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationTestCase.swift; sourceTree = "<group>"; };
 		5B64443C1F1D0D5800A931F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "UINotifications/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
-		5B6444421F1D0E5200A931F7 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
-		5B6444441F1D0E5200A931F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B6444451F1D0E5200A931F7 /* UINotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationCenterTests.swift; sourceTree = "<group>"; };
-		5B6444461F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDefaultElementsTests.swift; sourceTree = "<group>"; };
-		5B6444471F1D0E5200A931F7 /* UINotificationDefaultViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationDefaultViewTests.swift; sourceTree = "<group>"; };
-		5B6444481F1D0E5200A931F7 /* UINotificationQueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationQueueTests.swift; sourceTree = "<group>"; };
-		5B64444A1F1D0E5200A931F7 /* UINotificationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINotificationTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,21 +86,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		50124B281F2202FB00376340 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				50124B291F2202FB00376340 /* iconToastChevron.png */,
-			);
-			name = Resources;
-			path = UINotifications/Resources;
-			sourceTree = SOURCE_ROOT;
-		};
 		5078C78A1F18CAF5006EB23F = {
 			isa = PBXGroup;
 			children = (
 				5078C82F1F18D9DE006EB23F /* UINotifications.h */,
-				5B6444401F1D0E5200A931F7 /* UINotificationsTests */,
 				5078C7951F18CAF5006EB23F /* Products */,
+				50D460762065421600A85D93 /* UINotificationsTests */,
 				50A96DBE1FB20DF300993F5C /* Sources */,
 				5078C7B31F18CB65006EB23F /* Supporting Files */,
 			);
@@ -177,34 +166,32 @@
 			path = UINotificationStyles;
 			sourceTree = "<group>";
 		};
-		5B6444401F1D0E5200A931F7 /* UINotificationsTests */ = {
+		50D460762065421600A85D93 /* UINotificationsTests */ = {
 			isa = PBXGroup;
 			children = (
-				50124B281F2202FB00376340 /* Resources */,
-				5B6444411F1D0E5200A931F7 /* Extensions */,
-				5B6444431F1D0E5200A931F7 /* Supporting Files */,
-				5B6444451F1D0E5200A931F7 /* UINotificationCenterTests.swift */,
-				5B6444461F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift */,
-				5B6444471F1D0E5200A931F7 /* UINotificationDefaultViewTests.swift */,
-				5B6444481F1D0E5200A931F7 /* UINotificationQueueTests.swift */,
-				5B64444A1F1D0E5200A931F7 /* UINotificationTestCase.swift */,
+				50D460772065421600A85D93 /* Extensions */,
+				50D460792065421600A85D93 /* Supporting Files */,
+				50D4607B2065421600A85D93 /* UINotificationCenterTests.swift */,
+				50D4607C2065421600A85D93 /* UINotificationDefaultElementsTests.swift */,
+				50D4607D2065421600A85D93 /* UINotificationDefaultViewTests.swift */,
+				50D4607E2065421600A85D93 /* UINotificationQueueTests.swift */,
+				50D4607F2065421600A85D93 /* UINotificationTestCase.swift */,
 			);
-			name = UINotificationsTests;
-			path = Tests/UINotificationsTests;
+			path = UINotificationsTests;
 			sourceTree = "<group>";
 		};
-		5B6444411F1D0E5200A931F7 /* Extensions */ = {
+		50D460772065421600A85D93 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5B6444421F1D0E5200A931F7 /* XCTestExtensions.swift */,
+				50D460782065421600A85D93 /* XCTestExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		5B6444431F1D0E5200A931F7 /* Supporting Files */ = {
+		50D460792065421600A85D93 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5B6444441F1D0E5200A931F7 /* Info.plist */,
+				50D4607A2065421600A85D93 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -314,7 +301,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50124B2B1F22043C00376340 /* iconToastChevron.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +333,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint --config \".swiftlint.yml\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [ -z \"$CI\" ]; then\n    if which swiftlint >/dev/null; then\n        swiftlint --config \"${SRCROOT}/Submodules/WeTransfer-iOS-CI/SwiftLint/.swiftlint-source.yml\"\n        swiftlint --config \"${SRCROOT}/Submodules/WeTransfer-iOS-CI/SwiftLint/.swiftlint-tests.yml\"\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -376,12 +362,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B64444B1F1D0E5200A931F7 /* XCTestExtensions.swift in Sources */,
-				5B6444521F1D0E5200A931F7 /* UINotificationTestCase.swift in Sources */,
-				5B64444D1F1D0E5200A931F7 /* UINotificationCenterTests.swift in Sources */,
-				5B6444501F1D0E5200A931F7 /* UINotificationQueueTests.swift in Sources */,
-				5B64444E1F1D0E5200A931F7 /* UINotificationDefaultElementsTests.swift in Sources */,
-				5B64444F1F1D0E5200A931F7 /* UINotificationDefaultViewTests.swift in Sources */,
+				50D460802065421600A85D93 /* XCTestExtensions.swift in Sources */,
+				50D460822065421600A85D93 /* UINotificationCenterTests.swift in Sources */,
+				50D460852065421600A85D93 /* UINotificationQueueTests.swift in Sources */,
+				50D460832065421600A85D93 /* UINotificationDefaultElementsTests.swift in Sources */,
+				50D460862065421600A85D93 /* UINotificationTestCase.swift in Sources */,
+				50D460842065421600A85D93 /* UINotificationDefaultViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
