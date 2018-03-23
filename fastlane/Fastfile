@@ -1,0 +1,30 @@
+# More documentation about how to customize your build
+# can be found here:
+# https://docs.fastlane.tools
+fastlane_version "1.109.0"
+
+# This value helps us track success metrics for Fastfiles
+# we automatically generate. Feel free to remove this line
+# once you get things running smoothly!
+generated_fastfile_id "0121e253-f9e2-40ac-b489-f17f36e24ec6"
+
+import "./../Submodules/WeTransfer-iOS-CI/Fastlane/Fastfile"
+
+desc "Clean the derived data, run tests validate the changes"
+lane :test do |options|
+  # clear_derived_data
+
+  # Set timeout to prevent xcodebuild -list -project to take to much retries.
+  ENV["FASTLANE_XCODE_LIST_TIMEOUT"] = "120"
+
+  scan(
+    scheme: options[:project_name],
+    project: "#{options[:project_name]}.xcodeproj",
+    device: "iPhone 7",
+    clean: true,
+    code_coverage: true,
+    formatter: "xcpretty-json-formatter"
+  )
+
+  validate_changes(project_name: options[:project_name])
+end

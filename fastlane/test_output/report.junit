@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='WeScanTests.xctest' tests='14' failures='0'>
+  <testsuite name='WeScanTests.ArrayTests' tests='1' failures='0'>
+    <testcase classname='WeScanTests.ArrayTests' name='testBiggestRectangle' time='3.511'/>
+  </testsuite>
+  <testsuite name='WeScanTests.CGPointTests' tests='2' failures='0'>
+    <testcase classname='WeScanTests.CGPointTests' name='testIsWithinDelta' time='0.001'/>
+    <testcase classname='WeScanTests.CGPointTests' name='testSurroundingRect' time='0.001'/>
+  </testsuite>
+  <testsuite name='WeScanTests.CGRectTests' tests='1' failures='0'>
+    <testcase classname='WeScanTests.CGRectTests' name='testScaleAndCenter' time='0.001'/>
+  </testsuite>
+  <testsuite name='WeScanTests.QuadrilateralTests' tests='4' failures='0'>
+    <testcase classname='WeScanTests.QuadrilateralTests' name='testEquatable' time='0.001'/>
+    <testcase classname='WeScanTests.QuadrilateralTests' name='testReorganize' time='0.002'/>
+    <testcase classname='WeScanTests.QuadrilateralTests' name='testScaleFixRotation' time='0.001'/>
+    <testcase classname='WeScanTests.QuadrilateralTests' name='testSquale' time='0.001'/>
+  </testsuite>
+  <testsuite name='WeScanTests.RectangleFeaturesFunnelTests' tests='6' failures='0'>
+    <testcase classname='WeScanTests.RectangleFeaturesFunnelTests' name='testAddAlternateImage' time='5.618'/>
+    <testcase classname='WeScanTests.RectangleFeaturesFunnelTests' name='testAddMaxThreshold' time='0.199'/>
+    <testcase classname='WeScanTests.RectangleFeaturesFunnelTests' name='testAddMinThreshold' time='0.037'/>
+    <testcase classname='WeScanTests.RectangleFeaturesFunnelTests' name='testAddMinUnderThreshold' time='3.111'/>
+    <testcase classname='WeScanTests.RectangleFeaturesFunnelTests' name='testAddMultipleImages' time='0.140'/>
+    <testcase classname='WeScanTests.RectangleFeaturesFunnelTests' name='testAddPreviouslyDisplayedRect' time='3.346'/>
+  </testsuite>
+</testsuites>
