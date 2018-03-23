@@ -1,9 +1,14 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9.2
+gemfile: Gemfile
+bundler_args: "--without documentation --path bundle" # Don't download documentation for gems.
+cache:
+  bundler: true
+  directories:
+    - /tmp/SwiftLint # Cache SwiftLint (absolute url on purpose)
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # Prevents long install time http://awesomism.co.uk/nokogiri-slow-install/
+
 script:
-    - xcodebuild clean -project UINotifications.xcodeproj -scheme UINotifications | xcpretty
-    - xcodebuild test -project UINotifications.xcodeproj -scheme UINotifications -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' -enableCodeCoverage YES | xcpretty -f `xcpretty-json-formatter`
-    - bundle exec danger
-before_install:
-  - brew outdated swiftlint || brew upgrade swiftlint
-  - bundle install
+  - "./Submodules/WeTransfer-iOS-CI/Scripts/travis.sh UINotifications" # Run WeTransfer iOS CI Travis script
