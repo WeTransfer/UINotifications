@@ -2,8 +2,8 @@
 //  UINotifications.h
 //  UINotifications
 //
-//  Created by Antoine van der Lee on 30/03/2018.
-//  Copyright © 2018 WeTransfer. All rights reserved.
+//  Created by Antoine van der Lee on 14/07/2017.
+//  Copyright © 2017 WeTransfer. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
