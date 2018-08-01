@@ -105,9 +105,10 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         
         // Wait till the notification is presented
         waitFor(notificationCenter.currentPresenter?.dismissTrigger.target != nil, timeout: 5.0, description: "Dismiss trigger target should be set")
-        
-        XCTAssert(notificationCenter.currentPresenter?.presentationContext.containerWindow.point(inside: CGPoint(x: 0, y: 10), with: nil) == true, "Point inside the notification view should be handled")
-        let notificationViewFrame = notificationCenter.currentPresenter?.presentationContext.notificationView.frame
-        XCTAssert(notificationCenter.currentPresenter?.presentationContext.containerWindow.point(inside: CGPoint(x: 0, y: notificationViewFrame!.height + 10), with: nil) == false, "Point outside the notification view should not be handled")
+
+        let notificationViewFrameOrigin = notificationCenter.currentPresenter!.presentationContext.notificationView.frame.origin
+
+        XCTAssert(notificationCenter.currentPresenter?.presentationContext.containerWindow.point(inside: CGPoint(x: notificationViewFrameOrigin.x, y: notificationViewFrameOrigin.y + 1), with: nil) == true, "Point inside the notification view should be handled")
+        XCTAssert(notificationCenter.currentPresenter?.presentationContext.containerWindow.point(inside: CGPoint(x: notificationViewFrameOrigin.x, y: notificationViewFrameOrigin.y - 1), with: nil) == false, "Point outside the notification view should not be handled")
     }
 }

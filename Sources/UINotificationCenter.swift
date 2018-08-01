@@ -76,6 +76,6 @@ extension UINotificationCenter: UINotificationQueueDelegate {
 internal final class UINotificationPresentationWindow: UIWindow {
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         guard let rootViewController = self.rootViewController, let notificationView = rootViewController.view.subviews.first(where: { $0 is UINotificationView }) else { return false }
-        return notificationView.point(inside: point, with: event)
+        return notificationView.frame.contains(point)
     }
 }

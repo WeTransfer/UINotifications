@@ -58,5 +58,4 @@ final class UINotificationCenterTests: UINotificationTestCase {
 
         waitFor(notificationCenter.currentPresenter == nil, timeout: 5.0, description: "Current presenter should be released and nil")
     }
-    
 }
