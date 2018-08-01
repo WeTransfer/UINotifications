@@ -58,13 +58,4 @@ final class UINotificationCenterTests: UINotificationTestCase {
 
         waitFor(notificationCenter.currentPresenter == nil, timeout: 5.0, description: "Current presenter should be released and nil")
     }
-
-    /// It should correctly hit test points inside the custom window.
-    func testWindowHittesting() {
-        let notificationCenter = UINotificationCenter()
-        notificationCenter.presenterType = MockPresenter.self
-        notificationCenter.show(notification: notification)
-        XCTAssertFalse(notificationCenter.window.point(inside: CGPoint(x: 0, y: 0), with: nil))
-        XCTAssertTrue(notificationCenter.window.point(inside: CGPoint(x: 0, y: -10), with: nil))
-    }
 }
