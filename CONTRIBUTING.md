@@ -61,6 +61,8 @@ fits with the scope and aims of the project. It's up to *you* to make a strong
 case to convince the project's developers of the merits of this feature. Please
 provide as much detail and context as possible.
 
+Do check if the feature request already exists. If it does, give it a thumbs-up emoji
+or even comment. We'd like to avoid duplicate requests.
 
 ### Pull requests
 
@@ -71,7 +73,8 @@ commits.
 **Please ask first** before embarking on any significant pull request (e.g.
 implementing features, refactoring code, porting to a different language),
 otherwise you risk spending a lot of time working on something that the
-project's developers might not want to merge into the project.
+project's developers might not want to merge into the project. As far as _where_ to ask,
+the feature request or bug report is the best place to go.
 
 Please adhere to the coding conventions used throughout a project (indentation,
 accurate comments, etc.) and any other requirements (such as test coverage).
@@ -149,18 +152,6 @@ license your work under the same license as that used by the project.
 ### Discussions
 
 We aim to keep all project discussion inside GitHub issues. This is to make sure valuable discussion is accessible via search. If you have questions about how to use the library, or how the project is running - GitHub issues are the goto tool for this project.
-
-## Ownership
-
-If you get a merged Pull Request, regardless of content (typos, code, doc fixes), then you're eligible for push access to this repository. This is checked for on pull request merges and an invite to the repository is sent via GitHub.
-
-#### Why do we give out push access?
-
-It can be overwhelming to offered the chance to wipe the source code for a project. Don't worry, we don't let you push to master. All code is peer-reviewed, and we have the convention that someone other than the submitter should merge non-trivial pull requests.
-
-As a repository contributor, you can merge other people's pull requests, or other contributors can merge yours. You won't be assigned a pull request, but you're welcome to jump in and take a code review on topics that interest you.
-
-There is space for debate after review too. Offering everyone the chance to revert, or make an amending pull request. If it feels right, merge.
 
 #### Our expectations on you as a contributor
 
