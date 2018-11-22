@@ -15,7 +15,7 @@ public final class UINotificationPresentationContext {
     public let containerWindow: UIWindow
     
     /// The level the container window should be on when presenting the notification
-    private let windowLevel: UIWindowLevel
+    private let windowLevel: UIWindow.Level
     
     /// The `UINotificationView` containing the visual representation of the `UINotification`.
     public let notificationView: UINotificationView
@@ -28,7 +28,7 @@ public final class UINotificationPresentationContext {
         return request.notification
     }
     
-    internal init(request: UINotificationRequest, containerWindow: UIWindow, windowLevel: UIWindowLevel, notificationView: UINotificationView) {
+    internal init(request: UINotificationRequest, containerWindow: UIWindow, windowLevel: UIWindow.Level, notificationView: UINotificationView) {
         self.request = request
         self.containerWindow = containerWindow
         self.notificationView = notificationView
@@ -86,7 +86,7 @@ public final class UINotificationPresentationContext {
     
     private func resetContainerWindow() {
         /// Move the window behind the key application window.
-        containerWindow.windowLevel = UIWindowLevelNormal - 1
+        containerWindow.windowLevel = UIWindow.Level.normal - 1
         containerWindow.rootViewController = nil
         
         /// Make sure the key window of the app is visible again.

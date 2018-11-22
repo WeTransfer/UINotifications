@@ -23,7 +23,7 @@ public final class UINotificationCenter {
     
     /// The window level that notification should appear at. The default level is over the status bar.
     /// Changing the window level while a notification is displayed might give some issues.
-    public var windowLevel: UIWindowLevel = UIWindowLevelStatusBar
+    public var windowLevel: UIWindow.Level = UIWindow.Level.statusBar
     
     /// If `true`, the same notifications can be queued. This can result in duplicate notifications being presented after each other.
     public var isDuplicateQueueingAllowed: Bool = false

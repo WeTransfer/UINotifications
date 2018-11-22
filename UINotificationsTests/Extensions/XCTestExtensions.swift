@@ -22,7 +22,7 @@ extension XCTestCase {
         let end = Date().addingTimeInterval(timeout)
         
         while !condition() && 0 < end.timeIntervalSinceNow {
-            if RunLoop.current.run(mode: RunLoopMode.defaultRunLoopMode, before: Date(timeIntervalSinceNow: 0.002)) {
+            if RunLoop.current.run(mode: RunLoop.Mode.default, before: Date(timeIntervalSinceNow: 0.002)) {
                 Thread.sleep(forTimeInterval: 0.002)
             }
         }

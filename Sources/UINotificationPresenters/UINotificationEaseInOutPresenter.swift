@@ -35,7 +35,7 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
             presentationContext.notificationView.topConstraint?.constant = presentationContext.notificationView.layoutMargins.top + UIApplication.shared.statusBarFrame.size.height
         }
 
-        UIView.animate(withDuration: inDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: inDuration, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
         }, completion: { (_) in
             self.state = .presented
@@ -53,7 +53,7 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
         
         presentationContext.notificationView.topConstraint?.constant = -presentationContext.notification.style.height.value
         
-        UIView.animate(withDuration: outDuration, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: outDuration, delay: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
         }, completion: { (_) in
             self.state = .idle

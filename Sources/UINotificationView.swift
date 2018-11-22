@@ -165,7 +165,7 @@ open class UINotificationView: UIView {
         handlePanGestureState(panGestureRecognizer.state, translation: translation)
     }
     
-    internal func handlePanGestureState(_ state: UIGestureRecognizerState, translation: CGPoint) {
+    internal func handlePanGestureState(_ state: UIGestureRecognizer.State, translation: CGPoint) {
         guard let presenter = presenter, let topConstraint = topConstraint else { return }
         
         if state == .began {
