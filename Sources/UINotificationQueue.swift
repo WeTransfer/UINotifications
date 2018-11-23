@@ -59,8 +59,7 @@ internal final class UINotificationQueue {
     
     internal func remove(_ request: UINotificationRequest) {
         lockQueue.sync {
-            guard let index = requests.index(where: { $0 == request }) else { return }
-            requests.remove(at: index)
+            requests.removeAll(where: { $0 == request })
         }
         updateRunningRequest()
     }
