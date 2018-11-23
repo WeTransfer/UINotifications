@@ -81,7 +81,7 @@ internal final class UINotificationQueue {
 }
 
 extension UINotificationQueue: UINotificationRequestDelegate {
-    func notificationRequest(_ request: UINotificationRequest, didChangeStateTo state: UINotificationRequest.UINotificationRequestState) {
+    func notificationRequest(_ request: UINotificationRequest, didChangeStateTo state: UINotificationRequest.State) {
         switch state {
         case .finished, .cancelled:
             remove(request)

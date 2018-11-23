@@ -77,7 +77,7 @@ class UINotificationTestCase: XCTestCase {
     }
     
     internal final class MockRequestDelegate: UINotificationRequestDelegate {
-        func notificationRequest(_ request: UINotificationRequest, didChangeStateTo state: UINotificationRequest.UINotificationRequestState) { }
+        func notificationRequest(_ request: UINotificationRequest, didChangeStateTo state: UINotificationRequest.State) { }
     }
     
 }

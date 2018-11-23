@@ -17,8 +17,8 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         var titleTextColor: UIColor = UIColor.black
         var subtitleTextColor: UIColor = UIColor.black
         var backgroundColor: UIColor = UIColor.white
-        var height: UINotificationHeight {
-            return UINotificationHeight.custom(height: self.customHeight)
+        var height: UINotification.Height {
+            return UINotification.Height.custom(height: self.customHeight)
         }
         var interactive: Bool = true
         var chevronImage: UIImage?

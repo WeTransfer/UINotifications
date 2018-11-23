@@ -83,8 +83,8 @@ private struct LargeChevronStyle: UINotificationStyle {
     var titleTextColor: UIColor = UIColor.black
     var subtitleTextColor: UIColor = UIColor.black
     var backgroundColor: UIColor = UIColor.white
-    var height: UINotificationHeight {
-        return UINotificationHeight.navigationBar
+    var height: UINotification.Height {
+        return UINotification.Height.navigationBar
     }
     var interactive: Bool = true
     var chevronImage: UIImage? {
