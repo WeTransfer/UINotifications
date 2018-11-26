@@ -23,31 +23,13 @@ public protocol UINotificationStyle {
     var backgroundColor: UIColor { get }
     
     /// The height of the notification which applies on the notification view.
-    var height: UINotificationHeight { get }
+    var height: UINotification.Height { get }
     
     /// When `true`, the notification is swipeable and tappable.
     var interactive: Bool { get }
     
     /// The chevron image which is shown when a notification has an action attached.
     var chevronImage: UIImage? { get }
-}
-
-/// Defines the height which will be applied on the notification view.
-public enum UINotificationHeight {
-    case statusBar
-    case navigationBar
-    case custom(height: CGFloat)
-    
-    internal var value: CGFloat {
-        switch self {
-        case .statusBar:
-            return UIApplication.shared.statusBarFrame.height
-        case .navigationBar:
-            return UIApplication.shared.statusBarFrame.height + 44
-        case .custom(let height):
-            return height
-        }
-    }
 }
 
 /// Handles changes in UINotification
@@ -58,7 +40,25 @@ protocol UINotificationDelegate: class {
 
 /// An UINotification which can be showed on top of the `UINavigationBar` and `UIStatusBar`
 public final class UINotification: Equatable {
-    
+
+    /// Defines the height which will be applied on the notification view.
+    public enum Height {
+        case statusBar
+        case navigationBar
+        case custom(height: CGFloat)
+
+        internal var value: CGFloat {
+            switch self {
+            case .statusBar:
+                return UIApplication.shared.statusBarFrame.height
+            case .navigationBar:
+                return UIApplication.shared.statusBarFrame.height + 44
+            case .custom(let height):
+                return height
+            }
+        }
+    }
+
     /// The content of the notification.
     public var content: UINotificationContent
     

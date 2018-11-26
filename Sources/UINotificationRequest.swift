@@ -15,7 +15,7 @@ protocol UINotificationRequestDelegate: class {
     /// - Parameters:
     ///   - request: The `UINotificationRequest` of which the state is changed.
     ///   - state: The new state of the passed `UINotificationRequest`.
-    func notificationRequest(_ request: UINotificationRequest, didChangeStateTo state: UINotificationRequest.UINotificationRequestState)
+    func notificationRequest(_ request: UINotificationRequest, didChangeStateTo state: UINotificationRequest.State)
 }
 
 /// Defines the request of a notification presentation.
@@ -26,7 +26,7 @@ public final class UINotificationRequest: Equatable {
         weak var target: UINotificationRequestDelegate?
     }
     
-    public enum UINotificationRequestState {
+    public enum State {
         /// Waiting to run
         case idle
         
@@ -53,7 +53,7 @@ public final class UINotificationRequest: Equatable {
     private let identifier: UUID
     
     /// The current state of the request.
-    private(set) public var state: UINotificationRequestState = .idle {
+    private(set) public var state: UINotificationRequest.State = .idle {
         didSet {
             delegates.forEach { $0.target?.notificationRequest(self, didChangeStateTo: state) }
         }

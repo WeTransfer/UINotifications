@@ -17,7 +17,7 @@ public protocol Dismissable: class {
 /// A trigger which can be used to dismiss an `UINotificationView`.
 public protocol UINotificationDismissTrigger: class {
     /// The target to dismiss.
-    weak var target: Dismissable? { get set }
+    var target: Dismissable? { get set }
 }
 
 /// A trigger which is schedulable and therefor cancelable.
