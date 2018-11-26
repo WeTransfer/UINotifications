@@ -1,6 +1,8 @@
 ## Changelog
 
 ### Next
+
+### 1.1
 - File size of images in the repo are much smaller now.
 - Tapping an action now triggers a dismiss of the notification. This also fixes the issue where actions would be called multiple times.
 - Chevron image is now having a max size of 20x20.
@@ -13,7 +15,8 @@
 - Support for showing an image.
 - Support for showing a subtitle.
 - Support for iPhone X
+- Update to Swift 4.2
 
-### 1.0 (2017-07-14)
+### 1.0
 
 - First public release! 🎉
