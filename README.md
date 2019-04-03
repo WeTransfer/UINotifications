@@ -38,11 +38,6 @@ To run the example project, clone the repo, and open `UINotifications-Example.xc
 | ------------- |:-------------:|
 | ![Success](Assets/success_notification.jpg?) | ![Failure](Assets/fail_notification.jpg?) |
 
-## Requirements
-- Swift 3.0, 3.1, 3.2
-- iOS 8.0+
-- Xcode 8.1, 8.2, 8.3
-
 ## Usage
 
 ### Making a Notification
