@@ -86,6 +86,7 @@ private struct LargeChevronStyle: UINotificationStyle {
     var height: UINotification.Height {
         return UINotification.Height.navigationBar
     }
+    var maxWidth: CGFloat?
     var interactive: Bool = true
     var chevronImage: UIImage? {
         let bundle = Bundle(for: UINotificationViewTests.self)
