@@ -18,15 +18,18 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         var subtitleTextColor: UIColor = UIColor.black
         var backgroundColor: UIColor = UIColor.white
         var height: UINotification.Height {
-            return UINotification.Height.custom(height: self.customHeight)
+            guard let customHeight = customHeight else { return .navigationBar }
+            return .custom(height: customHeight)
         }
         var interactive: Bool = true
         var chevronImage: UIImage?
         
-        let customHeight: CGFloat
-        
-        init(customHeight: CGFloat) {
+        let customHeight: CGFloat?
+        let maxWidth: CGFloat?
+
+        init(customHeight: CGFloat? = nil, maxWidth: CGFloat? = nil) {
             self.customHeight = customHeight
+            self.maxWidth = maxWidth
         }
     }
     
@@ -73,7 +76,20 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         
         waitFor(notificationCenter.currentPresenter?.presentationContext.notificationView.frame.size.height == customHeight, timeout: 5.0, description: "Custom height should be applied to the view")
     }
-    
+
+    /// When passing a notification style with a max width, this should be applied to the presented view.
+    func testNotificationViewMaxWidth() {
+        let notificationCenter = UINotificationCenter()
+        notificationCenter.isDuplicateQueueingAllowed = true
+        notificationCenter.presenterType = MockPresenter.self
+        let customWidth: CGFloat = 100
+        let notification = UINotification(content: UINotificationContent(title: "test"), style: CustomStyle(maxWidth: customWidth))
+
+        notificationCenter.show(notification: notification)
+
+        waitFor(notificationCenter.currentPresenter?.presentationContext.notificationView.frame.size.width == customWidth, timeout: 5.0, description: "Max width should be applied to the view")
+    }
+
     /// When using the manual dismiss trigger, the notification should only dismiss after manually called.
     func testManualDismissTrigger() {
         let notificationCenter = UINotificationCenter()

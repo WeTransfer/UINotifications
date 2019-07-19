@@ -58,7 +58,7 @@ UINotificationCenter.current.show(notification: notification, dismissTrigger: di
 ```swift
 import UINotifications
 
-enum CustomNotificationStyle: UINotificationStyle {
+enum NotificationStyle: UINotificationStyle {
     case success
     case failure
     
@@ -98,13 +98,18 @@ enum CustomNotificationStyle: UINotificationStyle {
     }
     
     /// The height of the notification which applies on the notification view.
-    var height: UINotificationHeight {
+    var height: UINotification.Height {
         switch self {
         case .success:
-            return UINotificationHeight.navigationBar
+            return .navigationBar
         case .failure:
-            return UINotificationHeight.statusBar
+            return .statusBar
         }
+    }
+
+    /// Use this to set a max width to the notification view.
+    var maxWidth: CGFloat? {
+        return nil
     }
     
     /// When `true`, the notification is swipeable and tappable.

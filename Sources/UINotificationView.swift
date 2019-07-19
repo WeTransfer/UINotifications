@@ -189,7 +189,7 @@ extension UINotificationView: UINotificationDelegate {
     }
 }
 
-fileprivate extension NSLayoutConstraint {
+extension NSLayoutConstraint {
     
     /// Returns the constraint sender with the passed priority.
     ///

@@ -16,6 +16,7 @@ public struct UINotificationSystemStyle: UINotificationStyle {
     public var titleTextColor: UIColor = UIColor.black
     public var subtitleTextColor: UIColor = UIColor.darkGray
     public var height: UINotification.Height = .navigationBar
+    public var maxWidth: CGFloat?
     public var interactive: Bool = true
     public var chevronImage: UIImage?
     
