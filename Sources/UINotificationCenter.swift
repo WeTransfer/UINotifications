@@ -46,6 +46,7 @@ public final class UINotificationCenter {
         window.clipsToBounds = true
         window.isUserInteractionEnabled = true
         window.backgroundColor = UIColor.clear
+        window.windowLevel = UIWindow.Level.normal - 1
     }
     
     /// Request to present the given notification.
