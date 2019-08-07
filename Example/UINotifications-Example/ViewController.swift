@@ -104,7 +104,6 @@ final class ViewController: UIViewController {
         
         if addActionSwitch.isOn {
             action = UINotificationCallbackAction(callback: {
-                // swiftlint:disable nslog_prohibited
                 print("Tapped the notification!")
             })
         }
