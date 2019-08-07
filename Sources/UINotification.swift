@@ -24,6 +24,9 @@ public protocol UINotificationStyle {
     
     /// The height of the notification which applies on the notification view.
     var height: UINotification.Height { get }
+
+    /// The max width of the notification which applies on the notification view. Defaults to current screen width if set to `nil`.
+    var maxWidth: CGFloat? { get }
     
     /// When `true`, the notification is swipeable and tappable.
     var interactive: Bool { get }

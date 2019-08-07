@@ -51,7 +51,6 @@ public final class UINotificationPresentationContext {
     
     private func prepareContainerWindow() {
         containerWindow.windowLevel = windowLevel
-        containerWindow.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         #if !TEST
             containerWindow.makeKeyAndVisible()
         #endif
@@ -73,13 +72,20 @@ public final class UINotificationPresentationContext {
         
         notificationView.topConstraint = notificationViewTopConstraint
         
-        let constraints = [
-            notificationView.leftAnchor.constraint(equalTo: containerViewController.view.leftAnchor),
-            notificationView.rightAnchor.constraint(equalTo: containerViewController.view.rightAnchor),
+        var constraints = [
+            notificationView.leftAnchor.constraint(equalTo: containerViewController.view.leftAnchor).usingPriority(.defaultHigh),
+            notificationView.rightAnchor.constraint(equalTo: containerViewController.view.rightAnchor).usingPriority(.defaultHigh),
             notificationView.heightAnchor.constraint(equalToConstant: notification.style.height.value),
             notificationViewTopConstraint
         ]
-        
+
+        if let maxWidth = notification.style.maxWidth {
+            constraints.append(contentsOf: [
+                notificationView.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth),
+                notificationView.centerXAnchor.constraint(equalTo: containerViewController.view.centerXAnchor)
+                ])
+        }
+
         NSLayoutConstraint.activate(constraints)
         containerViewController.view.layoutIfNeeded()
     }

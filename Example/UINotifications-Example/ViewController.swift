@@ -52,10 +52,15 @@ enum NotificationStyle: UINotificationStyle {
     var height: UINotification.Height {
         switch self {
         case .success:
-            return UINotification.Height.navigationBar
+            return .navigationBar
         case .failure:
-            return UINotification.Height.statusBar
+            return .statusBar
         }
+    }
+
+    /// Use this to set a max width to the notification view.
+    var maxWidth: CGFloat? {
+        return nil
     }
     
     /// When `true`, the notification is swipeable and tappable.
