@@ -53,7 +53,7 @@ public final class UINotificationRequest: Equatable {
     private let identifier: UUID
     
     /// The current state of the request.
-    private(set) public var state: UINotificationRequest.State = .idle {
+    public private(set) var state: UINotificationRequest.State = .idle {
         didSet {
             delegates.forEach { $0.target?.notificationRequest(self, didChangeStateTo: state) }
         }
@@ -87,7 +87,7 @@ public final class UINotificationRequest: Equatable {
         state = .finished
     }
     
-    static public func == (lhs: UINotificationRequest, rhs: UINotificationRequest) -> Bool {
+    public static func == (lhs: UINotificationRequest, rhs: UINotificationRequest) -> Bool {
         return lhs.identifier == rhs.identifier
     }
 }

@@ -71,7 +71,7 @@ internal final class UINotificationQueue {
     }
     
     internal func requestIsRunning() -> Bool {
-        return requests.lazy.first(where: { $0.state == .running }) != nil
+        return requests.lazy.contains(where: { $0.state == .running })
     }
     
     internal func nextRequestToRun() -> UINotificationRequest? {

@@ -26,7 +26,7 @@ open class UINotificationView: UIView {
     /// Saved to use for resetting the spacing after an image is shown or hidden.
     private let containerStackViewDefaultSpacing: CGFloat = 14
     
-    lazy private var containerStackView: UIStackView = {
+    private lazy var containerStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [self.imageView, self.titlesStackView, self.chevronImageView])
         stackView.axis = .horizontal
         stackView.spacing = self.containerStackViewDefaultSpacing
@@ -35,7 +35,7 @@ open class UINotificationView: UIView {
         return stackView
     }()
     
-    lazy private(set) open var titlesStackView: UIStackView = {
+    open private(set) lazy var titlesStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [self.titleLabel, self.subtitleLabel])
         stackView.axis = .vertical
         stackView.spacing = 0
@@ -44,19 +44,19 @@ open class UINotificationView: UIView {
         return stackView
     }()
     
-    lazy public var titleLabel: UILabel = {
+    public lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy public var subtitleLabel: UILabel = {
+    public lazy var subtitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy public var imageView: UIImageView = {
+    public lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 5
@@ -65,7 +65,7 @@ open class UINotificationView: UIView {
         return imageView
     }()
     
-    lazy public var chevronImageView: UIImageView = {
+    public lazy var chevronImageView: UIImageView = {
         let imageView = UIImageView(image: self.notification.style.chevronImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -86,14 +86,14 @@ open class UINotificationView: UIView {
         return gesture
     }()
     
-    required public init(notification: UINotification) {
+    public required init(notification: UINotification) {
         self.notification = notification
         super.init(frame: CGRect.zero)
         notification.delegate = self
         setupView()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

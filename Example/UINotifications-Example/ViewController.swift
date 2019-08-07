@@ -49,12 +49,12 @@ enum NotificationStyle: UINotificationStyle {
     }
     
     /// The height of the notification which applies on the notification view.
-    var height: UINotificationHeight {
+    var height: UINotification.Height {
         switch self {
         case .success:
-            return UINotificationHeight.navigationBar
+            return UINotification.Height.navigationBar
         case .failure:
-            return UINotificationHeight.statusBar
+            return UINotification.Height.statusBar
         }
     }
     
@@ -99,6 +99,7 @@ final class ViewController: UIViewController {
         
         if addActionSwitch.isOn {
             action = UINotificationCallbackAction(callback: {
+                // swiftlint:disable nslog_prohibited
                 print("Tapped the notification!")
             })
         }

@@ -35,7 +35,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5078C8321F18D9FC006EB23F /* UINotifications.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 5078C7931F18CAF5006EB23F;
+			remoteGlobalIDString = 502C139F206E5F230082CE37;
 			remoteInfo = UINotifications;
 		};
 /* End PBXContainerItemProxy section */
@@ -152,6 +152,7 @@
 					50042BCD1F18BC85007209B7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4QMDKC8VLJ;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -161,6 +162,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -385,7 +387,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wetransfer.UINotifications-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -400,7 +402,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wetransfer.UINotifications-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
