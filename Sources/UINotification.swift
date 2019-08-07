@@ -85,7 +85,7 @@ public final class UINotification: Equatable {
         delegate?.didUpdateContent(in: self)
     }
     
-    static public func == (lhs: UINotification, rhs: UINotification) -> Bool {
+    public static func == (lhs: UINotification, rhs: UINotification) -> Bool {
         return lhs.content == rhs.content
     }
 }
@@ -106,7 +106,7 @@ public struct UINotificationContent: Equatable {
         self.image = image
     }
     
-    static public func == (lhs: UINotificationContent, rhs: UINotificationContent) -> Bool {
+    public static func == (lhs: UINotificationContent, rhs: UINotificationContent) -> Bool {
         return lhs.title == rhs.title
     }
 }
