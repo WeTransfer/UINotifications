@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-<img src="https://travis-ci.com/WeTransfer/UINotifications.svg?token=Ur5V2zzKmBJLmMYHKJTF&branch=master"/>
+<img src="https://app.bitrise.io/app/aff79deadaca76df.svg?token=XtOuTac8yOiaRdCReWNdbA"/>
 <img src="https://img.shields.io/cocoapods/v/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/cocoapods/l/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/cocoapods/p/UINotifications.svg?style=flat"/>

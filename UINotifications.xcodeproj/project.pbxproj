@@ -221,6 +221,7 @@
 				502C139C206E5F230082CE37 /* Frameworks */,
 				502C139D206E5F230082CE37 /* Headers */,
 				502C139E206E5F230082CE37 /* Resources */,
+				5090ED6423E06A340062C763 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -307,6 +308,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5090ED6423E06A340062C763 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Submodules/WeTransfer-iOS-CI/SwiftLint/swiftlint.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		502C139B206E5F230082CE37 /* Sources */ = {
