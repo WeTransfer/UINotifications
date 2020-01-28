@@ -1,9 +1,3 @@
-## Changelog
-
-### Next
-- Updated SwiftLint rules and code style
-- Updated CI to force include Changelog entries
-
 ### 1.1
 - File size of images in the repo are much smaller now.
 - Tapping an action now triggers a dismiss of the notification. This also fixes the issue where actions would be called multiple times.
