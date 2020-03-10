@@ -37,8 +37,11 @@ public protocol UINotificationStyle {
 
 /// Handles changes in UINotification
 protocol UINotificationDelegate: class {
-    // Called when Notification is updated
+    // Called when Notification is updated.
     func didUpdateContent(in notificaiton: UINotification)
+    
+    /// Called when the button is set.
+    func didUpdateButton(in notificaiton: UINotification)
 }
 
 /// An UINotification which can be showed on top of the `UINavigationBar` and `UIStatusBar`
@@ -67,6 +70,13 @@ public final class UINotification: Equatable {
     
     /// The style of the notification which applies on the notification view.
     public let style: UINotificationStyle
+    
+    /// The button to display on the right side of the notification, if any.
+    public var button: UIButton? {
+        didSet {
+            delegate?.didUpdateButton(in: self)
+        }
+    }
     
     /// The action which will be triggered on tap.
     public let action: UINotificationAction?
