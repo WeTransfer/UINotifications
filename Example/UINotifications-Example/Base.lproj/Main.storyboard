@@ -276,6 +276,7 @@
                     <navigationItem key="navigationItem" title="UINotifications" id="FvB-sA-mKw"/>
                     <connections>
                         <outlet property="addActionSwitch" destination="3yO-Uf-h3a" id="m9u-zo-xqf"/>
+                        <outlet property="addButtonSwitch" destination="dzI-jY-y0o" id="Y8V-2c-h2h"/>
                         <outlet property="automaticallyDismissSwitch" destination="5Uv-Pn-6dV" id="a9x-T9-rA5"/>
                         <outlet property="showButton" destination="O2D-t3-S88" id="jek-8c-rd9"/>
                         <outlet property="showsImageSwitch" destination="qT1-CW-In1" id="zrR-cS-u5P"/>

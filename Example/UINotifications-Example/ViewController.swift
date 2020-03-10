@@ -81,6 +81,7 @@ final class ViewController: UIViewController {
     
     @IBOutlet private weak var automaticallyDismissSwitch: UISwitch!
     @IBOutlet private weak var addActionSwitch: UISwitch!
+    @IBOutlet private weak var addButtonSwitch: UISwitch!
     @IBOutlet private weak var showsImageSwitch: UISwitch!
     @IBOutlet private weak var successStyleSwitch: UISwitch!
     
@@ -110,6 +111,17 @@ final class ViewController: UIViewController {
         
         let notification = UINotification(content: UINotificationContent(title: title, subtitle: subtitle, image: image), style: style, action: action)
         
+        if addButtonSwitch.isOn {
+            let button = UIButton(type: .system)
+            button.setTitle("Button", for: .normal)
+            button.addTarget(self, action: #selector(handleTapNotificationButton), for: .touchUpInside)
+            notification.button = button
+        }
+
         UINotificationCenter.current.show(notification: notification, dismissTrigger: dismissTrigger)
+    }
+    
+    @objc func handleTapNotificationButton() {
+        print("Tapped the button!")
     }
 }
