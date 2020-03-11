@@ -26,28 +26,15 @@ open class UINotificationView: UIView {
     /// Saved to use for resetting the spacing after an image is shown or hidden.
     private let containerStackViewDefaultSpacing: CGFloat = 14
     
-    var _containerStackView: UIStackView?
-    private var containerStackView: UIStackView {
-        if let _containerStackView = self._containerStackView {
-            return _containerStackView
-        }
-        
-        var arrangedSubviews = [self.imageView, self.titlesStackView, self.chevronImageView]
-        
-        if let button = self.button {
-            arrangedSubviews.insert(button, at: arrangedSubviews.count - 1)
-        }
-        
-        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
+    private lazy var containerStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = self.containerStackViewDefaultSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
         
-        self._containerStackView = stackView
-        
         return stackView
-    }
+    }()
     
     open private(set) lazy var titlesStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [self.titleLabel, self.subtitleLabel])
@@ -125,6 +112,7 @@ open class UINotificationView: UIView {
         
         layoutMargins = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         
+        addArrangedSubviewsForContainerStackView()
         addSubview(containerStackView)
         
         setupConstraints()
@@ -159,8 +147,7 @@ open class UINotificationView: UIView {
         subviews.forEach { subview in
             subview.removeFromSuperview()
         }
-        
-        _containerStackView = nil
+
         setupView()
     }
     
@@ -182,6 +169,22 @@ open class UINotificationView: UIView {
         button?.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func addArrangedSubviewsForContainerStackView() {
+        var arrangedSubviews = [self.imageView, self.titlesStackView, self.chevronImageView]
+        
+        if let button = self.button {
+            arrangedSubviews.insert(button, at: arrangedSubviews.count - 1)
+        }
+        
+        containerStackView.arrangedSubviews.forEach { (view) in
+            containerStackView.removeArrangedSubview(view)
+        }
+        
+        arrangedSubviews.forEach { (view) in
+            containerStackView.addArrangedSubview(view)
+        }
     }
     
     @objc internal func handleTapGestureRecognizer() {
