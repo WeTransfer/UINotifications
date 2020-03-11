@@ -72,6 +72,7 @@ public final class UINotification: Equatable {
     public let style: UINotificationStyle
     
     /// The button to display on the right side of the notification, if any.
+    /// Setting this property will add the button, even if the notification is already visible.
     public var button: UIButton? {
         didSet {
             delegate?.didUpdateButton(in: self)
