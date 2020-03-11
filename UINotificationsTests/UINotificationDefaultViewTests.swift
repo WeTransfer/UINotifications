@@ -75,6 +75,30 @@ final class UINotificationViewTests: UINotificationTestCase {
         XCTAssert(notificationView.subtitleLabel.text == updatedContent.subtitle, "Subtitle of the notification view should update accordingly")
         XCTAssert(notificationView.imageView.image == updatedContent.image, "Image of the notification view should update accordingly")
     }
+    
+    /// It should add the button as a subview when set.
+    func testButton() {
+        let notificationView = UINotificationView(notification: notification)
+        
+        XCTAssertNil(notificationView.button)
+
+        notification.button = UIButton(type: .system)
+        XCTAssertNotNil(notificationView.button)
+        XCTAssertNotNil(notificationView.button?.superview)
+    }
+    
+    /// It should add the button as a subview when set, even after the notification is shown.
+    func testButtonAfterShow() {
+        let notificationView = UINotificationView(notification: notification)
+
+        UINotificationCenter.current.show(notification: notification, dismissTrigger: nil)
+        
+        XCTAssertNil(notificationView.button)
+        notification.button = UIButton(type: .system)
+        XCTAssertNotNil(notificationView.button)
+        XCTAssertNotNil(notificationView.button?.superview)
+    }
+    
 }
 
 private struct LargeChevronStyle: UINotificationStyle {
