@@ -27,11 +27,12 @@ open class UINotificationView: UIView {
     private let containerStackViewDefaultSpacing: CGFloat = 14
     
     private lazy var containerStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [self.imageView, self.titlesStackView, self.chevronImageView])
+        let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = self.containerStackViewDefaultSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
+        
         return stackView
     }()
     
@@ -71,6 +72,13 @@ open class UINotificationView: UIView {
         return imageView
     }()
     
+    var button: UIButton? {
+        let button = self.notification.button
+        button?.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }
+    
     // MARK: Gestures
     internal fileprivate(set) lazy var panGestureRecognizer: UIPanGestureRecognizer = { [unowned self] in
         let gesture = UIPanGestureRecognizer()
@@ -104,6 +112,7 @@ open class UINotificationView: UIView {
         
         layoutMargins = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         
+        addArrangedSubviewsForContainerStackView()
         addSubview(containerStackView)
         
         setupConstraints()
@@ -124,9 +133,6 @@ open class UINotificationView: UIView {
         imageView.image = notification.content.image
         imageView.isHidden = notification.content.image == nil
         
-        let chevronImageWidth = chevronImageView.image?.size.width ?? 0
-        containerStackView.spacing = imageView.isHidden ? -chevronImageWidth : containerStackViewDefaultSpacing
-        
         backgroundColor = notification.style.backgroundColor
         
         chevronImageView.tintColor = notification.style.titleTextColor
@@ -134,6 +140,15 @@ open class UINotificationView: UIView {
         
         panGestureRecognizer.isEnabled = notification.style.interactive
         tapGestureRecognizer.isEnabled = notification.style.interactive
+    }
+    
+    open func updateForButton() {
+        guard !subviews.isEmpty else { return }
+        subviews.forEach { subview in
+            subview.removeFromSuperview()
+        }
+
+        setupView()
     }
     
     /// Called when all constraints should be setup for the notification. Can be overwritten to set your own constraints.
@@ -150,8 +165,26 @@ open class UINotificationView: UIView {
             imageView.widthAnchor.constraint(equalToConstant: 31),
             imageView.heightAnchor.constraint(equalToConstant: 31)
         ]
+        
+        button?.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func addArrangedSubviewsForContainerStackView() {
+        var arrangedSubviews = [self.imageView, self.titlesStackView, self.chevronImageView]
+        
+        if let button = self.button {
+            arrangedSubviews.insert(button, at: arrangedSubviews.count - 1)
+        }
+        
+        containerStackView.arrangedSubviews.forEach { (view) in
+            containerStackView.removeArrangedSubview(view)
+        }
+        
+        arrangedSubviews.forEach { (view) in
+            containerStackView.addArrangedSubview(view)
+        }
     }
     
     @objc internal func handleTapGestureRecognizer() {
@@ -184,9 +217,15 @@ open class UINotificationView: UIView {
 }
 
 extension UINotificationView: UINotificationDelegate {
+    
     func didUpdateContent(in notificaiton: UINotification) {
         updateForNotificationData()
     }
+    
+    func didUpdateButton(in notificaiton: UINotification) {
+        updateForButton()
+    }
+    
 }
 
 extension NSLayoutConstraint {

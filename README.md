@@ -148,6 +148,15 @@ manualDismissTrigger.trigger() // Dismiss
 UINotificationCenter.current.notificationViewType = MyCustomNotificationView.self
 ```
 
+### Use a custom UIButton
+By setting the `button` property on `UINotification`, you can simply add a button to the notification.
+
+```swift
+notification.button = UIButton(type: .system)
+```
+
+![Button](Assets/button_notification.png?)
+
 ### Create a custom presenter
 Create a custom presenter to manage presentation and dismiss animations.
 
