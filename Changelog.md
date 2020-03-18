@@ -1,3 +1,8 @@
+### 1.3.0
+- Add Support for Button ([#48](https://github.com/WeTransfer/UINotifications/pull/48)) via @Boris-Em
+- Merge release 1.2.0 into master ([#47](https://github.com/WeTransfer/UINotifications/pull/47)) via @WeTransferBot
+- Migrate to Bitrise & Danger-Swift ([#46](https://github.com/WeTransfer/UINotifications/pull/46)) via @AvdLee
+
 ### 1.2.0
 
 - Update SwiftLint, update CI, update to Swift 5.0 ([#45](https://github.com/WeTransfer/UINotifications/pull/45)) via @AvdLee
