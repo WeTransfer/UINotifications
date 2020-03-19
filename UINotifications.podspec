@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'UINotifications'
-  spec.version          = '1.2.0'
+  spec.version          = '1.3.0'
   spec.summary          = 'Present custom in-app notifications easily in Swift.'
   spec.description      = 'Present custom in-app notifications easily in Swift with simple and highly customizable APIs.'
 
