@@ -9,7 +9,7 @@ let package = Package(
     ],
     products: [
         // dev .library(name: "DangerDeps", type: .dynamic, targets: ["DangerDependencies"]), // dev
-        .library(name: "UINotifications", targets: ["UINotifications"])
+        .library(name: "UINotifications", type: .static, targets: ["UINotifications"])
     ],
     dependencies: [
         // dev .package(url: "https://github.com/danger/swift", from: "3.0.0"),
