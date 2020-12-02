@@ -203,7 +203,7 @@ let package = Package(
        .macOS(.v10_15)
     ],
     dependencies: [
-        .package(url: "https://github.com/WeTransfer/UINotifications.git", .upToNextMajor(from: "1.6.0"))
+        .package(url: "https://github.com/WeTransfer/UINotifications.git", .upToNextMajor(from: "1.3.0"))
     ],
     targets: [
         .target(
