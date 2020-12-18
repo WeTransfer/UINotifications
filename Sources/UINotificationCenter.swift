@@ -31,7 +31,7 @@ public final class UINotificationCenter {
     // MARK: Private properties
     
     /// The window which will be placed on top of the application window.
-    /// This window is used to present the notifications on and will be hided when all notifications are presented.
+    /// This window is used to present the notifications on and will be hidden when notifications are dismissed.
     internal let window: UIWindow
     
     /// Handles queueing of all notifications. Contains a queue of `UINotificationRequest` objects.

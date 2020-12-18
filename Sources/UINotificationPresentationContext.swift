@@ -52,7 +52,7 @@ public final class UINotificationPresentationContext {
     private func prepareContainerWindow() {
         containerWindow.windowLevel = windowLevel
         #if !TEST
-            containerWindow.makeKeyAndVisible()
+            containerWindow.isHidden = false
         #endif
     }
     
@@ -94,9 +94,6 @@ public final class UINotificationPresentationContext {
         /// Move the window behind the key application window.
         containerWindow.windowLevel = UIWindow.Level.normal - 1
         containerWindow.rootViewController = nil
-        
-        /// Make sure the key window of the app is visible again.
-        guard let applicationWindow = UIApplication.shared.windows.first(where: { $0 != self.containerWindow }) else { return }
-        applicationWindow.makeKeyAndVisible()
+        containerWindow.isHidden = true
     }
 }
