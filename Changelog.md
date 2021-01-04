@@ -1,3 +1,6 @@
+### 1.4.1
+- Don't make notification window key as it could conflict with the main window ([#50](https://github.com/WeTransfer/UINotifications/pull/50)) via [@kairadiagne](https://github.com/kairadiagne)
+
 ### 1.3.0
 - Add Support for Button ([#48](https://github.com/WeTransfer/UINotifications/pull/48)) via @Boris-Em
 - Merge release 1.2.0 into master ([#47](https://github.com/WeTransfer/UINotifications/pull/47)) via @WeTransferBot
