@@ -19,6 +19,7 @@ public struct UINotificationSystemStyle: UINotificationStyle {
     public var maxWidth: CGFloat?
     public var interactive: Bool = true
     public var chevronImage: UIImage?
+    public var thumbnailSize: CGSize = .init(width: 31, height: 31)
     
     public init() { }
 }

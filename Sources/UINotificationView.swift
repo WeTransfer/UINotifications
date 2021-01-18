@@ -19,6 +19,9 @@ open class UINotificationView: UIView {
     /// Will be set by the presenter. Is used to animate the notification view with a pan gesture.
     var topConstraint: NSLayoutConstraint?
     
+    var imageViewWidthConstraint: NSLayoutConstraint?
+    var imageViewHeightConstraint: NSLayoutConstraint?
+    
     /// The limit of translation before we will dismiss the notification.
     internal let translationDismissLimit: CGFloat = -15
     
@@ -36,8 +39,13 @@ open class UINotificationView: UIView {
         return stackView
     }()
     
+    /// Override this to change the order of subviews. For example, to show the subtitle above the title.
+    open var arrangedSubviews: [UIView] {
+        return [self.titleLabel, self.subtitleLabel]
+    }
+    
     open private(set) lazy var titlesStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [self.titleLabel, self.subtitleLabel])
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .vertical
         stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -110,7 +118,7 @@ open class UINotificationView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = true
         
-        layoutMargins = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+        layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         addArrangedSubviewsForContainerStackView()
         addSubview(containerStackView)
@@ -132,6 +140,8 @@ open class UINotificationView: UIView {
         
         imageView.image = notification.content.image
         imageView.isHidden = notification.content.image == nil
+        imageViewWidthConstraint?.constant = notification.style.thumbnailSize.width
+        imageViewHeightConstraint?.constant = notification.style.thumbnailSize.height
         
         backgroundColor = notification.style.backgroundColor
         
@@ -154,6 +164,9 @@ open class UINotificationView: UIView {
     /// Called when all constraints should be setup for the notification. Can be overwritten to set your own constraints.
     /// When setting your own constraints, you should not be calling super.
     open func setupConstraints() {
+        imageViewWidthConstraint = imageView.widthAnchor.constraint(equalToConstant: 31)
+        imageViewHeightConstraint = imageView.heightAnchor.constraint(equalToConstant: 31)
+        
         let constraints = [
             containerStackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor, constant: 18),
             containerStackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor, constant: -18),
@@ -162,8 +175,8 @@ open class UINotificationView: UIView {
             
             chevronImageView.widthAnchor.constraint(equalToConstant: chevronImageView.image?.size.width ?? 0),
             
-            imageView.widthAnchor.constraint(equalToConstant: 31),
-            imageView.heightAnchor.constraint(equalToConstant: 31)
+            imageViewWidthConstraint!,
+            imageViewHeightConstraint!
         ]
         
         button?.setContentHuggingPriority(.defaultHigh, for: .horizontal)
