@@ -102,6 +102,7 @@ final class UINotificationViewTests: UINotificationTestCase {
 }
 
 private struct LargeChevronStyle: UINotificationStyle {
+    var thumbnailSize: CGSize = CGSize(width: 20, height: 20)
     var titleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
     var subtitleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
     var titleTextColor: UIColor = UIColor.black
