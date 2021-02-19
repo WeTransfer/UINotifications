@@ -12,6 +12,7 @@ import XCTest
 final class UINotificationDefaultElementsTests: UINotificationTestCase {
 
     struct CustomStyle: UINotificationStyle {
+        var thumbnailSize: CGSize
         var titleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
         var subtitleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
         var titleTextColor: UIColor = UIColor.black
@@ -27,9 +28,10 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         let customHeight: CGFloat?
         let maxWidth: CGFloat?
 
-        init(customHeight: CGFloat? = nil, maxWidth: CGFloat? = nil) {
+        init(customHeight: CGFloat? = nil, maxWidth: CGFloat? = nil, thumbnailSize: CGSize = CGSize(width: 20, height: 20)) {
             self.customHeight = customHeight
             self.maxWidth = maxWidth
+            self.thumbnailSize = thumbnailSize
         }
     }
     
@@ -75,6 +77,19 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         notificationCenter.show(notification: notification)
         
         waitFor(notificationCenter.currentPresenter?.presentationContext.notificationView.frame.size.height == customHeight, timeout: 5.0, description: "Custom height should be applied to the view")
+    }
+    
+    /// When passing a notification style with a custom thumbnail size, this should be applied to the presented view.
+    func testCustomNotificationThumbnailSize() {
+        let notificationCenter = UINotificationCenter()
+        notificationCenter.isDuplicateQueueingAllowed = true
+        notificationCenter.presenterType = MockPresenter.self
+        let customSize = CGSize(width: 25, height: 25)
+        let notification = UINotification(content: UINotificationContent(title: "test"), style: CustomStyle(thumbnailSize: customSize))
+        
+        notificationCenter.show(notification: notification)
+        
+        waitFor(notificationCenter.currentPresenter?.presentationContext.notificationView.imageView.frame.size == customSize, timeout: 5.0, description: "Custom height should be applied to the view")
     }
 
     /// When passing a notification style with a max width, this should be applied to the presented view.

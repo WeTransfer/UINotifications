@@ -33,6 +33,9 @@ public protocol UINotificationStyle {
     
     /// The chevron image which is shown when a notification has an action attached.
     var chevronImage: UIImage? { get }
+    
+    /// The size to use for the thumbnail view.
+    var thumbnailSize: CGSize { get }
 }
 
 /// Handles changes in UINotification
