@@ -1,3 +1,7 @@
+### 1.5.0
+- Allow customizing the order of views and the image size ([#52](https://github.com/WeTransfer/UINotifications/pull/52)) via [@AvdLee](https://github.com/AvdLee)
+- Merge release 1.4.1 into master ([#51](https://github.com/WeTransfer/UINotifications/pull/51)) via [@wetransferplatform](https://github.com/wetransferplatform)
+
 ### 1.4.1
 - Don't make notification window key as it could conflict with the main window ([#50](https://github.com/WeTransfer/UINotifications/pull/50)) via [@kairadiagne](https://github.com/kairadiagne)
 
