@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UINotificationRequestDelegate: class {
+protocol UINotificationRequestDelegate: AnyObject {
     
     /// Notifies of a change inside the passed `UINotificationRequest` state.
     ///

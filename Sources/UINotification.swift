@@ -39,7 +39,7 @@ public protocol UINotificationStyle {
 }
 
 /// Handles changes in UINotification
-protocol UINotificationDelegate: class {
+protocol UINotificationDelegate: AnyObject {
     // Called when Notification is updated.
     func didUpdateContent(in notificaiton: UINotification)
     
