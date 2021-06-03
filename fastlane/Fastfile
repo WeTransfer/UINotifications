@@ -2,6 +2,7 @@
 fastlane_version "1.109.0"
 
 import "./../Submodules/WeTransfer-iOS-CI/Fastlane/Fastfile"
+import "./../Submodules/WeTransfer-iOS-CI/Fastlane/shared_lanes.rb"
 
 desc "Run the tests and prepare for Danger"
 lane :test do |options|
