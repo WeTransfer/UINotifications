@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal protocol UINotificationQueueDelegate: class {
+internal protocol UINotificationQueueDelegate: AnyObject {
     
     /// Will be called when a new request is ready to be handled.
     /// Will be called immediately if no request is currently running.

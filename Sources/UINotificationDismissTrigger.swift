@@ -9,13 +9,13 @@
 import Foundation
 
 /// Defines a dismissable view.
-public protocol Dismissable: class {
+public protocol Dismissable: AnyObject {
     /// Dimisses the view.
     func dismiss()
 }
 
 /// A trigger which can be used to dismiss an `UINotificationView`.
-public protocol UINotificationDismissTrigger: class {
+public protocol UINotificationDismissTrigger: AnyObject {
     /// The target to dismiss.
     var target: Dismissable? { get set }
 }
