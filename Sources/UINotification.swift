@@ -57,11 +57,15 @@ public final class UINotification: Equatable {
         case custom(height: CGFloat)
 
         internal var value: CGFloat {
+            guard let statusBarManager = UIApplication.shared.windows.first(where: \.isKeyWindow)?.windowScene?.statusBarManager else {
+                return 0
+            }
+            
             switch self {
             case .statusBar:
-                return UIApplication.shared.statusBarFrame.height
+                return statusBarManager.statusBarFrame.height
             case .navigationBar:
-                return UIApplication.shared.statusBarFrame.height + 44
+                return statusBarManager.statusBarFrame.height + 44
             case .custom(let height):
                 return height
             }
