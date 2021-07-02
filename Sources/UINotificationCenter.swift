@@ -32,7 +32,20 @@ public final class UINotificationCenter {
     
     /// The window which will be placed on top of the application window.
     /// This window is used to present the notifications on and will be hidden when notifications are dismissed.
-    internal let window: UIWindow
+    internal lazy var window: UIWindow = {
+        let window: UIWindow
+        if let windowScene = UIApplication.shared.connectedScenes.filter({ $0.activationState == .foregroundActive }).first as? UIWindowScene {
+            window = UINotificationPresentationWindow(windowScene: windowScene)
+        } else {
+            window = UINotificationPresentationWindow()
+        }
+        
+        window.clipsToBounds = true
+        window.isUserInteractionEnabled = true
+        window.backgroundColor = UIColor.clear
+        window.windowLevel = UIWindow.Level.normal - 1
+        return window
+    }()
     
     /// Handles queueing of all notifications. Contains a queue of `UINotificationRequest` objects.
     internal lazy var queue: UINotificationQueue = UINotificationQueue(delegate: self)
@@ -40,14 +53,8 @@ public final class UINotificationCenter {
     /// Defines the current running presenter.
     internal weak var currentPresenter: UINotificationPresenter?
     
-    /// Creates a new notification center. Sets up the window for usage.
-    internal init() {
-        window = UINotificationPresentationWindow()
-        window.clipsToBounds = true
-        window.isUserInteractionEnabled = true
-        window.backgroundColor = UIColor.clear
-        window.windowLevel = UIWindow.Level.normal - 1
-    }
+    /// Creates a new notification center.
+    internal init() { }
     
     /// Request to present the given notification.
     ///
