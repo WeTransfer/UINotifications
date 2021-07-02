@@ -145,7 +145,7 @@ manualDismissTrigger.trigger() // Dismiss
 - Set your custom view on the `UINotificationCenter`:
 
 ```swift
-UINotificationCenter.current.notificationViewType = MyCustomNotificationView.self
+UINotificationCenter.current.defaultNotificationViewType = MyCustomNotificationView.self
 ```
 
 ### Use a custom UIButton
