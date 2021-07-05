@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "UINotifications",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v13)
     ],
     products: [
         // dev .library(name: "DangerDeps", type: .dynamic, targets: ["DangerDependencies"]), // dev
