@@ -34,7 +34,7 @@ public final class UINotificationCenter {
     /// This window is used to present the notifications on and will be hidden when notifications are dismissed.
     internal lazy var window: UIWindow = {
         let window: UIWindow
-        if let windowScene = UIApplication.shared.connectedScenes.filter({ $0.activationState == .foregroundActive }).first as? UIWindowScene {
+        if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
             window = UINotificationPresentationWindow(windowScene: windowScene)
         } else {
             window = UINotificationPresentationWindow()
@@ -52,9 +52,6 @@ public final class UINotificationCenter {
     
     /// Defines the current running presenter.
     internal weak var currentPresenter: UINotificationPresenter?
-    
-    /// Creates a new notification center.
-    internal init() { }
     
     /// Request to present the given notification.
     ///
