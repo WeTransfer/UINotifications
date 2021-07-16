@@ -34,7 +34,8 @@ public final class UINotificationCenter {
     /// This window is used to present the notifications on and will be hidden when notifications are dismissed.
     internal lazy var window: UIWindow = {
         let window: UIWindow
-        if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+        
+        if let windowScene = UIApplication.current?.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
             window = UINotificationPresentationWindow(windowScene: windowScene)
         } else {
             window = UINotificationPresentationWindow()
@@ -82,5 +83,18 @@ internal final class UINotificationPresentationWindow: UIWindow {
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         guard let rootViewController = self.rootViewController, let notificationView = rootViewController.view.subviews.first(where: { $0 is UINotificationView }) else { return false }
         return notificationView.frame.contains(point)
+    }
+}
+
+extension UIApplication {
+    /// A convenience accessor to the `shared` instance which would not work in extensions.
+    static var current: UIApplication? {
+        let selector = NSSelectorFromString("sharedApplication")
+        return UIApplication.perform(selector)?.takeRetainedValue() as? UIApplication
+    }
+    
+    /// Returns the status bar height of the current active application if not an app extension.
+    static var statusBarHeight: CGFloat {
+        current?.windows.first(where: \.isKeyWindow)?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
     }
 }
