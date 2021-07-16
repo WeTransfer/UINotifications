@@ -1,3 +1,7 @@
+### 1.7.0
+- Fix build errors for Xcode 13 beta 3 ([#58](https://github.com/WeTransfer/UINotifications/pull/58)) via [@AvdLee](https://github.com/AvdLee)
+- Merge release 1.6.0 into master ([#57](https://github.com/WeTransfer/UINotifications/pull/57)) via [@wetransferplatform](https://github.com/wetransferplatform)
+
 ### 1.6.0
 - Add support for presenting on window scenes ([#56](https://github.com/WeTransfer/UINotifications/pull/56)) via [@AvdLee](https://github.com/AvdLee)
 - Merge release 1.5.1 into master ([#55](https://github.com/WeTransfer/UINotifications/pull/55)) via [@wetransferplatform](https://github.com/wetransferplatform)
