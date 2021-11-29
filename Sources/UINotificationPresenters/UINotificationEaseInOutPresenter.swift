@@ -35,6 +35,14 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
             presentationContext.notificationView.topConstraint?.constant = presentationContext.notificationView.layoutMargins.top + UIApplication.statusBarHeight
         }
 
+        let content = presentationContext.notification.content
+        let accessibilityAnnouncement = [content.title, content.subtitle]
+            .compactMap { $0 }
+            .filter { $0 != "" }
+            .joined(separator: ", ")
+
+        UIAccessibility.post(notification: .announcement, argument: accessibilityAnnouncement)
+
         UIView.animate(withDuration: inDuration, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.presentationContext.containerWindow.layoutIfNeeded()
         }, completion: { (_) in
