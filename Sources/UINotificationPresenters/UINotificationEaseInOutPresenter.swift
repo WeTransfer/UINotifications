@@ -38,7 +38,7 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
         let content = presentationContext.notification.content
         let accessibilityAnnouncement = [content.title, content.subtitle]
             .compactMap { $0 }
-            .filter { $0 != "" }
+            .filter { !$0.isEmpty }
             .joined(separator: ", ")
 
         UIAccessibility.post(notification: .announcement, argument: accessibilityAnnouncement)
