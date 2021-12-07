@@ -326,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Submodules/WeTransfer-iOS-CI/SwiftLint/swiftlint.sh\n";
+			shellScript = "./Submodules/WeTransfer-iOS-CI/BuildTools/swiftlint.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
