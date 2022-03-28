@@ -47,6 +47,10 @@ enum NotificationStyle: UINotificationStyle {
             return #colorLiteral(red: 1, green: 0.431372549, blue: 0.431372549, alpha: 1)
         }
     }
+
+    var thumbnailSize: CGSize {
+        return .init(width: 100, height: 100)
+    }
     
     /// The height of the notification which applies on the notification view.
     var height: UINotification.Height {
