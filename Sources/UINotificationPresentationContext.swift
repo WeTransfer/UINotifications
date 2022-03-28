@@ -73,8 +73,8 @@ public final class UINotificationPresentationContext {
         notificationView.topConstraint = notificationViewTopConstraint
 
         var constraints = [
-            notificationView.leftAnchor.constraint(equalTo: containerViewController.view.leftAnchor),
-            notificationView.rightAnchor.constraint(equalTo: containerViewController.view.rightAnchor),
+          notificationView.leftAnchor.constraint(equalTo: containerViewController.view.leftAnchor).usingPriority(.almostRequired),
+            notificationView.rightAnchor.constraint(equalTo: containerViewController.view.rightAnchor).usingPriority(.almostRequired),
             notificationView.heightAnchor.constraint(equalToConstant: notification.style.height.value),
             notificationViewTopConstraint
         ]
@@ -95,5 +95,12 @@ public final class UINotificationPresentationContext {
         containerWindow.windowLevel = UIWindow.Level.normal - 1
         containerWindow.rootViewController = nil
         containerWindow.isHidden = true
+    }
+}
+
+private extension UILayoutPriority {
+    /// Creates a priority which is almost required, but not 100%.
+    static var almostRequired: UILayoutPriority {
+        UILayoutPriority(rawValue: 999)
     }
 }
