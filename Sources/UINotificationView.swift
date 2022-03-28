@@ -168,8 +168,8 @@ open class UINotificationView: UIView {
         imageViewHeightConstraint = imageView.heightAnchor.constraint(equalToConstant: 31)
         
         let constraints = [
-            containerStackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor, constant: 18),
-            containerStackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor, constant: -18),
+            containerStackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 18),
+            containerStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -18),
             containerStackView.topAnchor.constraint(equalTo: topAnchor, constant: layoutMargins.top),
             containerStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: 0),
             
