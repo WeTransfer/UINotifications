@@ -73,7 +73,7 @@ public final class UINotificationPresentationContext {
         notificationView.topConstraint = notificationViewTopConstraint
 
         var constraints = [
-          notificationView.leftAnchor.constraint(equalTo: containerViewController.view.leftAnchor).usingPriority(.almostRequired),
+            notificationView.leftAnchor.constraint(equalTo: containerViewController.view.leftAnchor).usingPriority(.almostRequired),
             notificationView.rightAnchor.constraint(equalTo: containerViewController.view.rightAnchor).usingPriority(.almostRequired),
             notificationView.heightAnchor.constraint(equalToConstant: notification.style.height.value),
             notificationViewTopConstraint
