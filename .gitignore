@@ -30,3 +30,6 @@ Demo/Pods
 .build
 Packages
 Package.pins
+.spm-build
+fastlane/README.md
+fastlane/report.xml

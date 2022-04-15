@@ -49,7 +49,7 @@ enum NotificationStyle: UINotificationStyle {
     }
 
     var thumbnailSize: CGSize {
-        return .init(width: 100, height: 100)
+        return .init(width: 50, height: 50)
     }
 
     /// The height of the notification which applies on the notification view.
