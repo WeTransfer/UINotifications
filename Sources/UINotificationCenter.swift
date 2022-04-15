@@ -35,7 +35,7 @@ public final class UINotificationCenter {
     internal lazy var window: UIWindow = {
         let window: UIWindow
         
-        if let windowScene = UIApplication.current?.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+        if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
             window = UINotificationPresentationWindow(windowScene: windowScene)
         } else {
             window = UINotificationPresentationWindow()
@@ -87,14 +87,8 @@ internal final class UINotificationPresentationWindow: UIWindow {
 }
 
 extension UIApplication {
-    /// A convenience accessor to the `shared` instance which would not work in extensions.
-    static var current: UIApplication? {
-        let selector = NSSelectorFromString("sharedApplication")
-        return UIApplication.perform(selector)?.takeRetainedValue() as? UIApplication
-    }
-    
     /// Returns the status bar height of the current active application if not an app extension.
     static var statusBarHeight: CGFloat {
-        current?.windows.first(where: \.isKeyWindow)?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        shared.windows.first(where: \.isKeyWindow)?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
     }
 }
