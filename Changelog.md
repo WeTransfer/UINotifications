@@ -1,3 +1,8 @@
+### 1.7.3
+- Remove all traces of cocoapods. ([#68](https://github.com/WeTransfer/UINotifications/issues/68)) via [@kairadiagne](https://github.com/kairadiagne)
+- Example app crashes when you present a notification ([#65](https://github.com/WeTransfer/UINotifications/issues/65)) via [@AvdLee](https://github.com/AvdLee)
+- False warning "SwiftLint not installed" ([#66](https://github.com/WeTransfer/UINotifications/issues/66)) via [@AvdLee](https://github.com/AvdLee)
+
 ### 1.7.0
 - Fix build errors for Xcode 13 beta 3 ([#58](https://github.com/WeTransfer/UINotifications/pull/58)) via [@AvdLee](https://github.com/AvdLee)
 - Merge release 1.6.0 into master ([#57](https://github.com/WeTransfer/UINotifications/pull/57)) via [@wetransferplatform](https://github.com/wetransferplatform)
