@@ -4,7 +4,6 @@
 
 <p align="center">
 <img src="https://app.bitrise.io/app/aff79deadaca76df.svg?token=XtOuTac8yOiaRdCReWNdbA"/>
-<img src="https://img.shields.io/cocoapods/v/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/cocoapods/l/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/cocoapods/p/UINotifications.svg?style=flat"/>
 <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/>
@@ -219,32 +218,6 @@ let package = Package(
 #### Xcode
 
 To add Mocker as a [dependency](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) to your Xcode project, select *File > Swift Packages > Add Package Dependency* and enter the repository URL.
-
-### CocoaPods
-
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-To integrate UINotifications into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
-use_frameworks!
-
-target '<Your Target Name>' do
-    pod 'UINotifications', '~> 1.0.0'
-end
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
 
 ### Carthage
 
