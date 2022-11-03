@@ -9,7 +9,7 @@ let package = Package(
         // dev .macOS(.v10_15)
     ],
     products: [
-        .library(name: "UINotifications", type: .static, targets: ["UINotifications"])
+        .library(name: "UINotifications", targets: ["UINotifications"])
     ],
     targets: [
         .target(name: "UINotifications", path: "Sources"),
