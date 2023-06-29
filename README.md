@@ -191,7 +191,7 @@ The [Swift Package Manager](https://swift.org/package-manager/) is a tool for ma
 
 #### Manifest File
 
-Add Mocker as a package to your `Package.swift` file and then specify it as a dependency of the Target in which you wish to use it.
+Add UINotifications as a package to your `Package.swift` file and then specify it as a dependency of the Target in which you wish to use it.
 
 ```swift
 import PackageDescription
@@ -217,7 +217,7 @@ let package = Package(
 
 #### Xcode
 
-To add Mocker as a [dependency](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) to your Xcode project, select *File > Swift Packages > Add Package Dependency* and enter the repository URL.
+To add UINotifications as a [dependency](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) to your Xcode project, select *File > Swift Packages > Add Package Dependency* and enter the repository URL.
 
 ### Carthage
 
