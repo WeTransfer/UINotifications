@@ -15,7 +15,7 @@ public protocol UINotificationAction {
 }
 
 /// Defines a style which will be applied on the notification view.
-public protocol UINotificationStyle {
+public protocol UINotificationStyle: Sendable {
     var titleFont: UIFont { get }
     var subtitleFont: UIFont { get }
     var titleTextColor: UIColor { get }
@@ -48,10 +48,17 @@ protocol UINotificationDelegate: AnyObject {
 }
 
 /// An UINotification which can be showed on top of the `UINavigationBar` and `UIStatusBar`
-public final class UINotification: Equatable {
+/// `@unchecked Sendable` as we synchronize access using a lock queue.
+public final class UINotification: Equatable, @unchecked Sendable {
+
+    static let lockQueue = DispatchQueue(
+        label: "wetransfer.uinotification.lock.queue",
+        qos: .userInitiated,
+        target: .global(qos: .userInitiated)
+    )
 
     /// Defines the height which will be applied on the notification view.
-    public enum Height {
+    public enum Height: Sendable {
         case statusBar
         case navigationBar
         case custom(height: CGFloat)
@@ -69,8 +76,13 @@ public final class UINotification: Equatable {
     }
 
     /// The content of the notification.
-    public var content: UINotificationContent
-    
+    public var content: UINotificationContent {
+        Self.lockQueue.sync { notificationContent }
+    }
+
+    /// A private backup property to synchronize access using a lock queue.
+    private var notificationContent: UINotificationContent
+
     /// The style of the notification which applies on the notification view.
     public let style: UINotificationStyle
     
@@ -88,14 +100,16 @@ public final class UINotification: Equatable {
     weak var delegate: UINotificationDelegate?
     
     public init(content: UINotificationContent, style: UINotificationStyle = UINotificationSystemStyle(), action: UINotificationAction? = nil) {
-        self.content = content
+        self.notificationContent = content
         self.style = style
         self.action = action
     }
 
     /// Updates the content of the notification
     public func update(_ content: UINotificationContent) {
-        self.content = content
+        Self.lockQueue.sync {
+            self.notificationContent = content
+        }
         delegate?.didUpdateContent(in: self)
     }
     
@@ -104,7 +118,7 @@ public final class UINotification: Equatable {
     }
 }
 
-public struct UINotificationContent: Equatable {
+public struct UINotificationContent: Equatable, Sendable {
     /// The title which will be showed inside the notification.
     public let title: String
     
