@@ -8,6 +8,7 @@
 
 import Foundation
 
+@MainActor
 internal protocol UINotificationQueueDelegate: AnyObject {
     
     /// Will be called when a new request is ready to be handled.
@@ -18,20 +19,19 @@ internal protocol UINotificationQueueDelegate: AnyObject {
     func handle(_ request: UINotificationRequest)
 }
 
+@MainActor
 internal final class UINotificationQueue {
-    
+
     /// The currently queued requests.
     internal var requests = [UINotificationRequest]()
     private weak var delegate: UINotificationQueueDelegate?
-    
-    /// The queue which is used to make sure the requests array is only modified serially.
-    private let lockQueue = DispatchQueue(label: "com.uinotifications.LockQueue") // Defaults to a serial queue
     
     init(delegate: UINotificationQueueDelegate) {
         self.delegate = delegate
     }
     
-    /// Adds the given notification to the queue. If `allowDuplicates` is `false`, the returned notification request can have a cancelled state directly after creation.
+    /// Adds the given notification to the queue. If `allowDuplicates` is `false`, the returned notification request 
+    /// can have a cancelled state directly after creation.
     ///
     /// - Parameters:
     ///   - notification: The notification which is requested.
@@ -39,28 +39,35 @@ internal final class UINotificationQueue {
     ///   - dismissTrigger: The dismiss trigger which handles dismissing.
     ///   - allowDuplicates: If `true`, the notification will be queued in all cases.
     /// - Returns: The created notification request.
-    @discardableResult func add(_ notification: UINotification, notificationViewType: UINotificationView.Type, dismissTrigger: UINotificationDismissTrigger? = nil, allowDuplicates: Bool = false) -> UINotificationRequest {
-        let request = UINotificationRequest(notification: notification, delegate: self, notificationViewType: notificationViewType, dismissTrigger: dismissTrigger)
-        
+    @discardableResult func add(
+        _ notification: UINotification,
+        notificationViewType: UINotificationView.Type,
+        dismissTrigger: UINotificationDismissTrigger? = nil,
+        allowDuplicates: Bool = false
+    ) -> UINotificationRequest {
+        let request = UINotificationRequest(
+            notification: notification,
+            delegate: self,
+            notificationViewType: notificationViewType,
+            dismissTrigger: dismissTrigger
+        )
+
         if !allowDuplicates, requests.contains(where: { (queuedRequest) -> Bool in
             return queuedRequest.notification == request.notification
         }) {
             request.cancel()
         }
-        
-        lockQueue.sync {
-            if request.state == .idle {
-                requests.append(request)
-            }
+
+        if request.state == .idle {
+            requests.append(request)
         }
+
         updateRunningRequest()
         return request
     }
     
     internal func remove(_ request: UINotificationRequest) {
-        lockQueue.sync {
-            requests.removeAll(where: { $0 == request })
-        }
+        requests.removeAll(where: { $0 == request })
         updateRunningRequest()
     }
     
