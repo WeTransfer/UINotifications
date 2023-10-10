@@ -9,7 +9,7 @@
 import UIKit
 
 /// The state of a notification presenter.
-public enum UINotificationPresenterState {
+public enum UINotificationPresenterState: Sendable {
     /// Ready to be presented.
     case idle
     /// Currently animating out.
@@ -23,7 +23,8 @@ public enum UINotificationPresenterState {
 }
 
 /// Defines a protocol for a UINotification presenter & dismisser.
-public protocol UINotificationPresenter: Dismissable {
+@MainActor
+public protocol UINotificationPresenter: Dismissable, Sendable {
     /// Provides information about an in-progress notification presentation.
     var presentationContext: UINotificationPresentationContext { get }
     

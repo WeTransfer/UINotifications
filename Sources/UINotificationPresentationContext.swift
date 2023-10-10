@@ -9,6 +9,7 @@
 import UIKit
 
 /// Provides information about an in-progress notification presentation.
+@MainActor
 public final class UINotificationPresentationContext {
 
     /// The window in which the `UINotificationView` will be presented.

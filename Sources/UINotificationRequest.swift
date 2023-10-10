@@ -8,6 +8,7 @@
 
 import Foundation
 
+@MainActor
 protocol UINotificationRequestDelegate: AnyObject {
     
     /// Notifies of a change inside the passed `UINotificationRequest` state.
@@ -20,8 +21,9 @@ protocol UINotificationRequestDelegate: AnyObject {
 
 /// Defines the request of a notification presentation.
 /// Can be in idle, running or finished state. Can also be in a cancelled state if `cancel()` is called.
+@MainActor
 public final class UINotificationRequest: Equatable {
-    
+
     struct WeakRequestDelegate {
         weak var target: UINotificationRequestDelegate?
     }
@@ -87,7 +89,7 @@ public final class UINotificationRequest: Equatable {
         state = .finished
     }
     
-    public static func == (lhs: UINotificationRequest, rhs: UINotificationRequest) -> Bool {
+    nonisolated public static func == (lhs: UINotificationRequest, rhs: UINotificationRequest) -> Bool {
         return lhs.identifier == rhs.identifier
     }
 }

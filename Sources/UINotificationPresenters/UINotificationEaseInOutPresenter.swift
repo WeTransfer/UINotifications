@@ -55,17 +55,19 @@ public final class UINotificationEaseOutEaseInPresenter: UINotificationPresenter
         })
     }
 
-    public func dismiss() {
-        guard state == .presented else { return }
-        state = .dismissing
+    public nonisolated func dismiss() {
+        Task { @MainActor in
+            guard state == .presented else { return }
+            state = .dismissing
 
-        presentationContext.notificationView.topConstraint?.constant = -presentationContext.notification.style.height.value
+            presentationContext.notificationView.topConstraint?.constant = -presentationContext.notification.style.height.value
 
-        UIView.animate(withDuration: outDuration, delay: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-            self.presentationContext.containerWindow.layoutIfNeeded()
-        }, completion: { (_) in
-            self.state = .idle
-            self.presentationContext.completePresentation()
-        })
+            UIView.animate(withDuration: outDuration, delay: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+                self.presentationContext.containerWindow.layoutIfNeeded()
+            }, completion: { (_) in
+                self.state = .idle
+                self.presentationContext.completePresentation()
+            })
+        }
     }
 }
