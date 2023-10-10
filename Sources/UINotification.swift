@@ -39,6 +39,7 @@ public protocol UINotificationStyle: Sendable {
 }
 
 /// Handles changes in UINotification
+@MainActor
 protocol UINotificationDelegate: AnyObject {
     // Called when Notification is updated.
     func didUpdateContent(in notificaiton: UINotification)
@@ -61,8 +62,9 @@ public final class UINotification: Equatable, @unchecked Sendable {
     public enum Height: Sendable {
         case statusBar
         case navigationBar
-        case custom(height: CGFloat)
+        case custom(height:   CGFloat)
 
+        @MainActor
         internal var value: CGFloat {
             switch self {
             case .statusBar:
@@ -90,7 +92,9 @@ public final class UINotification: Equatable, @unchecked Sendable {
     /// Setting this property will add the button, even if the notification is already visible.
     public var button: UIButton? {
         didSet {
-            delegate?.didUpdateButton(in: self)
+            Task { @MainActor in
+                delegate?.didUpdateButton(in: self)
+            }
         }
     }
     
@@ -110,7 +114,9 @@ public final class UINotification: Equatable, @unchecked Sendable {
         Self.lockQueue.sync {
             self.notificationContent = content
         }
-        delegate?.didUpdateContent(in: self)
+        Task { @MainActor in
+            delegate?.didUpdateContent(in: self)
+        }
     }
     
     public static func == (lhs: UINotification, rhs: UINotification) -> Bool {
