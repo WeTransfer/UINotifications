@@ -67,7 +67,6 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         let presenter = try XCTUnwrap(notificationCenter.currentPresenter as? UINotificationEaseOutEaseInPresenter)
         XCTAssert(notificationCenter.queue.requests.first?.state == .running, "We should have a running notification")
         
-        await Task.megaYield(count: 4)
         await waitForCondition(notificationCenter.queue.requests.isEmpty, timeout: 5.0, description: "All requests should be cleaned up after presentation")
 
         presenter.state = .dismissing
