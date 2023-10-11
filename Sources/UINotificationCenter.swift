@@ -46,7 +46,7 @@ public struct UINotificationCenterConfiguration {
 }
 
 /// Handles the queueing and presenting of `UINotification`s
-public final class UINotificationCenter {
+public final class UINotificationCenter: @unchecked Sendable {
 
     // MARK: Public properties
 
