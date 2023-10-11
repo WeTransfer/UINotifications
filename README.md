@@ -144,7 +144,9 @@ manualDismissTrigger.trigger() // Dismiss
 - Set your custom view on the `UINotificationCenter`:
 
 ```swift
-UINotificationCenter.current.defaultNotificationViewType = MyCustomNotificationView.self
+UINotificationCenter.current.configuration = UINotificationCenterConfiguration(
+    defaultNotificationViewType: MyCustomNotificationView.self
+)
 ```
 
 ### Use a custom UIButton
@@ -163,7 +165,9 @@ Create a custom presenter to manage presentation and dismiss animations.
 - Set your custom presenter on the `UINotificationCenter`:
 
 ```swift
-UINotificationCenter.current.presenterType = MyCustomPresenter.self
+UINotificationCenter.current.configuration = UINotificationCenterConfiguration(
+    presenterType: MyCustomPresenter.self
+)
 ```
 
 *Checkout `UINotificationEaseOutEaseInPresenter` for an example.*
@@ -174,7 +178,9 @@ By default, notifications which are already queued will not be queued again. Thi
 To disable this setting:
 
 ```swift
-UINotificationCenter.current.isDuplicateQueueingAllowed = true
+UINotificationCenter.current.configuration = UINotificationCenterConfiguration(
+    isDuplicateQueueingAllowed: true
+)
 ```
 
 ## Communication
