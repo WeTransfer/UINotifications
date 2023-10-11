@@ -65,7 +65,7 @@ final class UINotificationCenterTests: UINotificationTestCase {
         await waitForCondition(notificationCenter.currentPresenter is MockPresenter, timeout: 5.0, description: "Custom presenter should be used for presenting")
     }
     
-    /// When a presentation is finished, the presenter should be releasted.
+    /// When a presentation is finished, the presenter should be released.
     func testPresenterReleasing() async {
         let notificationCenter = UINotificationCenter()
         notificationCenter.configuration = UINotificationCenterConfiguration(

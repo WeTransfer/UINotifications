@@ -46,7 +46,6 @@ public struct UINotificationCenterConfiguration {
 }
 
 /// Handles the queueing and presenting of `UINotification`s
-@MainActor
 public final class UINotificationCenter {
 
     // MARK: Public properties
@@ -109,17 +108,19 @@ public final class UINotificationCenter {
 extension UINotificationCenter: UINotificationQueueDelegate {
     /// Handles the request which is ready to be presented. Links the presenter to the `UINotification` and `UINotificationView`.
     internal func handle(_ request: UINotificationRequest) {
-        let notificationView = request.notificationViewType.init(notification: request.notification)
-        let presentationContext = UINotificationPresentationContext(
-            request: request,
-            containerWindow: window,
-            windowLevel: configuration.windowLevel,
-            notificationView: notificationView
-        )
-        let presenter = configuration.presenterType.init(presentationContext: presentationContext, dismissTrigger: request.dismissTrigger)
-        notificationView.presenter = presenter
-        currentPresenter = presenter
-        presenter.present()
+        Task { @MainActor in
+            let notificationView = request.notificationViewType.init(notification: request.notification)
+            let presentationContext = UINotificationPresentationContext(
+                request: request,
+                containerWindow: window,
+                windowLevel: configuration.windowLevel,
+                notificationView: notificationView
+            )
+            let presenter = configuration.presenterType.init(presentationContext: presentationContext, dismissTrigger: request.dismissTrigger)
+            notificationView.presenter = presenter
+            currentPresenter = presenter
+            presenter.present()
+        }
     }
 }
 

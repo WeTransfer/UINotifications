@@ -8,7 +8,6 @@
 
 import Foundation
 
-@MainActor
 protocol UINotificationRequestDelegate: AnyObject {
     
     /// Notifies of a change inside the passed `UINotificationRequest` state.
@@ -21,13 +20,10 @@ protocol UINotificationRequestDelegate: AnyObject {
 
 /// Defines the request of a notification presentation.
 /// Can be in idle, running or finished state. Can also be in a cancelled state if `cancel()` is called.
-@MainActor
-public final class UINotificationRequest: Equatable {
+public final class UINotificationRequest: Equatable, @unchecked Sendable {
+    /// The queue which is used to make sure the requests array is only modified serially.
+    private static let lockQueue = DispatchQueue(label: "com.uinotifications.request.LockQueue")
 
-    struct WeakRequestDelegate {
-        weak var target: UINotificationRequestDelegate?
-    }
-    
     public enum State {
         /// Waiting to run
         case idle
@@ -46,8 +42,8 @@ public final class UINotificationRequest: Equatable {
     public let notification: UINotification
     
     /// Optional dismiss trigger to use for the animation. If `nil` the default trigger will be used.
-    public weak var dismissTrigger: UINotificationDismissTrigger?
-    
+    public let dismissTrigger: UINotificationDismissTrigger?
+
     /// The type of view to use for this notification.
     public let notificationViewType: UINotificationView.Type
     
@@ -55,18 +51,25 @@ public final class UINotificationRequest: Equatable {
     private let identifier: UUID
     
     /// The current state of the request.
-    public private(set) var state: UINotificationRequest.State = .idle {
-        didSet {
-            delegates.forEach { $0.target?.notificationRequest(self, didChangeStateTo: state) }
+    private(set) var state: UINotificationRequest.State {
+        get {
+            Self.lockQueue.sync { _state }
+        }
+        set {
+            Self.lockQueue.sync { _state = newValue }
+            delegate.notificationRequest(self, didChangeStateTo: newValue)
         }
     }
-    
+    private var _state: UINotificationRequest.State = .idle
+
     /// An array of listener to delegate callbacks.
-    var delegates = [WeakRequestDelegate]()
-    
+    /// Note: we're not referencing this weakly to make this type `Sendable`. We can do this
+    /// since the delegate will always exist since it's the `UINotificationQueue`.
+    private let delegate: UINotificationRequestDelegate
+
     internal init(notification: UINotification, delegate: UINotificationRequestDelegate, notificationViewType: UINotificationView.Type, dismissTrigger: UINotificationDismissTrigger? = nil) {
         self.notification = notification
-        self.delegates.append(WeakRequestDelegate(target: delegate))
+        self.delegate = delegate
         self.notificationViewType = notificationViewType
         self.dismissTrigger = dismissTrigger
         self.identifier = UUID()
