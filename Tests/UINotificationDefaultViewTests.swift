@@ -8,9 +8,17 @@
 
 import XCTest
 @testable import UINotifications
+import ConcurrencyExtras
 
+@MainActor
 final class UINotificationViewTests: UINotificationTestCase {
     
+    override func invokeTest() {
+        withMainSerialExecutor {
+            super.invokeTest()
+        }
+    }
+
     /// When a notification view is tapped, the action trigger should be called.
     func testTapGesture() {
         let expectation = self.expectation(description: "Action should be triggered")
@@ -62,7 +70,7 @@ final class UINotificationViewTests: UINotificationTestCase {
     }
     
     /// When the notification content updates, the view should inherit these changes.
-    func testNotificationContentUpdate() {
+    func testNotificationContentUpdate() async {
         let notificationView = UINotificationView(notification: notification)
         
         XCTAssert(notificationView.titleLabel.text == notification.content.title, "Title should match initial content")
@@ -70,31 +78,34 @@ final class UINotificationViewTests: UINotificationTestCase {
         
         let updatedContent = UINotificationContent(title: "Updated title", subtitle: "Updated subtitle", image: LargeChevronStyle().chevronImage)
         notification.update(updatedContent)
-        
+        await Task.yield()
+
         XCTAssert(notificationView.titleLabel.text == updatedContent.title, "Title of the notification view should update accordingly")
         XCTAssert(notificationView.subtitleLabel.text == updatedContent.subtitle, "Subtitle of the notification view should update accordingly")
         XCTAssert(notificationView.imageView.image == updatedContent.image, "Image of the notification view should update accordingly")
     }
     
     /// It should add the button as a subview when set.
-    func testButton() {
+    func testButton() async {
         let notificationView = UINotificationView(notification: notification)
         
         XCTAssertNil(notificationView.button)
 
         notification.button = UIButton(type: .system)
+        await Task.yield()
         XCTAssertNotNil(notificationView.button)
         XCTAssertNotNil(notificationView.button?.superview)
     }
     
     /// It should add the button as a subview when set, even after the notification is shown.
-    func testButtonAfterShow() {
+    func testButtonAfterShow() async {
         let notificationView = UINotificationView(notification: notification)
 
         UINotificationCenter.current.show(notification: notification, dismissTrigger: nil)
         
         XCTAssertNil(notificationView.button)
         notification.button = UIButton(type: .system)
+        await Task.yield()
         XCTAssertNotNil(notificationView.button)
         XCTAssertNotNil(notificationView.button?.superview)
     }

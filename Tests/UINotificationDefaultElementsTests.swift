@@ -8,7 +8,9 @@
 
 import XCTest
 @testable import UINotifications
+import ConcurrencyExtras
 
+@MainActor
 final class UINotificationDefaultElementsTests: UINotificationTestCase {
 
     struct CustomStyle: UINotificationStyle {
@@ -34,7 +36,13 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
             self.thumbnailSize = thumbnailSize
         }
     }
-    
+
+    override func invokeTest() {
+        withMainSerialExecutor {
+            super.invokeTest()
+        }
+    }
+
     /// When the notification callback action is executed, the callback should be triggered.
     func testNotificationCallbackAction() {
         let expectation = self.expectation(description: "The callback should be triggered")
@@ -47,17 +55,21 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
     }
     
     /// When using the easeOutEaseInPresenter, the presenter should be released correctly.
-    func testEaseOutEaseInPresenter() {
+    func testEaseOutEaseInPresenter() async throws {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.presenterType = UINotificationEaseOutEaseInPresenter.self
-        notificationCenter.isDuplicateQueueingAllowed = true
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            presenterType: UINotificationEaseOutEaseInPresenter.self,
+            isDuplicateQueueingAllowed: true
+        )
         notificationCenter.show(notification: notification)
-        
-        let presenter = notificationCenter.currentPresenter as! UINotificationEaseOutEaseInPresenter
+        await Task.yield()
+
+        let presenter = try XCTUnwrap(notificationCenter.currentPresenter as? UINotificationEaseOutEaseInPresenter)
         XCTAssert(notificationCenter.queue.requests.first?.state == .running, "We should have a running notification")
         
-        waitFor(notificationCenter.queue.requests.isEmpty, timeout: 5.0, description: "All requests should be cleaned up after presentation")
-        
+        await Task.megaYield(count: 4)
+        await waitForCondition(notificationCenter.queue.requests.isEmpty, timeout: 5.0, description: "All requests should be cleaned up after presentation")
+
         presenter.state = .dismissing
         presenter.present()
         XCTAssert(presenter.state == .dismissing, "Presentation should not be possible when not in idle")
@@ -67,67 +79,77 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
     }
     
     /// When passing a notification style with a custom height, this should be applied to the presented view.
-    func testCustomNotificationViewHeight() {
+    func testCustomNotificationViewHeight() async {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.isDuplicateQueueingAllowed = true
-        notificationCenter.presenterType = MockPresenter.self
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            presenterType: MockPresenter.self,
+            isDuplicateQueueingAllowed: true
+        )
         let customHeight: CGFloat = 500
         let notification = UINotification(content: UINotificationContent(title: "test"), style: CustomStyle(customHeight: customHeight))
         
         notificationCenter.show(notification: notification)
         
-        waitFor(notificationCenter.currentPresenter?.presentationContext.notificationView.frame.size.height == customHeight, timeout: 5.0, description: "Custom height should be applied to the view")
+        await waitForCondition(notificationCenter.currentPresenter?.presentationContext.notificationView.frame.size.height == customHeight, timeout: 5.0, description: "Custom height should be applied to the view")
     }
     
     /// When passing a notification style with a custom thumbnail size, this should be applied to the presented view.
-    func testCustomNotificationThumbnailSize() {
+    func testCustomNotificationThumbnailSize() async {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.isDuplicateQueueingAllowed = true
-        notificationCenter.presenterType = MockPresenter.self
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            presenterType: MockPresenter.self,
+            isDuplicateQueueingAllowed: true
+        )
         let customSize = CGSize(width: 25, height: 25)
         let notification = UINotification(content: UINotificationContent(title: "test"), style: CustomStyle(thumbnailSize: customSize))
         
         notificationCenter.show(notification: notification)
         
-        waitFor(notificationCenter.currentPresenter?.presentationContext.notificationView.imageView.frame.size == customSize, timeout: 5.0, description: "Custom height should be applied to the view")
+        await waitForCondition(notificationCenter.currentPresenter?.presentationContext.notificationView.imageView.frame.size == customSize, timeout: 5.0, description: "Custom height should be applied to the view")
     }
 
     /// When passing a notification style with a max width, this should be applied to the presented view.
-    func testNotificationViewMaxWidth() {
+    func testNotificationViewMaxWidth() async {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.isDuplicateQueueingAllowed = true
-        notificationCenter.presenterType = MockPresenter.self
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            presenterType: MockPresenter.self,
+            isDuplicateQueueingAllowed: true
+        )
         let customWidth: CGFloat = 100
         let notification = UINotification(content: UINotificationContent(title: "test"), style: CustomStyle(maxWidth: customWidth))
 
         notificationCenter.show(notification: notification)
 
-        waitFor(notificationCenter.currentPresenter?.presentationContext.notificationView.frame.size.width == customWidth, timeout: 5.0, description: "Max width should be applied to the view")
+        await waitForCondition(notificationCenter.currentPresenter?.presentationContext.notificationView.frame.size.width == customWidth, timeout: 5.0, description: "Max width should be applied to the view")
     }
 
     /// When using the manual dismiss trigger, the notification should only dismiss after manually called.
-    func testManualDismissTrigger() {
+    func testManualDismissTrigger() async {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.isDuplicateQueueingAllowed = true
-        notificationCenter.presenterType = MockPresenter.self
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            presenterType: MockPresenter.self,
+            isDuplicateQueueingAllowed: true
+        )
         let dismissTrigger = UINotificationManualDismissTrigger()
         
         notificationCenter.show(notification: notification, dismissTrigger: dismissTrigger)
 
-        waitFor(notificationCenter.currentPresenter?.dismissTrigger.target != nil, timeout: 5.0, description: "Dismiss trigger target should be set")
+        await waitForCondition(notificationCenter.currentPresenter?.dismissTrigger.target != nil, timeout: 5.0, description: "Dismiss trigger target should be set")
         XCTAssert((notificationCenter.currentPresenter as! MockPresenter).presented == true, "Notification should be presented")
         XCTAssert((notificationCenter.currentPresenter as! MockPresenter).dismissed == false, "Notification should not be dismissed")
         
         dismissTrigger.trigger()
 
-        waitFor(notificationCenter.currentPresenter == nil, timeout: 5.0, description: "The presenter should be nil after dismiss is finished")
+        await waitForCondition(notificationCenter.currentPresenter == nil, timeout: 5.0, description: "The presenter should be nil after dismiss is finished")
     }
     
     /// When a touch is within the notification UIWindow bounds, it should only be handled when inside a presented notification.
-    func testNotificationWindowTouches() {
+    func testNotificationWindowTouches() async {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.isDuplicateQueueingAllowed = true
-        notificationCenter.presenterType = MockPresenter.self
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            presenterType: MockPresenter.self,
+            isDuplicateQueueingAllowed: true
+        )
         let dismissTrigger = UINotificationManualDismissTrigger()
         
         XCTAssert(notificationCenter.window.point(inside: CGPoint(x: 0, y: 10), with: nil) == false, "When not presenting anything, the window should not handle touches.")
@@ -135,7 +157,7 @@ final class UINotificationDefaultElementsTests: UINotificationTestCase {
         notificationCenter.show(notification: notification, dismissTrigger: dismissTrigger)
         
         // Wait till the notification is presented
-        waitFor(notificationCenter.currentPresenter?.dismissTrigger.target != nil, timeout: 5.0, description: "Dismiss trigger target should be set")
+        await waitForCondition(notificationCenter.currentPresenter?.dismissTrigger.target != nil, timeout: 5.0, description: "Dismiss trigger target should be set")
 
         let notificationViewFrameOrigin = notificationCenter.currentPresenter!.presentationContext.notificationView.frame.origin
 

@@ -11,28 +11,29 @@ import XCTest
 extension XCTestCase {
     
     /// Checks for the callback to be the expected value within the given timeout.
+    /// Awaiting result using a Task.sleep.
+    /// - Note: See `waitForConditionUsingMainActor` to validate the condition on the main actor.
     ///
     /// - Parameters:
     ///   - condition: The condition to check for.
     ///   - timeout: The timeout in which the callback should return true.
     ///   - description: A string to display in the test log for this expectation, to help diagnose failures.
-    func waitFor(_ condition: @autoclosure () -> Bool, timeout: TimeInterval, description: String) {
-        let expectation = self.expectation(description: description)
-        
-        let end = Date().addingTimeInterval(timeout)
-        
-        while !condition() && 0 < end.timeIntervalSinceNow {
-            if RunLoop.current.run(mode: RunLoop.Mode.default, before: Date(timeIntervalSinceNow: 0.002)) {
-                Thread.sleep(forTimeInterval: 0.002)
-            }
-        }
-        
-        if !condition() {
-            XCTFail("Timed out waiting for condition to be true")
-        } else {
-            expectation.fulfill()
-        }
+    func waitForCondition(
+        _ condition: @autoclosure () throws -> Bool,
+        timeout: TimeInterval,
+        description: String = "",
+        file: StaticString = #file,
+        line: UInt = #line
+    ) async rethrows {
+        let end: Date = Date().addingTimeInterval(timeout)
 
-        waitForExpectations(timeout: 5.0, handler: nil)
+        var value = false
+
+        repeat {
+            value = try condition()
+            try? await Task.sleep(nanoseconds: 1_000_000) // 0.001 second
+        } while !value && end.timeIntervalSinceNow > 0
+
+        XCTAssertTrue(value, "➡️🚨 Timed out waiting for condition to be true: \"\(description)\"", file: file, line: line)
     }
 }
