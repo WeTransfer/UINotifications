@@ -46,6 +46,8 @@ public struct UINotificationCenterConfiguration {
 }
 
 /// Handles the queueing and presenting of `UINotification`s
+/// `@unchecked Sendable` since all its mutation happens either on the Main Actor or
+/// is unlikely going to be in sequence with write operations.
 public final class UINotificationCenter: @unchecked Sendable {
 
     // MARK: Public properties

@@ -62,7 +62,7 @@ public final class UINotification: Equatable, @unchecked Sendable {
     public enum Height: Sendable {
         case statusBar
         case navigationBar
-        case custom(height:   CGFloat)
+        case custom(height: CGFloat)
 
         @MainActor
         internal var value: CGFloat {
