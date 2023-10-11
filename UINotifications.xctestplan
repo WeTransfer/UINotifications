@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "333C68F8-A6C1-435C-903A-129E4BBD2F51",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "UINotificationsTests",
+        "name" : "UINotificationsTests"
+      }
+    }
+  ],
+  "version" : 1
+}
