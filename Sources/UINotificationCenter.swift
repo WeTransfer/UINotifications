@@ -32,7 +32,7 @@ public struct UINotificationCenterConfiguration {
     ///   Changing the window level while a notification is displayed might give some issues.
     ///   - isDuplicateQueueingAllowed: If `true`, the same notifications can be queued. This can result in duplicate notifications
     ///   being presented after each other.
-    init(
+    public init(
         presenterType: UINotificationPresenter.Type = UINotificationEaseOutEaseInPresenter.self,
         defaultNotificationViewType: UINotificationView.Type = UINotificationView.self,
         windowLevel: UIWindow.Level = UIWindow.Level.statusBar,
