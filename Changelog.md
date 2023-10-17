@@ -1,3 +1,8 @@
+### 2.0.0
+- Add `Sendable` conformance and support for Concurrency ([#74](https://github.com/WeTransfer/UINotifications/pull/74)) via [@AvdLee](https://github.com/AvdLee)
+- Update `CODEWONERS` file ([#73](https://github.com/WeTransfer/UINotifications/pull/73)) via [@peagasilva](https://github.com/peagasilva)
+- Remove reference to Mocker from README.md ([#72](https://github.com/WeTransfer/UINotifications/pull/72)) via [@kairadiagne](https://github.com/kairadiagne)
+
 ### 1.7.3
 - Remove all traces of cocoapods. ([#68](https://github.com/WeTransfer/UINotifications/issues/68)) via [@kairadiagne](https://github.com/kairadiagne)
 - Example app crashes when you present a notification ([#65](https://github.com/WeTransfer/UINotifications/issues/65)) via [@AvdLee](https://github.com/AvdLee)
