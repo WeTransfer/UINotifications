@@ -22,7 +22,7 @@ public final class UINotificationDurationDismissTrigger: UINotificationSchedulab
     public init(duration: TimeInterval) {
         self.duration = duration
     }
-    
+
     public func schedule() {
         let dismissWorkItem = DispatchWorkItem { [weak self] in
             self?.target?.dismiss()

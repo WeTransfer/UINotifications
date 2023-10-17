@@ -27,7 +27,7 @@ class UINotificationTestCase: XCTestCase {
             self.presentationContext = presentationContext
             self.dismissTrigger = dismissTrigger ?? UINotificationDurationDismissTrigger(duration: 0.0)
         }
-        
+
         func present() {
             dismissTrigger.target = self
             (dismissTrigger as? UINotificationSchedulableDismissTrigger)?.schedule()

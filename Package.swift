@@ -11,11 +11,17 @@ let package = Package(
     products: [
         .library(name: "UINotifications", targets: ["UINotifications"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/pointfreeco/swift-concurrency-extras.git", from: "1.0.0")
+    ],
     targets: [
         .target(name: "UINotifications", path: "Sources"),
         .testTarget(
             name: "UINotificationsTests",
-            dependencies: ["UINotifications"],
+            dependencies: [
+                "UINotifications",
+                .product(name: "ConcurrencyExtras", package: "swift-concurrency-extras")
+            ],
             path: "Tests",
             resources: [.copy("Resources/iconToastChevron.png")]
         )

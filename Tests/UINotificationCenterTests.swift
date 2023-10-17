@@ -8,9 +8,17 @@
 
 import XCTest
 @testable import UINotifications
+import ConcurrencyExtras
 
+@MainActor
 final class UINotificationCenterTests: UINotificationTestCase {
     
+    override func invokeTest() {
+        withMainSerialExecutor {
+            super.invokeTest()
+        }
+    }
+
     /// When a notification is requested, it should be added to the queue.
     func testShowNotificationQueue() {
         let notificationCenter = UINotificationCenter()
@@ -26,36 +34,45 @@ final class UINotificationCenterTests: UINotificationTestCase {
     }
     
     /// When a custom default notification view is set, it should be used for presentation.
-    func testCustomDefaultNotificationView() {
+    func testCustomDefaultNotificationView() async {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.defaultNotificationViewType = MockNotificationView.self
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            defaultNotificationViewType: MockNotificationView.self
+        )
         notificationCenter.show(notification: notification)
+        await Task.yield()
+
         XCTAssert(notificationCenter.currentPresenter?.presentationContext.notificationView is MockNotificationView, "The custom view should be used")
     }
     
     /// When a custom notification view is passed inside the presentation method, it should be used for presentation.
-    func testCustomNotificationView() {
+    func testCustomNotificationView() async {
         let notificationCenter = UINotificationCenter()
         notificationCenter.show(notification: notification, notificationViewType: MockNotificationView.self)
+        await Task.yield()
         XCTAssert(notificationCenter.currentPresenter?.presentationContext.notificationView is MockNotificationView, "The custom view should be used")
     }
     
     /// When a custom presenter is set, it should be used for presenting.
-    func testCustomNotificationPresenter() {
+    func testCustomNotificationPresenter() async {
         let notificationCenter = UINotificationCenter()
-        notificationCenter.presenterType = MockPresenter.self
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            presenterType: MockPresenter.self
+        )
         
-        notificationCenter.show(notification: notification)
-        
-        waitFor(notificationCenter.currentPresenter is MockPresenter, timeout: 5.0, description: "Custom presenter should be used for presenting")
-    }
-    
-    /// When a presentation is finished, the presenter should be releasted.
-    func testPresenterReleasing() {
-        let notificationCenter = UINotificationCenter()
-        notificationCenter.presenterType = MockPresenter.self
         notificationCenter.show(notification: notification)
 
-        waitFor(notificationCenter.currentPresenter == nil, timeout: 5.0, description: "Current presenter should be released and nil")
+        await waitForCondition(notificationCenter.currentPresenter is MockPresenter, timeout: 5.0, description: "Custom presenter should be used for presenting")
+    }
+    
+    /// When a presentation is finished, the presenter should be released.
+    func testPresenterReleasing() async {
+        let notificationCenter = UINotificationCenter()
+        notificationCenter.configuration = UINotificationCenterConfiguration(
+            presenterType: MockPresenter.self
+        )
+        notificationCenter.show(notification: notification)
+
+        await waitForCondition(notificationCenter.currentPresenter == nil, timeout: 5.0, description: "Current presenter should be released and nil")
     }
 }
