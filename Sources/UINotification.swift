@@ -15,6 +15,7 @@ public protocol UINotificationAction {
 }
 
 /// Defines a style which will be applied on the notification view.
+@MainActor
 public protocol UINotificationStyle: Sendable {
     var titleFont: UIFont { get }
     var subtitleFont: UIFont { get }
@@ -103,9 +104,10 @@ public final class UINotification: Equatable, @unchecked Sendable {
 
     weak var delegate: UINotificationDelegate?
     
-    public init(content: UINotificationContent, style: UINotificationStyle = UINotificationSystemStyle(), action: UINotificationAction? = nil) {
+    @MainActor
+    public init(content: UINotificationContent, style: UINotificationStyle? = nil, action: UINotificationAction? = nil) {
         self.notificationContent = content
-        self.style = style
+        self.style = style ??  UINotificationSystemStyle()
         self.action = action
     }
 
