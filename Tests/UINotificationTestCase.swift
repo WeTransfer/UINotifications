@@ -10,6 +10,7 @@
 import XCTest
 @testable import UINotifications
 
+@MainActor
 class UINotificationTestCase: XCTestCase {
     internal let notification = UINotification(content: UINotificationContent(title: "", subtitle: "", image: nil))
     
