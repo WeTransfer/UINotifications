@@ -1,3 +1,7 @@
+### 2.1.0
+- Make UINotificationStyle conform to main actor ([#76](https://github.com/WeTransfer/UINotifications/pull/76)) via [@AvdLee](https://github.com/AvdLee)
+- Merge release 2.0.0 into master ([#75](https://github.com/WeTransfer/UINotifications/pull/75)) via [@wetransferplatform](https://github.com/wetransferplatform)
+
 ### 2.0.0
 - Add `Sendable` conformance and support for Concurrency ([#74](https://github.com/WeTransfer/UINotifications/pull/74)) via [@AvdLee](https://github.com/AvdLee)
 - Update `CODEWONERS` file ([#73](https://github.com/WeTransfer/UINotifications/pull/73)) via [@peagasilva](https://github.com/peagasilva)
