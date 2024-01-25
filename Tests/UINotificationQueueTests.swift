@@ -59,6 +59,7 @@ final class UINotificationQueueTests: UINotificationTestCase {
     }
     
     /// When a request is already queued, it should not be added if duplicates are not allowed.
+    @MainActor
     func testDuplicateNotificationRequestsQueue() {
         let queue = UINotificationQueue(delegate: MockQueueDelegate())
         queue.add(notification, notificationViewType: UINotificationView.self)
