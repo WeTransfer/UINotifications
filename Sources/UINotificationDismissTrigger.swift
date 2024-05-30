@@ -11,7 +11,7 @@ import Foundation
 /// Defines a dismissable view.
 @MainActor
 public protocol Dismissable: AnyObject, Sendable {
-    /// Dimisses the view.
+    /// Dismisses the view.
     func dismiss()
 }
 
