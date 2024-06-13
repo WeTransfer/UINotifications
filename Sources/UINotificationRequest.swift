@@ -47,7 +47,7 @@ public final class UINotificationRequest: Equatable, @unchecked Sendable {
     /// The type of view to use for this notification.
     public let notificationViewType: UINotificationView.Type
     
-    /// An internal intedifier used for comparing actions
+    /// An internal identifier used for comparing actions
     private let identifier: UUID
     
     /// The current state of the request.
