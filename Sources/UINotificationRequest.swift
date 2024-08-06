@@ -67,7 +67,12 @@ public final class UINotificationRequest: Equatable, @unchecked Sendable {
     /// since the delegate will always exist since it's the `UINotificationQueue`.
     private let delegate: UINotificationRequestDelegate
 
-    internal init(notification: UINotification, delegate: UINotificationRequestDelegate, notificationViewType: UINotificationView.Type, dismissTrigger: UINotificationDismissTrigger? = nil) {
+    internal init(
+        notification: UINotification,
+        delegate: UINotificationRequestDelegate,
+        notificationViewType: UINotificationView.Type,
+        dismissTrigger: UINotificationDismissTrigger? = nil
+    ) {
         self.notification = notification
         self.delegate = delegate
         self.notificationViewType = notificationViewType
