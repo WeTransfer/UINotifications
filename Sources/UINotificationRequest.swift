@@ -9,7 +9,7 @@
 import Foundation
 
 protocol UINotificationRequestDelegate: AnyObject {
-    
+
     /// Notifies of a change inside the passed `UINotificationRequest` state.
     ///
     /// - Parameters:
@@ -21,35 +21,35 @@ protocol UINotificationRequestDelegate: AnyObject {
 /// Defines the request of a notification presentation.
 /// Can be in idle, running or finished state. Can also be in a cancelled state if `cancel()` is called.
 public final class UINotificationRequest: Equatable, @unchecked Sendable {
-    /// The queue which is used to make sure the requests array is only modified serially.
-    private static let lockQueue = DispatchQueue(label: "com.uinotifications.request.LockQueue")
-
     public enum State {
         /// Waiting to run
         case idle
-        
+
         /// Currently running
         case running
-        
+
         /// Finished
         case finished
-        
+
         /// Cancelled
         case cancelled
     }
-    
+
+    /// The queue which is used to make sure the requests array is only modified serially.
+    private static let lockQueue = DispatchQueue(label: "com.uinotifications.request.LockQueue")
+
     /// The notification which is requested for presentation.
     public let notification: UINotification
-    
+
     /// Optional dismiss trigger to use for the animation. If `nil` the default trigger will be used.
     public let dismissTrigger: UINotificationDismissTrigger?
 
     /// The type of view to use for this notification.
     public let notificationViewType: UINotificationView.Type
-    
-    /// An internal intedifier used for comparing actions
+
+    /// An internal identifier used for comparing actions
     private let identifier: UUID
-    
+
     /// The current state of the request.
     private(set) var state: UINotificationRequest.State {
         get {
@@ -74,11 +74,11 @@ public final class UINotificationRequest: Equatable, @unchecked Sendable {
         self.dismissTrigger = dismissTrigger
         self.identifier = UUID()
     }
-    
+
     internal func start() {
         state = .running
     }
-    
+
     /// Set's the state of the request to cancelled, which will trigger a cancel.
     public func cancel() {
         guard state == .idle else {
@@ -87,11 +87,11 @@ public final class UINotificationRequest: Equatable, @unchecked Sendable {
         }
         state = .cancelled
     }
-    
+
     internal func finish() {
         state = .finished
     }
-    
+
     nonisolated public static func == (lhs: UINotificationRequest, rhs: UINotificationRequest) -> Bool {
         return lhs.identifier == rhs.identifier
     }
